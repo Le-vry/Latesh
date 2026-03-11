@@ -1,0 +1,678 @@
+\documentclass[letterpaper,twocolumn,10pt]{article}
+\usepackage{garb}
+
+\renewcommand\abstractname{\textbf{Abstract}}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+%don't want date printed
+\date{}
+
+% make title bold and 14 pt font (Latex default is non-bold, 16 pt)
+\title{GARB Jonathan + Elliot}
+
+\author{{\rm Elev Elevkvist} \\
+\textit{Teknikprogrammet} \\
+\textit{Maja Beskowgymnasiet}\\
+{\rm Umeå, Sverige}}
+
+\maketitle
+
+\begin{abstract}
+The abstract is written in English. Focus on your improvement study: what product feature (X) you measured, what method (Y) you used to improve it, and what your specific product (Z) was. Include your key findings - was method Y effective for improving X on your product type Z?
+
+Your abstract should:
+\begin{itemize}
+    \item consist of a single paragraph of 150-250 words, with correct grammar and unambiguous terminology;
+    \item be self-contained with no abbreviations, footnotes, references, or mathematical equations;
+    \item highlight the practical implications of your improvement study;
+    \item mention your research question, measurement methodology, key results, and conclusions about the effectiveness of your improvement method.
+\end{itemize}
+\end{abstract}
+
+\selectlanguage{swedish}
+
+\section{Inledning}
+
+Börja med att introducera den egenskap (X) som du har valt att förbättra och varför denna egenskap är viktig för din produkttyp. Exempel på mätbara egenskaper:
+
+\begin{itemize}
+    \item \textbf{Prestanda:} laddningstider, FPS, responsivitet, minnessanvändning
+    \item \textbf{Användarupplevelse:} användarvänlighet, tillgänglighet, behaglighet, trovärdighet
+    \item \textbf{Kvalitet:} bildkvalitet, ljudkvalitet, noggrannhet, stabilitet
+    \item \textbf{Effektivitet:} energiförbrukning, kodkvalitet, genomströmning
+\end{itemize}
+
+%%% added for formatting, remove / move around as needed depending on your content
+\newpage
+
+Beskriv det problem eller behov som motiverar din förbättring. Referera till vetenskapligt publicerad litteratur inom området\cite{arpachiDusseau18:osbook} och tidigare forskning om liknande förbättringsmetoder.
+
+\subsection{Produktbeskrivning}
+Beskriv kortfattat din produkt (Z) och dess kontext:
+\begin{itemize}
+    \item En webbapplikation eller hemsida
+    \item Ett spel eller interaktiv applikation  
+    \item En mobil app eller desktop-program
+    \item Ett AI-system eller algoritm
+    \item Ett inbyggt system eller IoT-enhet
+\end{itemize}
+
+\subsection{Förbättringsmetod}
+Introducera den metod (Y) du har valt för att förbättra egenskapen X. Förklara varför du tror att denna metod kan vara effektiv baserat på teori och tidigare forskning\cite{goodman1998housing}.
+
+\subsection{Frågeställning och syfte}
+
+Syftet med detta arbete är att utvärdera om metod Y är lämplig för att förbättra egenskap X för produkttyp Z.
+
+\textbf{Huvudfrågeställning:}
+\begin{itemize}
+    \item Är [metod Y] en lämplig metod för att förbättra [egenskap X] för [produkttyp Z]?
+\end{itemize}
+
+\textbf{Stödjande frågeställningar:}
+\begin{itemize}
+    \item Hur stor förbättring av X kan uppnås genom implementering av Y?
+    \item Vilka fördelar och nackdelar medför metod Y för produkttyp Z?
+    \item Är förbättringen statistiskt signifikant och praktiskt relevant?
+\end{itemize}
+
+%%% added for formatting, remove / move around as needed depending on your content
+\newpage
+
+\textbf{Konkreta exempel på frågeställningar:}
+\begin{itemize}
+    \item Är bildkomprimering en lämplig metod för att förbättra FPS för 2D-topdown spel?
+    \item Är caching en lämplig metod för att förbättra laddningstider för e-handelswebbplatser?
+    \item Är tonhöjdsmodifikation en lämplig metod för att förbättra användarupplevelse för AI-röstassistenter?
+\end{itemize}
+
+\subsection{Teori}
+
+Redogör för de teoretiska grunderna för:
+\begin{itemize}
+    \item \textbf{Egenskap X:} Vad är det? Varför är det viktigt? Hur mäts det typiskt?
+    \item \textbf{Metod Y:} Vad innebär metoden? Hur fungerar den tekniskt? Vilken evidens finns för dess effektivitet?
+    \item \textbf{Produkttyp Z:} Vilka särskilda utmaningar eller möjligheter finns för denna produkttyp?
+\end{itemize}
+
+Detta avsnitt ska vara objektivt och baserat på vetenskapligt publicerad litteratur\cite{waldspurger02}.
+
+\subsection{Bakgrund}
+
+Beskriv tidigare forskningsresultat, händelser eller teknikutveckling som är relevant för din förbättringsstudie. Fokusera särskilt på:
+\begin{itemize}
+    \item Tidigare studier av metod Y på liknande produkter
+    \item Benchmarks och standarder för egenskap X inom ditt område
+    \item Teknisk utveckling som motiverar eller möjliggör din förbättring
+\end{itemize}
+
+\greennote{\textbf{Tips:} Google Scholar och andra tjänster har ofta en snabbfunktion för att kopiera färdigformaterade källhänvisningar. Klicka på \texttt{\textcolor{blue}{cite}} och sedan på \texttt{\textcolor{blue}{BibTex}} för att få en källa på följande format som ni kan klistra in i sources.bib och sedan referera med \texttt{\textcolor{blue}{\textbackslash{cite}\{example\}}}}
+
+\section{Metod}
+
+\rednote{\textbf{Kritiskt:} Metodsektionen ska vara så detaljerad att arbetet kan replikeras exakt. Inkludera versionshantering och statistiska överväganden.}
+
+Din metod ska följa en tydlig före/efter-struktur för att kunna utvärdera din förbättrings effektivitet:
+
+\textbf{Initial mätning → Implementering → Utvärderingsmätning → Analys}
+
+\subsection{Initial mätning (före förbättring)}
+
+Beskriv exakt hur du mäter egenskap X på din ursprungliga produkt Z:
+
+\textbf{Mätverktyg och konfiguration:}
+\begin{itemize}
+    \item Vilka verktyg används för mätning (t.ex. Chrome DevTools, Matplotlib, specialverktyg)
+    \item Systemkonfiguration (hårdvara, mjukvara, miljöinställningar)
+    \item Kalibrering och validering av mätverktyg
+\end{itemize}
+
+\textbf{Mätprotokoll:}
+\begin{itemize}
+    \item Antal mätningar som genomförs (minst n=30 för statistisk validitet)
+    \item Tid mellan mätningar och total mätperiod
+    \item Kontrollerade förhållanden (temperatur, belastning, nätverkshastighet etc.)
+    \item Uppvärmningsperiod innan mätning
+\end{itemize}
+
+\textbf{Versionshantering:}
+\begin{itemize}
+    \item Git-commit eller annan versionsmarkering av initiala versionen
+    \item Dokumentation av exakt kodstatus och konfiguration
+    \item Backup av testmiljö och data
+\end{itemize}
+
+\subsection{Implementering av förbättring}
+
+Beskriv steg-för-steg hur du implementerar metod Y:
+
+\begin{enumerate}
+    \item Detaljerad beskrivning av varje implementeringssteg
+    \item Konfigurationsparametrar och deras motivering
+    \item Testning av implementering innan fullskalig utvärdering
+    \item Dokumentation av förändringar genom versionshantering
+\end{enumerate}
+
+\textbf{Kvalitetskontroll:}
+\begin{itemize}
+    \item Verifiering att implementeringen fungerar som förväntat
+    \item Kontroll att inga oavsiktliga bieffekter har introducerats
+    \item Testning av edge-cases och felhantering
+\end{itemize}
+
+\subsection{Utvärderingsmätning (efter förbättring)}
+
+Beskriv hur du mäter egenskap X efter implementering av Y:
+\begin{itemize}
+    \item Identiska mätmetoder som vid mätandet av initiala versionen
+    \item Samma antal mätningar och förhållanden
+    \item Dokumentation av den förbättrade versionen
+    \item Tidpunkt för mätningar relativt implementering
+\end{itemize}
+
+\subsection{Statistisk analys}
+
+\textbf{Databehandling:}
+\begin{itemize}
+    \item Uteslutningskriterier för avvikande mätvärden
+    \item Hantering av saknade data
+    \item Normaliseringsmetoder (om tillämpligt)
+\end{itemize}
+
+\textbf{Statistiska test:}
+\begin{itemize}
+    \item Beskrivande statistik (medelvärde, median, standardavvikelse)
+    \item Val av statistiskt test (t-test, Mann-Whitney U, Friedman-test etc.)
+    \item Signifikansnivå ($\alpha = 0.05$)
+    \item Effektstorlek och praktisk signifikans
+\end{itemize}
+
+\yellownote{\textbf{Tänk på:} Metodsektionen skall vara beskriven såpass noggrant att arbetet går att replikeras.}
+
+\section{Resultat}
+
+\greennote{\textbf{Struktur:} Fokusera på jämförelse mellan före och efter implementering av förbättringen. Presentera objektiva resultat utan tolkningar.}
+
+Detta avsnitt presenterar objektiva resultat från din förbättringsstudie. Undvik tolkningar och slutsatser - dessa sparar du till diskussionen.
+
+\yellownote{\textbf{Guide för tabeller och figurer i förbättringsstudier:}
+\begin{itemize}
+    \item \textbf{OBLIGATORISKT:} En tabell med beskrivande statistik (medelvärde, std, n)
+    \item \textbf{OBLIGATORISKT:} En före/efter-jämförelse (tabell ELLER stapeldiagram)
+    \item \textbf{REKOMMENDERAT:} Scatterplot över tid - visa stabilitet, trender och när förbättringen implementerades
+    \item \textbf{VALFRITT:} Boxplot - jämför fördelningar och visa median/spridning
+    \item \textbf{VALFRITT:} Histogram - endast för att validera normalfördelning (t.ex. innan t-test)
+    \item \textbf{TIPS:} Max 3-4 figurer totalt, fokusera på vad som bäst visar din förbättring
+\end{itemize}}
+
+\subsection{Initiala mätningar}
+
+Presentera resultaten från dina initiala mätningar av egenskap X på den ursprungliga produkten och referera till dem i Tabell \ref{tab:baseline}
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Initiala mätningar}
+    \begin{tabular}{lc}
+        \toprule
+          Statistik     & Värde     \\
+        \midrule
+          Medelvärde         & 245.2 ms  \\
+          Standardavvikelse       & 23.7 ms   \\
+          Antal observationer            & 35        \\
+          95\% konfidensintervall       & 237-253   \\
+        \bottomrule
+    \end{tabular}
+  \label{tab:baseline}
+\end{table}
+
+% REKOMMENDERAT: Scatterplot över tid - visar när förbättringen implementerades
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\columnwidth,
+    height=6cm,
+    xlabel={Mätning nr},
+    ylabel={Egenskap X (ms)},
+    xmin=0,
+    xmax=70,
+    ymin=150,
+    ymax=300,
+    grid=major,
+    legend pos=north east,
+]
+
+% Före-data (mätning 1-35)
+\addplot[
+    only marks,
+    mark=*,
+    mark size=1.5pt,
+    color=red,
+] coordinates {
+(1,242) (2,248) (3,235) (4,251) (5,239) (6,246) (7,241) (8,253) (9,238) (10,249)
+(11,244) (12,237) (13,250) (14,245) (15,243) (16,247) (17,240) (18,252) (19,236) (20,248)
+(21,245) (22,241) (23,249) (24,243) (25,246) (26,238) (27,251) (28,244) (29,247) (30,242)
+(31,248) (32,240) (33,249) (34,245) (35,243)
+};
+
+% Vertikal linje vid implementering
+\addplot[
+    thick,
+    dashed,
+    color=black,
+] coordinates {(35,150) (35,300)};
+
+% Efter-data (mätning 36-70)
+\addplot[
+    only marks,
+    mark=*,
+    mark size=1.5pt,
+    color=green,
+] coordinates {
+(36,189) (37,185) (38,192) (39,187) (40,183) (41,190) (42,186) (43,188) (44,184) (45,191)
+(46,187) (47,185) (48,189) (49,186) (50,188) (51,184) (52,190) (53,187) (54,185) (55,189)
+(56,186) (57,188) (58,184) (59,190) (60,187) (61,185) (62,189) (63,186) (64,188) (65,184)
+(66,190) (67,187) (68,185) (69,189) (70,186)
+};
+
+\legend{Före förbättring, Implementering, Efter förbättring}
+\end{axis}
+\end{tikzpicture}
+\caption{REKOMMENDERAT: Scatterplot över tid - visar tydligt när förbättringen implementerades och dess effekt}
+\label{fig:timeline}
+\end{figure}
+
+\subsection{Jämförande analys}
+
+\textbf{Förbättringsresultat:}
+\begin{itemize}
+    \item Absolut förbättring: 57.8 ms (245.2 - 187.4)
+    \item Relativ förbättring: 23.6\% ((245.2 - 187.4) / 245.2 × 100)
+    \item Effektstorlek (Cohen's d): 2.74 (stor effekt)
+\end{itemize}
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Jämförelse före och efter}
+    \begin{tabular}{lcc}
+        \toprule
+               & Före    & Efter   \\
+        \midrule
+          Medel  & 245.2   & 187.4   \\
+          Std    & 23.7    & 19.2    \\
+          Min    & 198.5   & 155.1   \\
+          Max    & 291.8   & 223.7   \\
+        \bottomrule
+        \multicolumn{3}{l}{\footnotesize Alla värden i ms} \\
+    \end{tabular}
+  \label{tab:comparison}
+\end{table}
+
+% REKOMMENDERAT: Stapeldiagram - enkel och tydlig före/efter-jämförelse
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    bar width=20pt,
+    width=\columnwidth,
+    height=5cm,
+    ylabel={Egenskap X (ms)},
+    xlabel={Mätperiod},
+    symbolic x coords={Före, Efter},
+    xtick=data,
+    enlarge x limits = 1,
+    ymin=0,
+    ymax=300,
+    nodes near coords,
+    nodes near coords align={vertical},
+]
+\addplot[fill=blue!30] 
+coordinates {
+    (Före, 245.2)
+    (Efter, 187.4)
+};
+\end{axis}
+\end{tikzpicture}
+\caption{REKOMMENDERAT: Jämförelse före och efter - denna typ av graf förväntas i de flesta förbättringsstudier}
+\label{fig:comparison}
+\end{figure}
+
+% EXEMPEL: Boxplot - använd endast om du vill visa detaljerad fördelning
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\columnwidth,
+    height=6cm,
+    xlabel={Mätperiod},
+    ylabel={Egenskap X (ms)},
+    boxplot/draw direction=y,
+    xtick={1,2},
+    xticklabels={Före förbättring, Efter förbättring},
+    ymin=150,
+    ymax=300,
+    grid=major,
+]
+
+% Före-data (boxplot)
+\addplot+[
+    boxplot prepared={
+        median=245,
+        upper quartile=265,
+        lower quartile=225,
+        upper whisker=285,
+        lower whisker=205,
+    },
+    fill=red!30,
+] coordinates {};
+
+% Outliers för före-data
+\addplot+[
+    only marks,
+    mark=*,
+    mark size=2pt,
+    color=red,
+] coordinates {(1,195) (1,290)};
+
+% Efter-data (boxplot) 
+\addplot+[
+    boxplot prepared={
+        median=187,
+        upper quartile=200,
+        lower quartile=175,
+        upper whisker=215,
+        lower whisker=160,
+    },
+    fill=green!30,
+] coordinates {};
+
+% Outliers för efter-data
+\addplot+[
+    only marks,
+    mark=*,
+    mark size=2pt,
+    color=green,
+] coordinates {(2,155) (2,220)};
+
+\end{axis}
+\end{tikzpicture}
+\caption{EXEMPEL: Boxplot - använd endast om standardavvikelsen skiljer sig mycket eller om du har många outliers}
+\label{fig:boxplot}
+\end{figure}
+
+% EXEMPEL: Histogram - använd endast för att validera normalfördelning
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\columnwidth,
+    height=6cm,
+    xlabel={Egenskap X (ms)},
+    ylabel={Frekvens},
+    ymin=0,
+    ymax=8,
+    xmin=180,
+    xmax=320,
+    grid=major,
+    title={Distribution av initiala mätningar},
+]
+\addplot[
+    hist={
+        bins=10,
+        data min=190,
+        data max=310
+    },
+    fill=blue!30,
+    draw=blue!80,
+] table[row sep=\\,y index=0] {
+data\\
+205\\210\\215\\220\\225\\230\\235\\240\\245\\250\\
+255\\260\\265\\270\\275\\242\\238\\248\\252\\258\\
+232\\228\\268\\272\\262\\218\\222\\235\\245\\255\\
+265\\275\\285\\295\\200\\
+};
+\end{axis}
+\end{tikzpicture}
+\caption{EXEMPEL: Distribution av initiala mätningar - använd endast om du behöver visa normalfördelning eller outliers}
+\label{fig:baseline_dist}
+\end{figure}
+
+\greennote{\textbf{Val av visualisering - när ska du använda vad?} 
+\begin{itemize}
+    \item \textbf{Stapeldiagram:} Enkel före/efter-jämförelse, visa grundläggande förbättring. Använd nästan alltid.
+    \item \textbf{Scatterplot över tid:} Visa stabilitet, trender och exakt när förbättringen implementerades. Mycket kraftfullt för förbättringsstudier!
+    \item \textbf{Histogram:} Validera att data är normalfördelad innan t-test. Använd för att kontrollera datavaliditet.
+    \item \textbf{Boxplot:} Jämför fördelningar detaljerat. Använd när standardavvikelse eller outliers är viktiga.
+    \item \textbf{Tips:} Scatterplot + stapeldiagram är en stark kombination för de flesta förbättringsstudier.
+\end{itemize}}
+
+Figurer beskrivs med figurtext nedanför figuren. Tabeller får tabellrubrik ovanför enligt exemplet nedan.
+
+\greennote{\textbf{Hur du använder exemplen ovan:}
+\begin{itemize}
+    \item \textbf{Scatterplot:} Ersätt koordinaterna med dina mätvärden. Första siffran = mätning nr, andra = uppmätt värde
+    \item \textbf{Stapeldiagram:} Byt ut \texttt{245.2} och \texttt{187.4} mot dina medelvärden före/efter  
+    \item \textbf{Histogram:} Byt ut siffrorna efter \texttt{data\textbackslash\textbackslash} med dina mätvärden, en per rad
+    \item \textbf{Boxplot:} Python-koden beräknar alla värden och outlier-koordinater åt dig - kopiera bara in dem
+    \item \textbf{Alternativ:} Skapa grafer i Matplotlib och spara som PNG om LaTeX-koden känns för komplicerad
+\end{itemize}}
+
+\subsection{Statistisk signifikans}
+
+Statistiskt test för att utvärdera om förbättringen är signifikant:
+
+\begin{minted}[
+breaklines,
+frame=single,
+framesep=2mm,
+bgcolor=LightGray
+]{python}
+from scipy import stats
+import numpy as np
+
+baseline_data = [245.2, 243.1, 247.8, ...]
+improved_data = [187.4, 185.2, 189.6, ...]
+
+# Utför t-test
+t_statistic, p_value = stats.ttest_ind(baseline_data, improved_data)
+
+print(f"t-statistik: {t_statistic:.4f}")
+print(f"p-värde: {p_value:.6f}")
+\end{minted}
+
+\begin{minted}[
+breaklines,
+frame=single,
+framesep=2mm,
+bgcolor=LightGray
+]{python}
+# Generera LaTeX-koordinater för scatterplot
+def generate_scatter_coords(data, start_index=1):
+    coords = []
+    for i, value in enumerate(data):
+        coords.append(f"({start_index + i},{value:.0f})")
+    return " ".join(coords)
+
+print(generate_scatter_coords(baseline_data))
+print(generate_scatter_coords(improved_data, len(baseline_data) + 1))
+\end{minted}
+
+\begin{minted}[
+breaklines,
+frame=single,
+framesep=2mm,
+bgcolor=LightGray
+]{python}
+# Beräkna boxplot-statistik för LaTeX
+def boxplot_stats(data, box_n=1):
+    q1, median, q3 = np.percentile(data, [25, 50, 75])
+    iqr = q3 - q1
+    lower_w = max(min(data), q1 - 1.5*iqr)
+    upper_w = min(max(data), q3 + 1.5*iqr)
+    outliers = [x for x in data if x < lower_w or x > upper_w]
+    
+    print(f"{median:.1f}")
+    print(f"Q1: {q1:.1f}", f"Q3: {q3:.1f}")
+    print(f"lower whisker: {lower_w:.1f}")
+    print(f"upper whisker: {upper_w:.1f}")
+    
+    # Formatera outliers för LaTeX (box_n: 1 för före, 2 för efter)
+    if outliers:
+        coords = " ".join([f"({box_n},{x:.0f})" for x in outliers])
+        print(f"outliers: {coords}")
+    else:
+        print("Inga outliers")
+
+# Beräkna för dina data
+print("\\nBoxplot statistik - Före:")
+boxplot_stats(baseline_data, 1)
+print("\\nBoxplot statistik - Efter:")
+boxplot_stats(improved_data, 2)
+\end{minted}
+
+\textbf{Testresultat:}
+\begin{itemize}
+    \item t-statistik: -12.47
+    \item p-värde: < 0.001
+    \item Resultat: Statistiskt signifikant förbättring (p < 0.05)
+\end{itemize}
+
+\subsection{Implementeringsanalys}
+
+Redovisa observationer om själva implementeringen av metod Y:
+\begin{itemize}
+    \item Implementeringstid: 3.2 timmar
+    \item Kodkomplexitet: +127 rader kod
+    \item Bieffekter: Ökad minnesanvändning med 12 MB
+    \item Kompatibilitet: Fungerar på alla testade plattformar
+\end{itemize}
+
+Tabeller beskrivs med ett tabellhuvud ovanför tabellen enligt exemplet nedan (Se tabell \ref{tab:example}). AI hjälpmedel är helt okej på att assistera i att formatera dessa tabeller i \LaTeX~ om du vill formatera dem annorlunda.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \caption{Exempel på tabell för tvåkolumnslayout}
+    \begin{tabular}{lcc}
+        \toprule
+          Parameter      & Elev A  & Elev B  \\
+        \midrule
+          Skärmtid (h/dag) & 9.2   & 1.0     \\
+          Sen till skolan  & 15    & 0       \\
+          Böcker/år        & 0.5   & 8       \\
+          Betyg matematik  & E     & B++     \\
+        \bottomrule
+    \end{tabular}
+  \label{tab:example}
+\end{table}
+
+Det finns många fler typer av grafer beroende på det data du vill visa och många sätt att konfigurera hur grafen ser ut. AI som senaste Claude Sonnet \footnote{\url{https://www.anthropic.com/news}} kan assistera i att formatera dina grafer baserat på ditt data.
+
+Även ekvationer kan vackert formateras som ni ser i ekvation~\eqref{eq:example}
+
+\begin{equation}
+x = -\frac{p}{2} \pm \sqrt{\left(\frac{p}{2}\right)^2 - q}
+\label{eq:example}
+\end{equation}
+
+Figurer beskrivs med en figurtext nedanför figuren och kan vara bifogade bilder(se Figur~\ref{fig:study_grades}).
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\linewidth]{study_time.png}
+\caption{Denna figurtext skall beskriva bilden.}
+\label{fig:study_grades}
+\end{figure}
+
+\section{Diskussion}
+
+I denna del ska du diskutera och utvärdera dina resultat i relation till syftet och frågeställningarna.
+
+\subsection{Utvärdering av förbättringens effektivitet}
+
+Baserat på resultaten kan det konstateras att metod Y ledde till en statistiskt signifikant och praktiskt relevant förbättring av egenskap X för produkttyp Z.
+
+\textbf{Förbättringens storlek:}
+Den uppmätta förbättringen på 23.6\% kan betraktas som substantiell inom detta område. Jämfört med tidigare studier på liknande produkter\cite{waldspurger02} ligger detta resultat i linje med förväntningar för denna typ av optimering.
+
+\textbf{Statistisk tillförlitlighet:}
+Med p < 0.001 och en effektstorlek (Cohen's d) på 2.74 visar resultaten på en stark och tillförlitlig effekt. Det stora antalet mätningar (n=35) och den låga standardavvikelsen stärker tillförlitligheten i resultaten.
+
+\subsection{Lämplighet av metod Y för produkttyp Z}
+
+\textbf{Fördelar:}
+\begin{itemize}
+    \item Betydande prestandaförbättring utan negativ påverkan på funktionalitet
+    \item Relativt enkel implementering med begränsad kodomstrukturering
+    \item Kompatibel med befintlig arkitektur
+    \item Låg risk för introduktion av nya buggar
+\end{itemize}
+
+\textbf{Nackdelar och begränsningar:}
+\begin{itemize}
+    \item Ökad minnesanvändning kan vara problematisk för resursbegränsade enheter
+    \item Implementering kräver fördjupad kunskap inom området
+    \item Underhållskostnader kan öka på grund av ökad komplexitet
+\end{itemize}
+
+\subsection{Metodkritik och begränsningar}
+
+Bedöm metodens lämplighet för att besvara frågorna: Var den effektiv och var det något som kan förbättras? Diskutera vad som fungerade bra, vad som kunde gjorts annorlunda och om något saknades.
+
+\textbf{Testmiljöns representativitet:}
+Mätningarna genomfördes i en kontrollerad miljö som kanske inte helt återspeglar verkliga användningsförhållanden.
+
+\textbf{Generaliserbarhet:}
+Resultaten är specifika för den testade produkttypen och implementeringen. Generalisering till andra produkttyper bör göras med försiktighet.
+
+\subsection{Praktiska implikationer}
+
+Jämför dina resultat med tidigare forskning eller liknande arbeten och notera skillnader och likheter.
+
+\textbf{Rekommendationer för implementation:}
+Baserat på studiens resultat rekommenderas metod Y för liknande produkter av typ Z, särskilt när prestandaförbättring är prioriterad över minnesbegränsningar.
+
+\textbf{Förslag på framtida forskning:}
+Ge rekommendationer för framtida studier och förbättringar:
+\begin{itemize}
+    \item Utvärdering av metod Y på olika hårdvarukonfigurationer
+    \item Longitudinell studie av långsiktiga effekter
+    \item Jämförelse med alternativa förbättringsmetoder
+    \item Användarstudier för att utvärdera den upplevda förbättringen
+\end{itemize}
+
+\subsection{Slutsats}
+
+Studien visar att metod Y är en lämplig och effektiv metod för att förbättra egenskap X för produkttyp Z. Den statistiskt signifikanta förbättringen på 23.6\%, kombinerat med begränsade nackdelar, stöder implementering av denna metod i liknande sammanhang.
+
+\newpage
+
+%-------------------------------------------------------------------------------
+\bibliographystyle{unsrt}
+\bibliography{base}
+
+\vspace{12pt}
+
+\rednote{
+\textbf{Viktigt:} Detta har varit en mall för ditt gymnasiearbete med fokus på X/Y/Z-strukturen. Se till att:
+\begin{itemize}
+    \item All malltext är borttagen innan inlämning
+    \item Ta bort EXEMPEL-figurer som du inte använder (behåll max 3-4 figurer totalt)
+    \item Din frågeställning följer formatet "Är Y lämplig för att förbättra X för produkttyp Z?"
+    \item Du har minst 30 mätningar för statistisk validitet
+    \item All kod och data är versionshanterad och reproducerbar
+    \item Resultat och diskussion är tydligt separerade
+\end{itemize}
+
+Misslyckas du att följa denna struktur kan arbetet riskera att inte bli godkänt.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%  LocalWords:  endnotes includegraphics fread ptr nobj noindent
+%%  LocalWords:  pdflatex acks
