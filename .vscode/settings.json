@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^c:/Users/elllid/Documents/GitHub/Latesh/\\.venv/Scripts/python\\.exe study_time\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
