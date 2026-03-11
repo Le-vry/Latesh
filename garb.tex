@@ -466,32 +466,36 @@ Figurer beskrivs med figurtext nedanför figuren. Tabeller får tabellrubrik ova
 
 Statistiskt test för att utvärdera om förbättringen är signifikant:
 
-\begin{minted}[
-breaklines,
+\begin{lstlisting}[
+language=Python,
+breaklines=true,
 frame=single,
-framesep=2mm,
-bgcolor=LightGray
-]{python}
+basicstyle=\ttfamily\small,
+showstringspaces=false,
+backgroundcolor=\color{LightGray}
+]
 from scipy import stats
 import numpy as np
 
 baseline_data = [245.2, 243.1, 247.8, ...]
 improved_data = [187.4, 185.2, 189.6, ...]
 
-# Utför t-test
+# Utfor t-test
 t_statistic, p_value = stats.ttest_ind(baseline_data, improved_data)
 
 print(f"t-statistik: {t_statistic:.4f}")
-print(f"p-värde: {p_value:.6f}")
-\end{minted}
+print(f"p-varde: {p_value:.6f}")
+\end{lstlisting}
 
-\begin{minted}[
-breaklines,
+\begin{lstlisting}[
+language=Python,
+breaklines=true,
 frame=single,
-framesep=2mm,
-bgcolor=LightGray
-]{python}
-# Generera LaTeX-koordinater för scatterplot
+basicstyle=\ttfamily\small,
+showstringspaces=false,
+backgroundcolor=\color{LightGray}
+]
+# Generera LaTeX-koordinater for scatterplot
 def generate_scatter_coords(data, start_index=1):
     coords = []
     for i, value in enumerate(data):
@@ -500,15 +504,17 @@ def generate_scatter_coords(data, start_index=1):
 
 print(generate_scatter_coords(baseline_data))
 print(generate_scatter_coords(improved_data, len(baseline_data) + 1))
-\end{minted}
+\end{lstlisting}
 
-\begin{minted}[
-breaklines,
+\begin{lstlisting}[
+language=Python,
+breaklines=true,
 frame=single,
-framesep=2mm,
-bgcolor=LightGray
-]{python}
-# Beräkna boxplot-statistik för LaTeX
+basicstyle=\ttfamily\small,
+showstringspaces=false,
+backgroundcolor=\color{LightGray}
+]
+# Berakna boxplot-statistik for LaTeX
 def boxplot_stats(data, box_n=1):
     q1, median, q3 = np.percentile(data, [25, 50, 75])
     iqr = q3 - q1
@@ -521,19 +527,19 @@ def boxplot_stats(data, box_n=1):
     print(f"lower whisker: {lower_w:.1f}")
     print(f"upper whisker: {upper_w:.1f}")
     
-    # Formatera outliers för LaTeX (box_n: 1 för före, 2 för efter)
+    # Formatera outliers for LaTeX (box_n: 1 for fore, 2 for efter)
     if outliers:
         coords = " ".join([f"({box_n},{x:.0f})" for x in outliers])
         print(f"outliers: {coords}")
     else:
         print("Inga outliers")
 
-# Beräkna för dina data
-print("\\nBoxplot statistik - Före:")
+# Berakna for dina data
+print("\\nBoxplot statistik - Fore:")
 boxplot_stats(baseline_data, 1)
 print("\\nBoxplot statistik - Efter:")
 boxplot_stats(improved_data, 2)
-\end{minted}
+\end{lstlisting}
 
 \textbf{Testresultat:}
 \begin{itemize}
