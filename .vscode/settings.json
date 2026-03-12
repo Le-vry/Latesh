@@ -2,7 +2,7 @@
     "latex-workshop.latex.tools": [
         {
             "name": "pdflatex",
-            "command": "C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/miktex/bin/x64/pdflatex.exe",
+            "command": "pdflatex",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
@@ -12,14 +12,14 @@
         },
         {
             "name": "bibtex",
-            "command": "C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/miktex/bin/x64/bibtex.exe",
+            "command": "bibtex",
             "args": [
                 "%DOCFILE%"
             ]
         },
         {
             "name": "latexmk",
-            "command": "C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/miktex/bin/x64/latexmk.exe",
+            "command": "latexmk",
             "args": [
                 "-synctex=1",
                 "-interaction=nonstopmode",
@@ -47,5 +47,5 @@
         }
     ],
     "latex-workshop.latex.recipe.default": "pdflatex -> bibtex -> pdflatex x2",
-    "latex-workshop.linting.chktex.exec.path": "C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/miktex/bin/x64/chktex.exe"
+    "latex-workshop.linting.chktex.exec.path": "chktex"
 }
