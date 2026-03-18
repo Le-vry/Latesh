@@ -676,6 +676,45 @@ Studien visar att metod Y är en lämplig och effektiv metod för att förbättr
 
 Misslyckas du att följa denna struktur kan arbetet riskera att inte bli godkänt.
 }
+
+\clearpage
+\appendix
+\onecolumn
+
+\section{Bilaga: Rådata från CSV}
+
+Tabell \ref{tab:raw_csv_data} visar innehållet i \texttt{page\_load\_times\_utf8.csv}. Tabellen genereras automatiskt från CSV-filen, så när filen uppdateras uppdateras tabellen vid nästa kompilering.
+
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+
+\begin{longtable}{p{0.30\textwidth}r r p{0.34\textwidth}}
+\caption{Rådata importerad direkt från CSV-filen} \label{tab:raw_csv_data} \\
+\toprule
+Trace & Iteration & Load (ms) & Timestamp \\
+\midrule
+\endfirsthead
+
+\toprule
+Trace & Iteration & Load (ms) & Timestamp \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{4}{r}{Fortsätter på nästa sida} \\
+\midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\csvreader[
+    filter expr={test{\ifnumgreater{\thecsvinputline}{1}}},
+]{page_load_times_utf8.csv}{}{
+    \nolinkurl{\csvcoli} & \csvcolii & \csvcoliii & \nolinkurl{\csvcoliv}\\
+}
+\end{longtable}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
