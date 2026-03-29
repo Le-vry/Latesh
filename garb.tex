@@ -78,12 +78,7 @@ Applikationen är uppbyggd kring olika sidor som kräver användardata från Fir
 rendera innehåll och funktionalitet. Varje gång användaren navigerar till en sida görs ett
 antal oberoende nätverksanrop för att hämta den nödvändiga datan. De sidor som bedöms ha
 flest sådana oberoende anrop, och som därför är i fokus för denna studie, är \textit{Profile}
-och \textit{Leaderboard}. 
-
-Applikationen är av den typ där flera oberoende datamängder behöver hämtas från Firestore
-när en användare navigerar till en ny sida – exempelvis användardata, innehållslistor och
-konfigurationsvärden som alla krävs innan sidan kan visas. Detta gör sidladdningstider till
-ett centralt prestandaproblem.
+och \textit{Leaderboard}. Dessa sidor innehåller flera komponenter som kräver data från olika Firestore-samlingar, vilket resulterar i en hög total laddningstid. För att förbättra användarupplevelsen är det därför av intresse att undersöka optimeringsstrategier som kan minska den totala latensen vid navigering till dessa sidor.
 
 \subsection{Förbättringsmetod}
 Introducera den metod (Y) du har valt för att förbättra egenskapen X. Förklara varför du tror att denna metod kan vara effektiv baserat på teori och tidigare forskning\cite{goodman1998housing}.
