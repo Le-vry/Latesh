@@ -45,6 +45,20 @@ Börja med att introducera den egenskap (X) som du har valt att förbättra och 
 \end{itemize}
 
 %%% added for formatting, remove / move around as needed depending on your content
+
+Laddningstider är en av de mest kritiska faktorerna för användarupplevelsen i mobilapplikationer.
+Forskning visar att användare är känsliga för redan små fördröjningar – svarstider på över en
+sekund riskerar att bryta användarens fokus, och fördröjningar på flera sekunder ökar risken
+markant för att appen överges helt \cite{TODO}. För datadrivna mobilapplikationer, där sidinnehåll
+hämtas från externa databaser vid varje navigering, utgör nätverksanrop en dominerande del av den
+totala laddningstiden.
+
+Trots laddningstidens betydelse saknas det i litteraturen välgrundade riktlinjer för hur
+databasanrop bör struktureras i Flutter- och Firebase-baserade applikationer för att minimera
+denna latens \cite{TODO}. Detta motiverar en empirisk undersökning av konkreta
+optimeringsstrategier inom denna miljö.
+
+%%% Bör ändra den här texten så att den endast beskriver egenskapen X, men bibehålla strukturen + första källan. Kan även vara bra att kolla hur abstaktet är formulerat.
 \newpage
 
 Beskriv det problem eller behov som motiverar din förbättring. Referera till vetenskapligt publicerad litteratur inom området\cite{arpachiDusseau18:osbook} och tidigare forskning om liknande förbättringsmetoder.
@@ -58,6 +72,18 @@ Beskriv kortfattat din produkt (Z) och dess kontext:
     \item Ett AI-system eller algoritm
     \item Ett inbyggt system eller IoT-enhet
 \end{itemize}
+Produkten som studeras är mobilapplikationen "Neatify" som är byggd med Flutter och använder Firebase Firestore som databas. Det huvudsakliga syftet med Neatify är att förbättra användarens produktivitet genom spelbaserad engagemangsdesign som motiverar användaren att utveckla sitt betendemönster, genom att erbjuda belöningar och feedback baserat på deras interaktioner med applikationen.
+
+Applikationen är uppbyggd kring olika sidor som kräver användardata från Firestore för att
+rendera innehåll och funktionalitet. Varje gång användaren navigerar till en sida görs ett
+antal oberoende nätverksanrop för att hämta den nödvändiga datan. De sidor som bedöms ha
+flest sådana oberoende anrop, och som därför är i fokus för denna studie, är \textit{Profile}
+och \textit{Leaderboard}. 
+
+Applikationen är av den typ där flera oberoende datamängder behöver hämtas från Firestore
+när en användare navigerar till en ny sida – exempelvis användardata, innehållslistor och
+konfigurationsvärden som alla krävs innan sidan kan visas. Detta gör sidladdningstider till
+ett centralt prestandaproblem.
 
 \subsection{Förbättringsmetod}
 Introducera den metod (Y) du har valt för att förbättra egenskapen X. Förklara varför du tror att denna metod kan vara effektiv baserat på teori och tidigare forskning\cite{goodman1998housing}.
