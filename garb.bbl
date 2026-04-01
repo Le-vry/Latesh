@@ -11,6 +11,20 @@ Allen~C Goodman and Thomas~G Thibodeau.
 \newblock Housing market segmentation.
 \newblock {\em Journal of housing economics}, 7(2):121--143, 1998.
 
+\bibitem{flutter_faq}
+{Google}.
+\newblock Flutter faq.
+\newblock
+  \url{https://docs.flutter.dev/resources/faq#:~:text=Flutter%20is%20Google%27s%20portable%20UI,is%20free%20and%20open%20source.},
+  2026.
+\newblock Accessed: 2026-04-01.
+
+\bibitem{firebase_docs}
+{Google}.
+\newblock Firebase documentation.
+\newblock \url{https://firebase.google.com/docs}, 2026.
+\newblock Accessed: 2026-04-01.
+
 \bibitem{waldspurger02}
 Carl~A. Waldspurger.
 \newblock Memory resource management in {VMware ESX} server.
