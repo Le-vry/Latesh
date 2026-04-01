@@ -45,18 +45,6 @@ Börja med att introducera den egenskap (X) som du har valt att förbättra och
 varför denna egenskap är viktig för din produkttyp. Exempel på mätbara
 egenskaper:
 
-\begin{itemize}
-    \item \textbf{Prestanda:} laddningstider, FPS, responsivitet,
-    minnessanvändning
-    \item \textbf{Användarupplevelse:} användarvänlighet, tillgänglighet,
-    behaglighet, trovärdighet
-    \item \textbf{Kvalitet:} bildkvalitet, ljudkvalitet, noggrannhet, stabilitet
-    \item \textbf{Effektivitet:} energiförbrukning, kodkvalitet, genomströmning
-\end{itemize}
-
-%%% added for formatting, remove / move around as needed depending on your
-%content
-
 Laddningstider utgör en central del av användarupplevelsen i moderna
 mobilapplikationer. Tidigare forskning visar att användare är mycket känsliga
 för även små fördröjningar; svarstider som överstiger en sekund riskerar att
@@ -81,15 +69,7 @@ Beskriv det problem eller behov som motiverar din förbättring. Referera till
 vetenskapligt publicerad litteratur inom området\cite{arpachiDusseau18:osbook}
 och tidigare forskning om liknande förbättringsmetoder.
 
-\subsection{Produktbeskrivning}
-Beskriv kortfattat din produkt (Z) och dess kontext:
-\begin{itemize}
-    \item En webbapplikation eller hemsida
-    \item Ett spel eller interaktiv applikation  
-    \item En mobil app eller desktop-program
-    \item Ett AI-system eller algoritm
-    \item Ett inbyggt system eller IoT-enhet
-\end{itemize}
+
 \subsection{Produktbeskrivning}
 
 Produkten som studeras är mobilapplikationen \textit{Neatify}, utvecklad med
@@ -124,50 +104,39 @@ I/O-operationer kan initieras parallellt för att minska den totala väntetiden
 \cite{dart_async}. Detta angreppssätt är teoretiskt motiverat då den totala
 exekveringstiden i nätverksberoende system ofta begränsas av den långsammaste
 operationen snarare än summan av alla operationer, vilket gör parallellisering
-till en naturlig strategi för att reducera latens.. 
+till en naturlig strategi för att reducera latens. 
 
-\subsection{Frågeställning och syfte}
+\subsection{Syfte och frågeställning}
 
-Syftet med detta arbete är att utvärdera om metod Y är lämplig för att förbättra
-egenskap X för produkttyp Z.
+Syftet med denna rapport är att empiriskt utvärdera effekten av parallellisering av nätverksanrop i Flutter- och Firebase-baserade mobilapplikationer, med fokus på laddningstider i applikationen Neatify. Utvärderingen avgränsas till sidorna \textit{Profile} och \textit{Leaderboard}, där laddningstid mäts med median och p95.
 
 \textbf{Huvudfrågeställning:}
 \begin{itemize}
-    \item Är [metod Y] en lämplig metod för att förbättra [egenskap X] för
-    [produkttyp Z]?
+    \item I vilken utsträckning kan parallellisering av nätverksanrop förbättra laddningstider i Flutter- och Firebase-baserade mobilapplikationer?
 \end{itemize}
 
 \textbf{Stödjande frågeställningar:}
 \begin{itemize}
-    \item Hur stor förbättring av X kan uppnås genom implementering av Y?
-    \item Vilka fördelar och nackdelar medför metod Y för produkttyp Z?
+    \item Hur stor förbättring av laddningstider (median och p95) uppnås efter implementering av parallellisering av nätverksanrop på sidorna \textit{Profile} och \textit{Leaderboard}?
+    \item Hur påverkas effekten av databasens storlek och olika nätverksförhållanden?
     \item Är förbättringen statistiskt signifikant och praktiskt relevant?
-\end{itemize}
-
-%%% added for formatting, remove / move around as needed depending on your
-%content
-\newpage
-
-\textbf{Konkreta exempel på frågeställningar:}
-\begin{itemize}
-    \item Är bildkomprimering en lämplig metod för att förbättra FPS för
-    2D-topdown spel?
-    \item Är caching en lämplig metod för att förbättra laddningstider för
-    e-handelswebbplatser?
-    \item Är tonhöjdsmodifikation en lämplig metod för att förbättra
-    användarupplevelse för AI-röstassistenter?
 \end{itemize}
 
 \subsection{Teori}
 
-Redogör för de teoretiska grunderna för:
+För att förstå parallelliseringens potentiella effekt på laddningstider är det viktigt att först förstå de bakomliggande faktorerna:
 \begin{itemize}
     \item \textbf{Egenskap X:} Vad är det? Varför är det viktigt? Hur mäts det
     typiskt?
     \item \textbf{Metod Y:} Vad innebär metoden? Hur fungerar den tekniskt?
     Vilken evidens finns för dess effektivitet?
-    \item \textbf{Produkttyp Z:} Vilka särskilda utmaningar eller möjligheter
+    \item \textbf{Produkttyp Z:} Vilka särskilda
+    utmaningar eller möjligheter
     finns för denna produkttyp?
+    \item \textbf{Laddningstid}: Laddningstiderna som mäts i denna
+    \item \textbf{Sekventiella och parallella anrop}:
+    \item \textbf{Flutter}:
+    \item \textbf{Firebase}:
 \end{itemize}
 
 Detta avsnitt ska vara objektivt och baserat på vetenskapligt publicerad

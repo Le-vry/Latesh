@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99e
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: garb.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 5 items.
+Database file #1: base.bib
+Warning--I didn't find a database entry for "TODO"
+Warning--I didn't find a database entry for "dart_async"
+You've used 3 entries,
+            1791 wiz_defined-function locations,
+            471 strings with 4118 characters,
+and the built_in function-call counts, 790 in all, are:
+= -- 78
+> -- 20
+< -- 1
++ -- 8
+- -- 5
+* -- 43
+:= -- 117
+add.period$ -- 11
+call.type$ -- 3
+change.case$ -- 3
+chr.to.int$ -- 0
+cite$ -- 3
+duplicate$ -- 40
+empty$ -- 82
+format.name$ -- 5
+if$ -- 184
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 4
+newline$ -- 20
+num.names$ -- 3
+pop$ -- 11
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 23
+stack$ -- 0
+substring$ -- 57
+swap$ -- 13
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 8
+width$ -- 4
+write$ -- 39
+(There were 2 warnings)
