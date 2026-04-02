@@ -7,48 +7,49 @@ Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: base.bib
 Warning--I didn't find a database entry for "TODO"
 Warning--I didn't find a database entry for "dart_async"
-Warning--I didn't find a database entry for "firebase_firestore"
-Warning--I didn't find a database entry for "firebase_auth"
-Warning--I didn't find a database entry for "firebase_performance"
-You've used 5 entries,
+Warning--I didn't find a database entry for "dewitt1992parallel"
+Warning--I didn't find a database entry for "zhang2019parallel"
+Warning--I didn't find a database entry for "he2019gpu"
+Warning--I didn't find a database entry for "li2024parallel"
+You've used 8 entries,
             1791 wiz_defined-function locations,
-            483 strings with 4423 characters,
-and the built_in function-call counts, 1066 in all, are:
-= -- 104
-> -- 28
+            494 strings with 4753 characters,
+and the built_in function-call counts, 1480 in all, are:
+= -- 143
+> -- 40
 < -- 1
-+ -- 12
-- -- 7
-* -- 45
-:= -- 161
-add.period$ -- 19
-call.type$ -- 5
-change.case$ -- 5
++ -- 18
+- -- 10
+* -- 48
+:= -- 227
+add.period$ -- 31
+call.type$ -- 8
+change.case$ -- 8
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 50
-empty$ -- 118
-format.name$ -- 7
-if$ -- 250
+cite$ -- 8
+duplicate$ -- 65
+empty$ -- 172
+format.name$ -- 10
+if$ -- 349
 int.to.chr$ -- 0
-int.to.str$ -- 5
+int.to.str$ -- 8
 missing$ -- 4
-newline$ -- 32
-num.names$ -- 5
-pop$ -- 23
+newline$ -- 50
+num.names$ -- 8
+pop$ -- 41
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 27
+skip$ -- 33
 stack$ -- 0
 substring$ -- 57
-swap$ -- 15
+swap$ -- 18
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 10
-width$ -- 6
-write$ -- 63
-(There were 5 warnings)
+while$ -- 13
+width$ -- 9
+write$ -- 99
+(There were 6 warnings)

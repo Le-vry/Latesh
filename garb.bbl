@@ -25,6 +25,24 @@ Allen~C Goodman and Thomas~G Thibodeau.
 \newblock \url{https://firebase.google.com/docs}, 2026.
 \newblock Accessed: 2026-04-01.
 
+\bibitem{firestore_docs}
+{Google}.
+\newblock Cloud firestore documentation.
+\newblock \url{https://firebase.google.com/docs/firestore}, 2026.
+\newblock Accessed: 2026-04-02.
+
+\bibitem{firebase_auth_docs}
+{Google}.
+\newblock Firebase authentication documentation.
+\newblock \url{https://firebase.google.com/docs/auth}, 2026.
+\newblock Accessed: 2026-04-02.
+
+\bibitem{firebase_perf_mon_docs}
+{Google}.
+\newblock Firebase performance monitoring documentation.
+\newblock \url{https://firebase.google.com/docs/perf-mon}, 2026.
+\newblock Accessed: 2026-04-02.
+
 \bibitem{waldspurger02}
 Carl~A. Waldspurger.
 \newblock Memory resource management in {VMware ESX} server.
