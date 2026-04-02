@@ -51,4 +51,10 @@ Carl~A. Waldspurger.
 \newblock
   \url{https://www.usenix.org/legacy/event/osdi02/tech/waldspurger/waldspurger.pdf}.
 
+\bibitem{dewitt1992parallel}
+David DeWitt and Jim Gray.
+\newblock Parallel database systems: The future of high performance database
+  systems.
+\newblock {\em Communications of the ACM}, 35(6):85--98, 1992.
+
 \end{thebibliography}

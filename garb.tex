@@ -145,7 +145,7 @@ relevant för din förbättringsstudie. Fokusera särskilt på:
 Parallellisering av databasanrop har sin teoretiska grund i forskningsområdet
 parallel query processing, där målet är att minska exekveringstid genom att
 utföra flera operationer samtidigt. Tidig forskning visar att komplexa
-databassökningar kan delas upp i mindre deluppgifter som exekveras parallellt
+databassökningar kan delas upp i mindre deluppgifter som utförs parallellt
 över flera processorer, vilket kan ge betydande prestandavinster jämfört med
 sekventiell exekvering \cite{dewitt1992parallel}.
 
@@ -155,12 +155,16 @@ resultaten sammanställs. Studier visar att detta förbättrar skalbarhet och
 svarstider, men att vinsterna påverkas av faktorer som kommunikationskostnader
 och synkronisering mellan noder \cite{zhang2019parallel}.
 
-Forskning inom samtidiga databassystem visar även att oberoende förfrågningar
-kan exekveras parallellt för att bättre utnyttja tillgängliga resurser och
-minska väntetider \cite{he2019gpu}. Nyare studier bekräftar att denna typ av
-parallell exekvering är särskilt effektiv för I/O-bundna operationer, där den
-totala exekveringstiden ofta begränsas av den långsammaste enskilda operationen
-snarare än summan av alla \cite{li2024parallel}.
+Forskning inom samtidiga databassystem visar att oberoende förfrågningar kan
+exekveras parallellt för att bättre utnyttja tillgängliga resurser och minska
+den totala exekveringstiden jämfört med sekventiell körning
+\cite{he2019gpu}. Nyare studier visar dessutom att parallell exekveringstekniker
+kan förbättra skalbarhet och prestanda i databassystem under hög belastning,
+genom att dela upp komplexa operationer i deluppgifter som kan bearbetas
+samtidigt \cite{li2024parallel}. Även om dessa studier ofta fokuserar på
+CPU-bound eller distribuerade databassystem, bygger de på samma princip som
+är relevant för mobilapplikationer: flera oberoende nätverksanrop kan initieras
+parallellt för att reducera total väntetid och förbättra användarupplevelsen.
 
 De forskningsresultat som beskrivits ovan rör främst databassystem och
 distribuerad bearbetning, men behandlar samtidigt principer för I/O-bundna

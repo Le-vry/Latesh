@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  2 APR 2026 11:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  2 APR 2026 12:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -887,60 +887,60 @@ LaTeX Warning: Citation `dart_async' on page 1 undefined on input line 104.
 
 {C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}{C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 
-LaTeX Warning: Citation `dewitt1992parallel' on page 2 undefined on input line 150.
-
-
 LaTeX Warning: Citation `zhang2019parallel' on page 2 undefined on input line 156.
 
 
-LaTeX Warning: Citation `he2019gpu' on page 2 undefined on input line 160.
+LaTeX Warning: Citation `he2019gpu' on page 2 undefined on input line 161.
 
 
-LaTeX Warning: Citation `li2024parallel' on page 2 undefined on input line 163.
+LaTeX Warning: Citation `li2024parallel' on page 2 undefined on input line 164.
 
 
-Underfull \vbox (badness 3058) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \hbox (badness 1147) in paragraph at lines 206--208
+Underfull \hbox (badness 1147) in paragraph at lines 210--212
 []\T1/qpl/m/n/10 (+20) Kontrollerade för-hål-lan-den (tem-pe-ra-tur, be-last-
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 258--259
+Underfull \hbox (badness 1052) in paragraph at lines 262--263
 []\T1/qpl/m/n/10 (+20) Val av sta-tis-tiskt test (t-test, Mann-Whitney U,
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 259.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 263.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 259.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 263.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 259.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 263.
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 298.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 302.
 
-Overfull \hbox (2.07428pt too wide) in paragraph at lines 340--341
+Overfull \hbox (2.07428pt too wide) in paragraph at lines 344--345
  [][] 
  []
 
-Package pgfplots info on input line 379: Using 'lua backend=false' for axis: x coord trafo unsupported.
-[4]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Package pgfplots info on input line 383: Using 'lua backend=false' for axis: x coord trafo unsupported.
+ [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  (C:\Users\jonkar11\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <9> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 488.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 492.
  [5]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 589.
-<study_time.png, id=225, 426.393pt x 318.4698pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 593.
+<study_time.png, id=208, 426.393pt x 318.4698pt>
 File: study_time.png Graphic file (type png)
 <use study_time.png>
-Package pdftex.def Info: study_time.png  used on input line 603.
+Package pdftex.def Info: study_time.png  used on input line 607.
 (pdftex.def)             Requested size: 216.91687pt x 162.0141pt.
  [6 <./study_time.png>] [7] (garb.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
@@ -1013,17 +1013,17 @@ Package rerunfilecheck Info: File `garb.out' has not changed.
 (rerunfilecheck)             Checksum: FD0BDD26B9E3FB8566D8FDC843B6670F;3572.
  ) 
 Here is how much of TeX's memory you used:
- 41968 strings out of 467866
- 990544 string characters out of 5416861
- 1899761 words of memory out of 5000000
+ 41973 strings out of 467866
+ 990605 string characters out of 5416861
+ 2000317 words of memory out of 5000000
  69896 multiletter control sequences out of 15000+600000
- 714042 words of font info for 211 fonts, out of 8000000 for 9000
+ 714284 words of font info for 213 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,19n,121p,1043b,2358s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb>
-Output written on garb.pdf (8 pages, 419043 bytes).
+Output written on garb.pdf (8 pages, 419807 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 103 named destinations out of 1000 (max. 500000)
+ 363 PDF objects out of 1000 (max. 8388607)
+ 104 named destinations out of 1000 (max. 500000)
  50002 words of extra memory for PDF output out of 51595 (max. 10000000)
 
