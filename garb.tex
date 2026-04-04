@@ -47,11 +47,11 @@ egenskaper:
 
 Laddningstider utgör en central del av användarupplevelsen i moderna
 mobilapplikationer. Tidigare forskning visar att användare är mycket känsliga
-för även små fördröjningar; svarstider som överstiger en sekund riskerar att
-bryta användarens fokus, medan längre väntetider markant ökar sannolikheten
-för att applikationen överges \cite{TODO}. För datadrivna applikationer, där
-innehåll kontinuerligt hämtas från externa databaser, utgör nätverksanrop en
-betydande del av den totala laddningstiden.
+för även små fördröjningar; svarstider som överstiger en sekund bryter
+användarens tankegång, medan fördröjningar på tio sekunder eller mer markant
+ökar sannolikheten för att applikationen överges \cite{nielsen1993response}. För
+datadrivna applikationer, där innehåll kontinuerligt hämtas från externa
+databaser, utgör nätverksanrop en betydande del av den totala laddningstiden.
 
 Trots denna betydelse saknas tydliga riktlinjer för hur databasanrop bör
 struktureras i Flutter- och Firebase-baserade applikationer för att minimera
@@ -97,7 +97,7 @@ parallellisering av nätverksanrop med hjälp av \texttt{Future.wait()} i Dart.
 Istället för att exekvera oberoende anrop sekventiellt, där varje anrop väntar
 på att det föregående ska slutföras, initieras samtliga anrop samtidigt och
 applikationen inväntar deras gemensamma resultat innan rendering sker
-\cite{dart_async}.
+\cite{dart_future_wait}.
 
 Metoden bygger på principer inom asynkron programmering, där oberoende
 I/O-operationer kan initieras parallellt för att minska den totala väntetiden
@@ -144,36 +144,31 @@ relevant för din förbättringsstudie. Fokusera särskilt på:
 
 Parallellisering av databasanrop har sin teoretiska grund i forskningsområdet
 parallel query processing, där målet är att minska exekveringstid genom att
-utföra flera operationer samtidigt. Tidig forskning visar att komplexa
-databassökningar kan delas upp i mindre deluppgifter som utförs parallellt
-över flera processorer, vilket kan ge betydande prestandavinster jämfört med
-sekventiell exekvering \cite{dewitt1992parallel}.
+utföra flera operationer samtidigt. Tidig forskning inom området visar att
+databassökningar kan delas upp i deluppgifter som utförs parallellt över flera
+processorer, vilket möjliggör prestandavinster jämfört med sekventiell
+exekvering \cite{dewitt1992parallel}.
+
 
 I moderna databassystem har dessa principer vidareutvecklats i distribuerade
 miljöer, där data partitioneras över flera noder och bearbetas parallellt innan
-resultaten sammanställs. Studier visar att detta förbättrar skalbarhet och
-svarstider, men att vinsterna påverkas av faktorer som kommunikationskostnader
-och synkronisering mellan noder \cite{zhang2019parallel}.
+resultaten sammanställs. Studier visar att distribuerad parallell bearbetning kan
+förbättra skalbarhet och svarstider, särskilt när partitioneringen utformas för
+att minimera kommunikation mellan noder, exempelvis genom grafbaserade metoder.
+Samtidigt påverkas vinsterna av faktorer som kommunikationskostnader och synkronisering
+mellan noder \cite{nam2019parallel}.
 
-Forskning inom samtidiga databassystem visar att oberoende förfrågningar kan
-exekveras parallellt för att bättre utnyttja tillgängliga resurser och minska
-den totala exekveringstiden jämfört med sekventiell körning
-\cite{he2019gpu}. Nyare studier visar dessutom att parallell exekveringstekniker
-kan förbättra skalbarhet och prestanda i databassystem under hög belastning,
-genom att dela upp komplexa operationer i deluppgifter som kan bearbetas
-samtidigt \cite{li2024parallel}. Även om dessa studier ofta fokuserar på
-CPU-bound eller distribuerade databassystem, bygger de på samma princip som
-är relevant för mobilapplikationer: flera oberoende nätverksanrop kan initieras
-parallellt för att reducera total väntetid och förbättra användarupplevelsen.
+Forskning inom samtidiga databassystem, inklusive GPU-baserade lösningar, visar
+att flera förfrågningar kan exekveras parallellt för att bättre utnyttja
+tillgängliga beräkningsresurser, även om detta kräver effektiv hantering av
+resurstilldelning och exekveringsplanering \cite{li2019concurrent}. Vidare
+indikerar studier att parallella exekveringstekniker kan bidra till förbättrad
+skalbarhet genom att dela upp operationer i samtidiga deluppgifter
+\cite{zhu2025research}.
+%Måste överväga om den här källan är en hjälp eller om den skadar rapportens trovärdighet.
 
-De forskningsresultat som beskrivits ovan rör främst databassystem och
-distribuerad bearbetning, men behandlar samtidigt principer för I/O-bundna
-operationer, väntetider och synkronisering. I mobilapplikationer består
-databasanrop av nätverksbaserade I/O-operationer där svarstiden påverkas av
-nätverkslatens, serverrespons och klientens hantering av resultat. I denna
-kontext förekommer både sekventiell och samtidig initiering av oberoende
-anrop, vilket placerar mobilapplikationers databasanrop i samma övergripande
-prestandaramverk som beskrivs i den tidigare litteraturen.
+Även om dessa studier främst behandlar CPU-bundna eller distribuerade databassystem, bygger de på grundläggande principer om parallellism, väntetider och resursutnyttjande. Dessa principer är relevanta även i mobilapplikationer, där databasanrop ofta utgörs av nätverksbaserade I/O-operationer. I sådana fall påverkas svarstiden av faktorer som nätverkslatens och serverrespons, och genom att initiera flera oberoende anrop parallellt kan den totala väntetiden potentiellt reduceras. Därmed kan mobilapplikationers databasanrop analyseras utifrån samma övergripande prestandaprinciper som beskrivs i tidigare forskning.
+
 
 \greennote{\textbf{Tips:} Google Scholar och andra tjänster har ofta en
 snabbfunktion för att kopiera färdigformaterade källhänvisningar. Klicka på
