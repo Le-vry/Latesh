@@ -206,7 +206,7 @@ Beskriv steg-för-steg hur du implementerar metod Y:
 Implementeringen av förbättringen bestod av att ersätta de sekventiella 
 Firestore-anropen på \textit{Profile page} och \textit{Leaderboard page} med 
 parallella anrop med hjälp av Darts \texttt{Future.wait()}, vars funktion 
-beskrivs närmare i teoriavsnittet.
+beskrivs närmare i avsnittet \ref{sec:Förbättringsmetod}.
 
 Förändringen genomfördes uteslutande i de delar av koden som hanterar 
 datahämtning vid sidladdning, utan ändringar i UI-logik, datamodeller eller 
