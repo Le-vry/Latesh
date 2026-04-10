@@ -47,5 +47,7 @@
         }
     ],
     "latex-workshop.latex.recipe.default": "pdflatex -> bibtex -> pdflatex x2",
-    "latex-workshop.linting.chktex.exec.path": "chktex"
+    "latex-workshop.linting.chktex.exec.path": "chktex",
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
 }
