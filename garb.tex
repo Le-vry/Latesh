@@ -41,10 +41,6 @@ Your abstract should:
 
 \section{Inledning}
 
-Börja med att introducera den egenskap (X) som du har valt att förbättra och
-varför denna egenskap är viktig för din produkttyp. Exempel på mätbara
-egenskaper:
-
 Laddningstider utgör en central del av användarupplevelsen i moderna
 mobilapplikationer. Tidigare forskning visar att användare är mycket känsliga
 för även små fördröjningar; svarstider som överstiger en sekund bryter
@@ -69,7 +65,6 @@ Beskriv det problem eller behov som motiverar din förbättring. Referera till
 vetenskapligt publicerad litteratur inom området\cite{arpachiDusseau18:osbook}
 och tidigare forskning om liknande förbättringsmetoder.
 
-
 \subsection{Produktbeskrivning}
 
 Produkten som studeras är mobilapplikationen \textit{Neatify}, utvecklad med
@@ -89,9 +84,6 @@ anrop och utgör därför fokus för denna studie.
 
 \subsection{Förbättringsmetod}
 \label{sec:forbattringsmetod}
-Introducera den metod (Y) du har valt för att förbättra egenskapen X. Förklara
-varför du tror att denna metod kan vara effektiv baserat på teori och tidigare
-forskning\cite{goodman1998housing}.
 
 Den metod som undersöks för att förbättra laddningstiderna i Neatify är
 parallellisering av nätverksanrop med hjälp av \texttt{Future.wait()} i Dart.
@@ -119,7 +111,7 @@ Syftet med denna rapport är att empiriskt utvärdera effekten av parallelliseri
 \textbf{Stödjande frågeställningar:}
 \begin{itemize}
     \item Hur stor förbättring av laddningstider (median och p95) uppnås efter implementering av parallellisering av nätverksanrop på sidorna \textit{Profile} och \textit{Leaderboard}?
-    \item Hur påverkas effekten av databasens storlek och olika nätverksförhållanden?
+    \item Hur påverkas resultatet av databasstorlek och den nätverkslatens som observerades under mätningarna?
     \item Är förbättringen statistiskt signifikant och praktiskt relevant?
 \end{itemize}
 
@@ -133,15 +125,7 @@ För att förstå parallelliseringens potentiella effekt på laddningstider är 
 
 %Kolla igenom det finns mer teori som är relevant att ta med, t.ex. om asynkron programmering i Dart, eller om nätverkslatens och dess påverkan på användarupplevelse.
 
-Detta avsnitt ska vara objektivt och baserat på vetenskapligt publicerad
-litteratur\cite{waldspurger02}.
-
 \subsection{Bakgrund}
-
-Beskriv tidigare forskningsresultat, händelser eller teknikutveckling som är
-relevant för din förbättringsstudie. Fokusera särskilt på:
-
----
 
 Parallellisering av databasanrop har sin teoretiska grund i forskningsområdet
 parallel query processing, där målet är att minska exekveringstid genom att
@@ -149,7 +133,6 @@ utföra flera operationer samtidigt. Tidig forskning inom området visar att
 databassökningar kan delas upp i deluppgifter som utförs parallellt över flera
 processorer, vilket möjliggör prestandavinster jämfört med sekventiell
 exekvering \cite{dewitt1992parallel}.
-
 
 I moderna databassystem har dessa principer vidareutvecklats i distribuerade
 miljöer, där data partitioneras över flera noder och bearbetas parallellt innan
@@ -171,39 +154,9 @@ skalbarhet genom att dela upp operationer i samtidiga deluppgifter
 Även om dessa studier främst behandlar CPU-bundna eller distribuerade databassystem, bygger de på grundläggande principer om parallellism, väntetider och resursutnyttjande. Dessa principer är relevanta även i mobilapplikationer, där databasanrop ofta utgörs av nätverksbaserade I/O-operationer. I sådana fall påverkas svarstiden av faktorer som nätverkslatens och serverrespons, och genom att initiera flera oberoende anrop parallellt kan den totala väntetiden potentiellt reduceras. Därmed kan mobilapplikationers databasanrop analyseras utifrån samma övergripande prestandaprinciper som beskrivs i tidigare forskning.
 %BÖR STÄRKAS MED KÄLLA FÖR MOBILA APPLIKATIONER eller MOBILER
 
-\greennote{\textbf{Tips:} Google Scholar och andra tjänster har ofta en
-snabbfunktion för att kopiera färdigformaterade källhänvisningar. Klicka på
-\texttt{\textcolor{blue}{cite}} och sedan på \texttt{\textcolor{blue}{BibTex}}
-för att få en källa på följande format som ni kan klistra in i sources.bib och
-sedan referera med \texttt{\textcolor{blue}{\textbackslash{cite}\{example\}}}}
-
 \section{Metod}
 
-\rednote{\textbf{Kritiskt:} Metodsektionen ska vara så detaljerad att arbetet
-kan replikeras exakt. Inkludera versionshantering och statistiska överväganden.}
-
-Din metod ska följa en tydlig före/efter-struktur för att kunna utvärdera din
-förbättrings effektivitet:
-
-\textbf{Initial mätning → Implementering → Utvärderingsmätning → Analys}
-
 \subsection{Implementering av förbättring}
-
-Beskriv steg-för-steg hur du implementerar metod Y:
-
-\begin{enumerate}
-    \item Detaljerad beskrivning av varje implementeringssteg
-    \item Konfigurationsparametrar och deras motivering
-    \item Testning av implementering innan fullskalig utvärdering
-    \item Dokumentation av förändringar genom versionshantering
-\end{enumerate}
-
-\textbf{Kvalitetskontroll:}
-\begin{itemize}
-    \item Verifiering att implementeringen fungerar som förväntat
-    \item Kontroll att inga oavsiktliga bieffekter har introducerats
-    \item Testning av edge-cases och felhantering
-\end{itemize}
 
 Implementeringen av förbättringen bestod av att ersätta de sekventiella 
 Firestore-anropen på \textit{Profile page} och \textit{Leaderboard page} med 
@@ -271,36 +224,6 @@ seeding-scriptet för att återskapa en funktionellt identisk testmiljö.
 Instruktioner för detta finns dokumenterade i repots README på branch
 \texttt{parallel-db}.
 
-\subsection{Initial mätning (före förbättring)}
-
-Beskriv exakt hur du mäter egenskap X på din ursprungliga produkt Z:
-
-\textbf{Mätverktyg och konfiguration:}
-\begin{itemize}
-    \item Vilka verktyg används för mätning (t.ex. Chrome DevTools, Matplotlib,
-    specialverktyg)
-    \item Systemkonfiguration (hårdvara, mjukvara, miljöinställningar)
-    \item Kalibrering och validering av mätverktyg
-\end{itemize}
-
-\textbf{Mätprotokoll:}
-\begin{itemize}
-    \item Antal mätningar som genomförs (minst n=30 för statistisk validitet)
-    \item Tid mellan mätningar och total mätperiod
-    \item Kontrollerade förhållanden (temperatur, belastning, nätverkshastighet
-    etc.)
-    \item Uppvärmningsperiod innan mätning
-\end{itemize}
-
-\textbf{Versionshantering:}
-\begin{itemize}
-    \item Git-commit eller annan versionsmarkering av initiala versionen
-    \item Dokumentation av exakt kodstatus och konfiguration
-    \item Backup av testmiljö och data
-\end{itemize}
-
-\subsection{Statistisk analys}
-
 \subsection{Statistisk analys}
 
 Den statistiska analysen utgick från att varje mätning av den sekventiella implementationen matchades mot motsvarande mätning av den parallella implementationen för samma sida, iteration och databasstorlek. Analysen genomfördes därför som en parad jämförelse, där skillnaden i laddtid definierades som sekventiell minus parallell laddtid. Positiva differenser indikerar därmed kortare laddtid för parallella anrop.
@@ -316,47 +239,7 @@ redan hanterar variationer mellan mätningar.
 
 Som beskrivande statistik rapporterades antal mätningar, medelvärde, median och spridningsmått för respektive sida och implementation. För hypotesprövning användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är beroende och laddtider kan vara snedfördelade samt innehålla avvikande mätningar. Testet genomfördes separat för \textit{Profile page} och \textit{Leaderboard page} för att undvika att sidspecifika beteenden sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05$ och den statistiska prövningen kompletterades med en bedömning av praktisk signifikans baserad på observerade skillnader i millisekunder.
 
-\textbf{Databehandling:}
-\begin{itemize}
-    \item Uteslutningskriterier för avvikande mätvärden
-    \item Hantering av saknade data
-    \item Normaliseringsmetoder (om tillämpligt)
-\end{itemize}
-
-\textbf{Statistiska test:}
-\begin{itemize}
-    \item Beskrivande statistik (medelvärde, median, standardavvikelse)
-    \item Val av statistiskt test (t-test, Mann-Whitney U, Friedman-test etc.)
-    \item Signifikansnivå ($\alpha = 0.05$)
-    \item Effektstorlek och praktisk signifikans
-\end{itemize}
-
-
-
-\yellownote{\textbf{Tänk på:} Metodsektionen skall vara beskriven såpass noggrant att arbetet går att replikeras.}
-
 \section{Resultat}
-
-\greennote{\textbf{Struktur:} Fokusera på jämförelse mellan före och efter
-implementering av förbättringen. Presentera objektiva resultat utan tolkningar.}
-
-Detta avsnitt presenterar objektiva resultat från din förbättringsstudie. Undvik
-tolkningar och slutsatser - dessa sparar du till diskussionen.
-
-\yellownote{\textbf{Guide för tabeller och figurer i förbättringsstudier:}
-\begin{itemize}
-    \item \textbf{OBLIGATORISKT:} En tabell med beskrivande statistik
-    (medelvärde, std, n)
-    \item \textbf{OBLIGATORISKT:} En före/efter-jämförelse (tabell ELLER
-    stapeldiagram)
-    \item \textbf{REKOMMENDERAT:} Scatterplot över tid - visa stabilitet,
-    trender och när förbättringen implementerades
-    \item \textbf{VALFRITT:} Boxplot - jämför fördelningar och visa
-    median/spridning
-    \item \textbf{VALFRITT:} Histogram - endast för att validera
-    normalfördelning (t.ex. innan t-test)
-    \item \textbf{TIPS:} Max 3-4 figurer totalt, fokusera på vad som bäst visar
-din förbättring \end{itemize}}
 
 \subsection{Mätningar av sekventiella anrop}
 
@@ -374,7 +257,7 @@ både profil- och leaderboard-sidorna.
   \centering
   \small
   \caption{Beskrivande statistik för sekventiella anrop, uppdelat på databasstorlek och sida}
-    \begin{tabular}{llcccc}
+    \begin{tabular}{lccccccc}
         \toprule
           Databasstorlek (users)     & Sida & n & Medelvärde (ms) &
           Standardavvikelse (ms) & 95\% KI (ms) & Nätverkslatens (ms), medel ±
@@ -429,40 +312,6 @@ resultaten för de parallella anropen, efter implementering av förbättringen.
   \label{tab:parallel}
 \end{table}
 
-% REKOMMENDERAT: Scatterplot över tid - visar när förbättringen implementerades
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-\begin{axis}[ width=\columnwidth, height=6cm, xlabel={Mätning nr},
-    ylabel={Egenskap X (ms)}, xmin=0, xmax=70, ymin=150, ymax=300, grid=major,
-    legend pos=north east, ]
-
-% Före-data (mätning 1-35)
-\addplot[ only marks, mark=*, mark size=1.5pt, color=red, ] coordinates {
-    (1,242) (2,248) (3,235) (4,251) (5,239) (6,246) (7,241) (8,253) (9,238)
-    (10,249) (11,244) (12,237) (13,250) (14,245) (15,243) (16,247) (17,240)
-    (18,252) (19,236) (20,248) (21,245) (22,241) (23,249) (24,243) (25,246)
-    (26,238) (27,251) (28,244) (29,247) (30,242) (31,248) (32,240) (33,249)
-    (34,245) (35,243) };
-
-% Vertikal linje vid implementering
-\addplot[ thick, dashed, color=black, ] coordinates {(35,150) (35,300)};
-
-% Efter-data (mätning 36-70)
-\addplot[ only marks, mark=*, mark size=1.5pt, color=green, ] coordinates {
-    (36,189) (37,185) (38,192) (39,187) (40,183) (41,190) (42,186) (43,188)
-    (44,184) (45,191) (46,187) (47,185) (48,189) (49,186) (50,188) (51,184)
-    (52,190) (53,187) (54,185) (55,189) (56,186) (57,188) (58,184) (59,190)
-    (60,187) (61,185) (62,189) (63,186) (64,188) (65,184) (66,190) (67,187)
-    (68,185) (69,189) (70,186) };
-
-\legend{Före förbättring, Implementering, Efter förbättring}
-\end{axis}
-\end{tikzpicture}
-\caption{REKOMMENDERAT: Scatterplot över tid - visar tydligt när förbättringen implementerades och dess effekt}
-\label{fig:timeline}
-\end{figure}
-
 \subsection{Jämförande analys}
 
 \textbf{Förbättringsresultat:}
@@ -493,182 +342,7 @@ och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
   \label{tab:comparison}
 \end{table}
 
-% REKOMMENDERAT: Stapeldiagram - enkel och tydlig före/efter-jämförelse
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-\begin{axis}[ ybar, bar width=20pt, width=\columnwidth, height=5cm,
-    ylabel={Egenskap X (ms)}, xlabel={Mätperiod}, symbolic x coords={Före,
-    Efter}, xtick=data, enlarge x limits = 1, ymin=0, ymax=300, nodes near
-    coords, nodes near coords align={vertical}, ]
-\addplot[fill=blue!30] 
-coordinates { (Före, 245.2) (Efter, 187.4) };
-\end{axis}
-\end{tikzpicture}
-\caption{REKOMMENDERAT: Jämförelse före och efter - denna typ av graf förväntas i de flesta förbättringsstudier}
-\label{fig:comparison}
-\end{figure}
-
-% EXEMPEL: Boxplot - använd endast om du vill visa detaljerad fördelning
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-\begin{axis}[ width=\columnwidth, height=6cm, xlabel={Mätperiod},
-    ylabel={Egenskap X (ms)}, boxplot/draw direction=y, xtick={1,2},
-    xticklabels={Före förbättring, Efter förbättring}, ymin=150, ymax=300,
-    grid=major, ]
-
-% Före-data (boxplot)
-\addplot+[ boxplot prepared={ median=245, upper quartile=265, lower
-    quartile=225, upper whisker=285, lower whisker=205, }, fill=red!30, ]
-    coordinates {};
-
-% Outliers för före-data
-\addplot+[ only marks, mark=*, mark size=2pt, color=red, ] coordinates {(1,195)
-    (1,290)};
-
-% Efter-data (boxplot) 
-\addplot+[ boxplot prepared={ median=187, upper quartile=200, lower
-    quartile=175, upper whisker=215, lower whisker=160, }, fill=green!30, ]
-    coordinates {};
-
-% Outliers för efter-data
-\addplot+[ only marks, mark=*, mark size=2pt, color=green, ] coordinates
-    {(2,155) (2,220)};
-
-\end{axis}
-\end{tikzpicture}
-\caption{EXEMPEL: Boxplot - använd endast om standardavvikelsen skiljer sig mycket eller om du har många outliers}
-\label{fig:boxplot}
-\end{figure}
-
-% EXEMPEL: Histogram - använd endast för att validera normalfördelning
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}
-\begin{axis}[ width=\columnwidth, height=6cm, xlabel={Egenskap X (ms)},
-    ylabel={Frekvens}, ymin=0, ymax=8, xmin=180, xmax=320, grid=major,
-    title={Distribution av initiala mätningar}, ] \addplot[ hist={ bins=10, data
-    min=190, data max=310 }, fill=blue!30, draw=blue!80, ] table[row sep=\\,y
-    index=0] { data\\
-205\\210\\215\\220\\225\\230\\235\\240\\245\\250\\
-255\\260\\265\\270\\275\\242\\238\\248\\252\\258\\
-232\\228\\268\\272\\262\\218\\222\\235\\245\\255\\
-265\\275\\285\\295\\200\\
-};
-\end{axis}
-\end{tikzpicture}
-\caption{EXEMPEL: Distribution av initiala mätningar - använd endast om du behöver visa normalfördelning eller outliers}
-\label{fig:baseline_dist}
-\end{figure}
-
-\greennote{\textbf{Val av visualisering - när ska du använda vad?} 
-\begin{itemize}
-    \item \textbf{Stapeldiagram:} Enkel före/efter-jämförelse, visa
-    grundläggande förbättring. Använd nästan alltid.
-    \item \textbf{Scatterplot över tid:} Visa stabilitet, trender och exakt när
-    förbättringen implementerades. Mycket kraftfullt för förbättringsstudier!
-    \item \textbf{Histogram:} Validera att data är normalfördelad innan t-test.
-    Använd för att kontrollera datavaliditet.
-    \item \textbf{Boxplot:} Jämför fördelningar detaljerat. Använd när
-    standardavvikelse eller outliers är viktiga.
-    \item \textbf{Tips:} Scatterplot + stapeldiagram är en stark kombination för
-de flesta förbättringsstudier. \end{itemize}}
-
-Figurer beskrivs med figurtext nedanför figuren. Tabeller får tabellrubrik
-ovanför enligt exemplet nedan.
-
-\greennote{\textbf{Hur du använder exemplen ovan:}
-\begin{itemize}
-    \item \textbf{Scatterplot:} Ersätt koordinaterna med dina mätvärden. Första
-    siffran = mätning nr, andra = uppmätt värde
-    \item \textbf{Stapeldiagram:} Byt ut \texttt{245.2} och \texttt{187.4} mot
-    dina medelvärden före/efter  
-    \item \textbf{Histogram:} Byt ut siffrorna efter
-    \texttt{data\textbackslash\textbackslash} med dina mätvärden, en per rad
-    \item \textbf{Boxplot:} Python-koden beräknar alla värden och
-    outlier-koordinater åt dig - kopiera bara in dem
-    \item \textbf{Alternativ:} Skapa grafer i Matplotlib och spara som PNG om
-LaTeX-koden känns för komplicerad \end{itemize}}
-
 \subsection{Statistisk signifikans}
-
-Statistiskt test för att utvärdera om förbättringen är signifikant:
-
-\begin{lstlisting}[
-language=Python,
-breaklines=true,
-frame=single,
-basicstyle=\ttfamily\small,
-showstringspaces=false,
-backgroundcolor=\color{LightGray}
-]
-from scipy import stats
-import numpy as np
-
-baseline_data = [245.2, 243.1, 247.8, ...]
-improved_data = [187.4, 185.2, 189.6, ...]
-
-# Utfor t-test
-t_statistic, p_value = stats.ttest_ind(baseline_data, improved_data)
-
-print(f"t-statistik: {t_statistic:.4f}")
-print(f"p-varde: {p_value:.6f}")
-\end{lstlisting}
-
-\begin{lstlisting}[
-language=Python,
-breaklines=true,
-frame=single,
-basicstyle=\ttfamily\small,
-showstringspaces=false,
-backgroundcolor=\color{LightGray}
-]
-# Generera LaTeX-koordinater for scatterplot
-def generate_scatter_coords(data, start_index=1):
-    coords = []
-    for i, value in enumerate(data):
-        coords.append(f"({start_index + i},{value:.0f})")
-    return " ".join(coords)
-
-print(generate_scatter_coords(baseline_data))
-print(generate_scatter_coords(improved_data, len(baseline_data) + 1))
-\end{lstlisting}
-
-\begin{lstlisting}[
-language=Python,
-breaklines=true,
-frame=single,
-basicstyle=\ttfamily\small,
-showstringspaces=false,
-backgroundcolor=\color{LightGray}
-]
-# Berakna boxplot-statistik for LaTeX
-def boxplot_stats(data, box_n=1):
-    q1, median, q3 = np.percentile(data, [25, 50, 75])
-    iqr = q3 - q1
-    lower_w = max(min(data), q1 - 1.5*iqr)
-    upper_w = min(max(data), q3 + 1.5*iqr)
-    outliers = [x for x in data if x < lower_w or x > upper_w]
-    
-    print(f"{median:.1f}")
-    print(f"Q1: {q1:.1f}", f"Q3: {q3:.1f}")
-    print(f"lower whisker: {lower_w:.1f}")
-    print(f"upper whisker: {upper_w:.1f}")
-    
-    # Formatera outliers for LaTeX (box_n: 1 for fore, 2 for efter)
-    if outliers:
-        coords = " ".join([f"({box_n},{x:.0f})" for x in outliers])
-        print(f"outliers: {coords}")
-    else:
-        print("Inga outliers")
-
-# Berakna for dina data
-print("\\nBoxplot statistik - Fore:")
-boxplot_stats(baseline_data, 1)
-print("\\nBoxplot statistik - Efter:")
-boxplot_stats(improved_data, 2)
-\end{lstlisting}
 
 Med den statiska analysen med Wilcoxon signed-rank test 
 %%%Koppla till metod + utöka möjligen
@@ -697,22 +371,7 @@ Det resultat som presenteras i Tabell \ref{tab:wilcoxon} visar att alla
 förbättringar är statistiskt signifikanta, med p-värden under den konventionella
 tröskeln på 0.05. 
 
-\textbf{Testresultat:}
-\begin{itemize}
-    \item t-statistik: -12.47
-    \item p-värde: < 0.001
-    \item Resultat: Statistiskt signifikant förbättring (p < 0.05)
-\end{itemize}
-
 \subsection{Implementeringsanalys}
-
-Redovisa observationer om själva implementeringen av metod Y:
-\begin{itemize}
-    \item Implementeringstid: 3.2 timmar
-    \item Kodkomplexitet: +127 rader kod
-    \item Bieffekter: Ökad minnesanvändning med 12 MB
-    \item Kompatibilitet: Fungerar på alla testade plattformar
-\end{itemize}
 
 Under implementeringen av parallella nätverskanrop gjordes följande
 observationer:
@@ -722,57 +381,44 @@ observationer:
     \item Kodkomplexitet: Profil-sidan: +2 rader kod, Leaderboard-sidan: +4
     rader kod
     \item Bieffekter: Inga tydliga bieffekter observerades under testning
-    \item Kompatibilitet: Testad i Flutter + Firebase-miljö utan funktionsbortfall.
-
-Tabeller beskrivs med ett tabellhuvud ovanför tabellen enligt exemplet nedan (Se tabell \ref{tab:example}). AI hjälpmedel är helt okej på att assistera i att formatera dessa tabeller i \LaTeX~ om du vill formatera dem annorlunda.
-
-\begin{table}[htbp]
-  \centering
-  \small
-  \caption{Exempel på tabell för tvåkolumnslayout}
-    \begin{tabular}{lcc}
-        \toprule
-          Parameter      & Elev A  & Elev B  \\
-        \midrule
-          Skärmtid (h/dag) & 9.2   & 1.0     \\
-          Sen till skolan  & 15    & 0       \\
-          Böcker/år        & 0.5   & 8       \\
-          Betyg matematik  & E     & B++     \\
-        \bottomrule
-    \end{tabular}
-  \label{tab:example}
-\end{table}
-
-Det finns många fler typer av grafer beroende på det data du vill visa och många
-sätt att konfigurera hur grafen ser ut. AI som senaste Claude Sonnet
-\footnote{\url{https://www.anthropic.com/news}} kan assistera i att formatera
-dina grafer baserat på ditt data.
-
-Även ekvationer kan vackert formateras som ni ser i ekvation~\eqref{eq:example}
-
-\begin{equation}
-x = -\frac{p}{2} \pm \sqrt{\left(\frac{p}{2}\right)^2 - q}
-\label{eq:example}
-\end{equation}
-
-Figurer beskrivs med en figurtext nedanför figuren och kan vara bifogade
-bilder(se Figur~\ref{fig:study_grades}).
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.9\linewidth]{study_time.png}
-\caption{Denna figurtext skall beskriva bilden.}
-\label{fig:study_grades}
-\end{figure}
+    \item Kompatibilitet: Testad i Flutter + Firebase-miljö utan
+    funktionsbortfall.
+\end{itemize}
 
 \section{Diskussion}
 
 I denna del ska du diskutera och utvärdera dina resultat i relation till syftet
 och frågeställningarna.
 
+
+
 \subsection{Utvärdering av förbättringens effektivitet}
 
-Baserat på resultaten kan det konstateras att metod Y ledde till en statistiskt
-signifikant och praktiskt relevant förbättring av egenskap X för produkttyp Z.
+De uppmätta förbättringarna i Tabell \ref{tab:comparison} visar att den absoluta
+förbättringen i laddningstid var mellan 102.95 ms och 219.35 ms, vilket
+motsvarar en relativ förbättring på mellan 18.28\% och 31.34\% beroende på
+databasstorlek och sida. Dessa förbättringar är inte bara statistiskt
+signifikanta, som visas i Tabell \ref{tab:wilcoxon}, utan också praktiskt
+betydelsefulla, särskilt i kontexten av mobilapplikationer där användare är
+känsliga för laddningstider. Även om laddtiderna höll sig under den kritiska
+gränsen på 1 sekund \cite{nielsen1993response}, kan en förbättring på över 100
+ms fortfarande ha en positiv inverkan på användarupplevelsen, särskilt när det
+gäller att minska känslan av latens och förbättra den övergripande
+responsiviteten i applikationen. 
+
+\subsection{Effekt av databasstorlek och nätverkslatens}
+
+Förbättringen var konsekvent över samtliga testade databasstorlekar, vilket
+tyder på att parallellisering av nätverksanrop är en robust metod för att
+förbättra laddningstider vid olika belastningsnivåer. En svag tendens till
+större absolut förbättring observerades för den minsta databasen, men utifrån
+den insamlade datan kan detta inte tolkas som en tydlig trend.
+
+Nätverkslatensen, som var relativt stabil över mätningarna, verkar inte ha haft
+någon större inverkan på förbättringens storlek. Dock kan inte någon slutsats
+dras om interaktionen mellan nätverkslatens och förbättringens effektivitet
+baserat på den data som samlats in, eftersom nätverkslatensen inte varierade
+tillräckligt mycket för att möjliggöra en sådan analys. 
 
 \textbf{Förbättringens storlek:}
 Den uppmätta förbättringen på 23.6\% kan betraktas som substantiell inom detta
@@ -784,11 +430,18 @@ Med p < 0.001 och en effektstorlek (Cohen's d) på 2.74 visar resultaten på en
 stark och tillförlitlig effekt. Det stora antalet mätningar (n=35) och den låga
 standardavvikelsen stärker tillförlitligheten i resultaten.
 
-\subsection{Lämplighet av metod Y för produkttyp Z}
+\subsection{Lämplighet av parallella nätverksanrop för en Flutter- och Firebase-baserad applikation}
+
+Parallellisering av nätverksanrop gav tydliga prestandaförbättringar i form av
+kortare laddningstider och därmed en bättre användarupplevelse i Neatify.
+Metoden krävde endast begränsade kodändringar och påverkade inte applikationens
+funktionalitet eller stabilitet. Samtidigt förutsättet metoden att
+nätverksanropen är oberoende, och den kan göra felhantering något mer komplex,
+vilket är en viktig aspekt att överväga i mer komplexa applikationer än Neatify. 
 
 \textbf{Fördelar:}
 \begin{itemize}
-    \item Betydande prestandaförbättring utan negativ påverkan på funktionalitet
+    \item Betydligt förbättrade laddningstider, vilket kan förbättra användarupplevelsen
     \item Relativt enkel implementering med begränsad kodomstrukturering
     \item Kompatibel med befintlig arkitektur
     \item Låg risk för introduktion av nya buggar
@@ -804,9 +457,22 @@ standardavvikelsen stärker tillförlitligheten i resultaten.
 
 \subsection{Metodkritik och begränsningar}
 
-Bedöm metodens lämplighet för att besvara frågorna: Var den effektiv och var det
-något som kan förbättras? Diskutera vad som fungerade bra, vad som kunde gjorts
-annorlunda och om något saknades.
+Metoden bedöms ha varit lämplig för att besvara frågeställningen, eftersom den
+visade en statistiskt signifikant förbättring i laddningstider efter
+implementeringen av parallella nätverksanrop i den testade applikationen.
+Samtidigt finns det begränsningar som bör beaktas vid tolkningen av resultaten.
+Mätningarna genomfördes i en kontrollerad miljö med en specifik enhet, stabil
+Wi-Fi-anslutning och inaktiverad cachelagring. Detta ger en tydlig bild av
+förbättringens effekt under kontrollerade förhållanden, men innebär också att
+resultaten inte fullt ut speglar den variation som kan förekomma i verkliga
+användningsförhållanden, där enheter, nätverksförhållanden och användarbeteenden
+kan variera kraftigt.
+
+Eftersom resultaten är knutna till Neatify och den aktuella implementationen av
+parallella nätverksanrop bör slutsatser om generaliserbarhet dras med
+försiktighet. Andra applikationer, särskilt de med mer komplexa beroenden mellan
+nätverksanrop eller som körs på mer resursbegränsade enheter, kan ge andra
+resultat.
 
 \textbf{Testmiljöns representativitet:}
 Mätningarna genomfördes i en kontrollerad miljö som kanske inte helt återspeglar
@@ -816,30 +482,63 @@ verkliga användningsförhållanden.
 Resultaten är specifika för den testade produkttypen och implementeringen.
 Generalisering till andra produkttyper bör göras med försiktighet.
 
+Då testmiljön endast bestod av en testenhet och en stabil Wi-Fi-anslutning kan
+resultaten vara mindre generaliserbara till en bredare användarbas med
+varierande enheter och nätverksförhållanden. 
+
 \subsection{Praktiska implikationer}
 
 Jämför dina resultat med tidigare forskning eller liknande arbeten och notera
 skillnader och likheter.
 
+Resultaten visar att parallellisering av oberoende Firestore-anrop kan ge
+tydliga och praktiskt relevanta förbättringar i laddningstid för Flutter- och
+Firebase-baserade applikationer. För Neatify innebär detta att sidan kan
+renderas snabbare utan att applikationens funktionalitet behöver förändras i
+grunden. Metoden är därför särskilt lämplig i situationer där flera databasanrop
+kan utföras oberoende av varandra och där snabbare sidladdning är viktig för
+användarupplevelsen.
+
+Resultaten ligger i linje med tidigare forskning om parallell exekvering och
+I/O-bundna operationer, där total väntetid kan minskas genom att oberoende
+arbete utförs samtidigt i stället för sekventiellt. Samtidigt visar studien att
+förbättringens storlek varierar mellan olika sidor och databasstorlekar, vilket
+innebär att parallellisering inte bör betraktas som en universallösning, utan
+som en metod som bör användas när beroendena mellan anropen tillåter det.
+
 \textbf{Rekommendationer för implementation:}
-Baserat på studiens resultat rekommenderas metod Y för liknande produkter av typ
-Z, särskilt när prestandaförbättring är prioriterad över minnesbegränsningar.
+Baserat på studiens resultat rekommenderas parallellisering av oberoende
+nätverksanrop i Flutter- och Firebase-baserade applikationer, särskilt när
+kortare laddningstid prioriteras och när anropen inte är beroende av varandras
+resultat.
 
 \textbf{Förslag på framtida forskning:}
-Ge rekommendationer för framtida studier och förbättringar:
 \begin{itemize}
-    \item Utvärdering av metod Y på olika hårdvarukonfigurationer
-    \item Longitudinell studie av långsiktiga effekter
-    \item Jämförelse med alternativa förbättringsmetoder
-    \item Användarstudier för att utvärdera den upplevda förbättringen
+\item Utvärdera metoden på fler typer av Flutter-applikationer med annan datastruktur och andra beroenden mellan anrop.
+\item Undersöka hur resultaten påverkas av varierande nätverksförhållanden och olika hårdvarukonfigurationer.
+\item Jämföra parallellisering med andra optimeringsmetoder, till exempel cachning eller reducering av antal anrop.
+\item Genomföra användarstudier för att undersöka hur de uppmätta förbättringarna upplevs i praktiken.
 \end{itemize}
 
 \subsection{Slutsats}
 
-Studien visar att metod Y är en lämplig och effektiv metod för att förbättra
-egenskap X för produkttyp Z. Den statistiskt signifikanta förbättringen på
-23.6\%, kombinerat med begränsade nackdelar, stöder implementering av denna
-metod i liknande sammanhang.
+Studien visar att parallellisering av oberoende nätverksanrop med Future.wait()
+är en effektiv metod för att förbättra laddningstider i den testade Flutter- och
+Firebase-applikationen Neatify. Jämfört med sekventiell exekvering gav metoden
+genomgående kortare laddningstider för både Profile page och Leaderboard page,
+med absoluta förbättringar på cirka 103-219 ms och relativa förbättringar på
+cirka 18-31 procent beroende på sida och databasstorlek.
+
+De observerade skillnaderna var statistiskt signifikanta i samtliga jämförelser
+enligt Wilcoxon signed-rank-test. Resultaten var dessutom stabila över de
+testade databasstorlekarna, utan någon tydlig trend som visar att databasstorlek
+i sig förändrade förbättringens storlek i denna mätserie.
+
+Samtidigt bör resultaten tolkas i ljuset av studiens begränsningar: mätningarna
+genomfördes i en kontrollerad miljö med en testenhet, stabil Wi-Fi och
+inaktiverad cachelagring. Slutsatsen är därför att metoden är praktiskt relevant
+och lågtrösklig att införa i liknande applikationer, men att generalisering till
+andra miljöer och applikationstyper bör göras med försiktighet.
 
 \newpage
 
