@@ -2,6 +2,8 @@
 \usepackage{garb}
 
 \renewcommand\abstractname{\textbf{Abstract}}
+\emergencystretch=4em
+\hbadness=10000
 
 %-------------------------------------------------------------------------------
 \begin{document}
@@ -22,12 +24,12 @@
 \begin{abstract}
 The abstract is written in English. Focus on your improvement study: what
 product feature (X) you measured, what method (Y) you used to improve it, and
-what your specific product (Z) was. Include your key findings - was method Y
+what your specific product (Z) was. Include your key findings --- was method Y
 effective for improving X on your product type Z?
 
 Your abstract should:
 \begin{itemize}
-    \item consist of a single paragraph of 150-250 words, with correct grammar
+    \item consist of a single paragraph of 150--250 words, with correct grammar
     and unambiguous terminology;
     \item be self-contained with no abbreviations, footnotes, references, or
     mathematical equations;
@@ -45,7 +47,7 @@ Laddningstider utgör en central del av användarupplevelsen i moderna
 mobilapplikationer. Tidigare forskning visar att användare är mycket känsliga
 för även små fördröjningar; svarstider som överstiger en sekund bryter
 användarens tankegång, medan fördröjningar på tio sekunder eller mer markant
-ökar sannolikheten för att applikationen överges \cite{nielsen1993response}. För
+ökar sannolikheten för att applikationen överges~\cite{nielsen1993response}. För
 datadrivna applikationer, där innehåll kontinuerligt hämtas från externa
 databaser, utgör nätverksanrop en betydande del av den totala laddningstiden.
 
@@ -54,23 +56,18 @@ struktureras i Flutter- och Firebase-baserade applikationer för att minimera
 latens. Detta skapar ett behov av att empiriskt undersöka hur olika
 implementationsstrategier påverkar laddningstider i praktiken. Inom
 systemdesign och operativsystem är det väl etablerat att effektiv hantering av
-I/O-operationer är avgörande för systemets prestanda
-\cite{arpachiDusseau18:osbook}. %Läs igenom och ta möjligtvis bort
+I/O-operationer är avgörande för systemets prestanda~\cite{arpaci2018operating}. %Läs igenom och ta möjligtvis bort
 
 %%% Bör ändra den här texten så att den endast beskriver egenskapen X, men
 %bibehålla strukturen + första källan. Kan även vara bra att kolla hur abstaktet
 %är formulerat.
-
-Beskriv det problem eller behov som motiverar din förbättring. Referera till
-vetenskapligt publicerad litteratur inom området\cite{arpachiDusseau18:osbook}
-och tidigare forskning om liknande förbättringsmetoder.
 
 \subsection{Produktbeskrivning}
 
 Produkten som studeras är mobilapplikationen \textit{Neatify}, utvecklad med
 ramverket Flutter och med Firebase Firestore som databashanteringssystem.
 Flutter möjliggör plattformsoberoende utveckling där applikationslogik skrivs i
-programmeringsspråket Dart \cite{TODO}.
+programmeringsspråket Dart~\cite{dart_lang}.
 
 Neatify syftar till att förbättra användarens produktivitet genom
 spelifiering, där användaren motiveras att utveckla positiva beteenden genom
@@ -89,12 +86,10 @@ Den metod som undersöks för att förbättra laddningstiderna i Neatify är
 parallellisering av nätverksanrop med hjälp av \texttt{Future.wait()} i Dart.
 Istället för att exekvera oberoende anrop sekventiellt, där varje anrop väntar
 på att det föregående ska slutföras, initieras samtliga anrop samtidigt och
-applikationen inväntar deras gemensamma resultat innan rendering sker
-\cite{dart_future_wait}.
+applikationen inväntar deras gemensamma resultat innan rendering sker~\cite{dart_future_wait}.
 
 Metoden bygger på principer inom asynkron programmering, där oberoende
-I/O-operationer kan initieras parallellt för att minska den totala väntetiden
-\cite{dart_async}. Detta angreppssätt är teoretiskt motiverat då den totala
+I/O-operationer kan initieras parallellt för att minska den totala väntetiden~\cite{dart_async}. Detta angreppssätt är teoretiskt motiverat då den totala
 exekveringstiden i nätverksberoende system ofta begränsas av den långsammaste
 operationen snarare än summan av alla operationer, vilket gör parallellisering
 till en naturlig strategi för att reducera latens. 
@@ -105,7 +100,8 @@ Syftet med denna rapport är att empiriskt utvärdera effekten av parallelliseri
 
 \textbf{Huvudfrågeställning:}
 \begin{itemize}
-    \item I vilken utsträckning kan parallellisering av nätverksanrop förbättra laddningstider i Flutter- och Firebase-baserade mobilapplikationer?
+    \item Är parallellisering av nätverksanrop med \texttt{Future.wait()} en
+lämplig metod för att förbättra laddningstider i en Flutter- och Firebase-baserad applikation som Neatify?
 \end{itemize}
 
 \textbf{Stödjande frågeställningar:}
@@ -117,10 +113,41 @@ Syftet med denna rapport är att empiriskt utvärdera effekten av parallelliseri
 
 \subsection{Teori}
 
-För att förstå parallelliseringens potentiella effekt på laddningstider är det viktigt att först förstå de bakomliggande faktorerna:
+För att förstå parallelliseringens potentiella effekt på laddningstider är det
+viktigt att först förstå de bakomliggande faktorerna:
+
+\subsubsection{Laddningstider i mobilapplikationer}
+Laddningstid i en mobilapplikation definieras i denna studie som tiden från 
+att en sida initieras till att allt innehåll är renderat och interaktivt. 
+I nätverksberoende applikationer är laddningstiden beroende av den tid det 
+tar att överföra data mellan klient och server.
+
+Denna överföringstid påverkas av nätverkslatens, vilket enligt~\cite{kurose2021} 
+motsvarar den totala end-to-end-fördröjningen i nätverket. Denna fördröjning 
+består av flera komponenter, inklusive processerings-, kö-, transmissions- 
+och propageringsfördröjningar.
+
+Utöver latens påverkas laddningstiden även av hur många nätverksanrop som 
+krävs samt hur dessa organiseras. Varje enskilt anrop medför en ytterligare 
+fördröjning, vilket innebär att flera sekventiella anrop kan leda till att 
+fördröjningarna ackumuleras.
+
+Som en förenklad modell kan den totala laddningstiden därför beskrivas som 
+beroende av nätverkslatens, antal nätverksanrop samt svarstiden för varje 
+enskilt anrop.
+
+När flera nätverksanrop utförs sekventiellt ackumuleras dessa fördröjningar, 
+vilket innebär att den totala laddningstiden approximativt motsvarar summan 
+av varje enskilt anrops svarstid. Genom att istället initiera oberoende anrop 
+parallellt begränsas den totala väntetiden teoretiskt av det långsammaste 
+enskilda anropets svarstid.
+\subsubsection{Asynkron programering i Dart}
+
+\subsubsection{Flutter och Firebase}
+
 \begin{itemize}
-    \item \textbf{Flutter}: Flutter är Googles gratis och open-source UI-ramverk för att bygga nativt kompilerade applikationer för mobil, webb och desktop från en enda kodbas. \cite{flutter_faq}
-    \item \textbf{Firebase}: Firebase är en plattform för mobil- och webbapplikationsutveckling som erbjuder en rad tjänster, inklusive realtidsdatabaser, autentisering och hosting. \cite{firebase_docs} De specifika tjänster som används i Neatify är Firestore, en NoSQL-databas som möjliggör skalbar och flexibel datalagring, och Firebase Authentication för att hantera användarautentisering. \cite{firestore_docs} \cite{firebase_auth_docs} Men även Firebase Performance Monitoring, som används för att mäta och analysera applikationens prestanda i realtid. \cite{firebase_perf_mon_docs}
+    \item \textbf{Flutter}: Flutter är Googles gratis och open-source UI-ramverk för att bygga nativt kompilerade applikationer för mobil, webb och desktop från en enda kodbas.~\cite{flutter_faq}
+    \item \textbf{Firebase}: Firebase är en plattform för mobil- och webbapplikationsutveckling som erbjuder en rad tjänster, inklusive realtidsdatabaser, autentisering och hosting.~\cite{firebase_docs} De specifika tjänster som används i Neatify är Firestore, en NoSQL-databas som möjliggör skalbar och flexibel datalagring, och Firebase Authentication för att hantera användarautentisering.~\cite{firestore_docs}~\cite{firebase_auth_docs}
 \end{itemize}
 
 %Kolla igenom det finns mer teori som är relevant att ta med, t.ex. om asynkron programmering i Dart, eller om nätverkslatens och dess påverkan på användarupplevelse.
@@ -132,7 +159,7 @@ parallel query processing, där målet är att minska exekveringstid genom att
 utföra flera operationer samtidigt. Tidig forskning inom området visar att
 databassökningar kan delas upp i deluppgifter som utförs parallellt över flera
 processorer, vilket möjliggör prestandavinster jämfört med sekventiell
-exekvering \cite{dewitt1992parallel}.
+exekvering~\cite{dewitt1992parallel}.
 
 I moderna databassystem har dessa principer vidareutvecklats i distribuerade
 miljöer, där data partitioneras över flera noder och bearbetas parallellt innan
@@ -140,15 +167,14 @@ resultaten sammanställs. Studier visar att distribuerad parallell bearbetning k
 förbättra skalbarhet och svarstider, särskilt när partitioneringen utformas för
 att minimera kommunikation mellan noder, exempelvis genom grafbaserade metoder.
 Samtidigt påverkas vinsterna av faktorer som kommunikationskostnader och synkronisering
-mellan noder \cite{nam2019parallel}.
+mellan noder~\cite{nam2019parallel}.
 
 Forskning inom samtidiga databassystem, inklusive GPU-baserade lösningar, visar
 att flera förfrågningar kan exekveras parallellt för att bättre utnyttja
 tillgängliga beräkningsresurser, även om detta kräver effektiv hantering av
-resurstilldelning och exekveringsplanering \cite{li2019concurrent}. Vidare
+resurstilldelning och exekveringsplanering~\cite{li2019concurrent}. Vidare
 indikerar studier att parallella exekveringstekniker kan bidra till förbättrad
-skalbarhet genom att dela upp operationer i samtidiga deluppgifter
-\cite{zhu2025research}.
+skalbarhet genom att dela upp operationer i samtidiga deluppgifter~\cite{zhu2025research}.
 %Måste överväga om den här källan är en hjälp eller om den skadar rapportens trovärdighet.
 
 Även om dessa studier främst behandlar CPU-bundna eller distribuerade databassystem, bygger de på grundläggande principer om parallellism, väntetider och resursutnyttjande. Dessa principer är relevanta även i mobilapplikationer, där databasanrop ofta utgörs av nätverksbaserade I/O-operationer. I sådana fall påverkas svarstiden av faktorer som nätverkslatens och serverrespons, och genom att initiera flera oberoende anrop parallellt kan den totala väntetiden potentiellt reduceras. Därmed kan mobilapplikationers databasanrop analyseras utifrån samma övergripande prestandaprinciper som beskrivs i tidigare forskning.
@@ -156,12 +182,14 @@ skalbarhet genom att dela upp operationer i samtidiga deluppgifter
 
 \section{Metod}
 
+
+
 \subsection{Implementering av förbättring}
 
 Implementeringen av förbättringen bestod av att ersätta de sekventiella 
 Firestore-anropen på \textit{Profile page} och \textit{Leaderboard page} med 
 parallella anrop med hjälp av Darts \texttt{Future.wait()}, vars funktion 
-beskrivs närmare i avsnitt \ref{sec:forbattringsmetod}.
+beskrivs närmare i avsnitt~\ref{sec:forbattringsmetod}.
 
 Förändringen genomfördes uteslutande i de delar av koden som hanterar 
 datahämtning vid sidladdning, utan ändringar i UI-logik, datamodeller eller 
@@ -178,7 +206,7 @@ efter övergången till parallell exekvering.
 \subsection{Genomförande av mätningar}
 
 För att kunna besvara frågeställningen togs ett test-script, som använder
-Flutters \texttt{IntegrationTestWidgetsFlutterBinding} med en initial cold-boot
+Flutters \texttt{IntegrationTest\allowbreak Widgets\allowbreak Flutter\allowbreak Binding} med en initial cold-boot
 för varje sida där firestores caching är inaktiverat, fram för att snabbt och
 enkelt kunna köra flera mätningar av laddningstider, som mäts från att sidan
 öppnas till att allt innehåll på sidan är renderat och interaktivt. I
@@ -243,25 +271,28 @@ Som beskrivande statistik rapporterades antal mätningar, medelvärde, median oc
 
 \subsection{Mätningar av sekventiella anrop}
 
-Presentera resultaten från dina initiala mätningar av egenskap X på den
-ursprungliga produkten och referera till dem i Tabell \ref{tab:baseline}
-
+\noindent
+\begin{minipage}[t]{\columnwidth}
 Utifrån mätdatan för de sekventiella anropen, innan implementeringen av
 förbättringen, samanställdes tabellen nedan som visar beskrivande statistik för
 varje databasstorlek och sida. Tabellen inkluderar medelvärde,
 standardavvikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för
 både profil- och leaderboard-sidorna.
+\end{minipage}
 %%%Dessa data ger en grundläggande förståelse för prestandan hos de sekventiella anropen innan förbättringen implementerades.
 
-\begin{table}[H]
+\vspace*{2.0\baselineskip}
+
+\begin{strip}
   \centering
-  \small
-  \caption{Beskrivande statistik för sekventiella anrop, uppdelat på databasstorlek och sida}
-    \begin{tabular}{lccccccc}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \captionof{table}{Beskrivande statistik för sekventiella anrop, uppdelat på databasstorlek och sida}
+    \begin{tabular}{@{}l l c c c c c c@{}}
         \toprule
-          Databasstorlek (users)     & Sida & n & Medelvärde (ms) &
-          Standardavvikelse (ms) & 95\% KI (ms) & Nätverkslatens (ms), medel ±
-          std & p95 (ms)    \\
+          Databasstorlek & Sida & n & \shortstack{Medelvärde\\(ms)} &
+          \shortstack{Standardavvikelse\\(ms)} & \shortstack{95\% KI\\(ms)} &
+          \shortstack{Nätverkslatens\\medel $\pm$ std} & p95 (ms)    \\
         \midrule
             100         & Profile page & 150 & 699.98 & 66.61 &
             689.23--710.73 & 22.00 $\pm$ 3.16 & 807.10 \\
@@ -278,22 +309,26 @@ både profil- och leaderboard-sidorna.
         \bottomrule
     \end{tabular}
   \label{tab:sekventiell}
-\end{table}
+\end{strip}
 
 \subsection{Mätningar av parallella anrop}
 
+\noindent
+\begin{minipage}[t]{\columnwidth}
 På samma sätt som för de sekventiella anropen samanställdes tabellen nedan för
 resultaten för de parallella anropen, efter implementering av förbättringen.
+\end{minipage}
 
-\begin{table}[H]
+\begin{strip}
   \centering
-  \small
-  \caption{Beskrivande statistik för parallella anrop, uppdelat på databasstorlek och sida}
-    \begin{tabular}{lccccccc}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \captionof{table}{Beskrivande statistik för parallella anrop, uppdelat på databasstorlek och sida}
+    \begin{tabular}{@{}l l c c c c c c@{}}
         \toprule
-          Databasstorlek (användare)     & Sida & n & Medelvärde (ms) &
-          Standardavvikelse (ms) & 95\% KI (ms) & Nätverkslatens (ms), medel ±
-          std & p95 (ms)    \\
+          Databasstorlek & Sida & n & \shortstack{Medelvärde\\(ms)} &
+          \shortstack{Standardavvikelse\\(ms)} & \shortstack{95\% KI\\(ms)} &
+          \shortstack{Nätverkslatens\\medel $\pm$ std} & p95 (ms)    \\
         \midrule
             100         & Profile page & 150 & 480.63 & 56.67 &
             471.49--489.78 & 22.00 $\pm$ 3.16 & 580.10 \\
@@ -310,26 +345,32 @@ resultaten för de parallella anropen, efter implementering av förbättringen.
         \bottomrule
     \end{tabular}
   \label{tab:parallel}
-\end{table}
+\end{strip}
 
 \subsection{Jämförande analys}
 
+\noindent
+\begin{minipage}[t]{\columnwidth}
 \textbf{Förbättringsresultat:}
 
-Med värdena från Tabell \ref{tab:sekventiell} och Tabell \ref{tab:parallel}
+Med värdena från Tabell~\ref{tab:sekventiell} och Tabell~\ref{tab:parallel}
 kunde förbättringen, absolut och relativ, beräknas för varje databasstorlek och
 sida. Effektstorleken kunde också beräknas, vilket gjordes med rangbiseriell
-korrelation (r_rb),
+korrelation ($r_{rb}$),
 %Detta bör gå till metod: vilket är lämpligt för icke-parametriska data och ger en intuitiv tolkning av förbättringens styrka.
 och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
+\end{minipage}
 
-\begin{table}[H]
+\vspace*{-0.2\baselineskip}
+
+\begin{strip}
   \centering
   \small
-  \caption{Jämförelse före och efter}
-    \begin{tabular}{lcccc}
+  \setlength{\tabcolsep}{6pt}
+  \captionof{table}{Jämförelse före och efter}
+    \begin{tabular}{@{}l l c c c@{}}
         \toprule
-            Databasstorlek (användare)  & sida  & absolut förbättring (ms)    & relativ förbättring & r_rb   \\
+            Databasstorlek & Sida & Absolut förbättring (ms) & Relativ förbättring & $r_{rb}$   \\
         \midrule
             100 & Profile page  & 219.35   & 31.34\% & 1.000   \\
             100 & Leaderboard page    & 111.55    & 19.54\% & 0.995   \\
@@ -340,21 +381,28 @@ och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
         \bottomrule
     \end{tabular}
   \label{tab:comparison}
-\end{table}
+\end{strip}
+
+\clearpage
 
 \subsection{Statistisk signifikans}
 
+\noindent
+\begin{minipage}[t]{\columnwidth}
 Med den statiska analysen med Wilcoxon signed-rank test 
 %%%Koppla till metod + utöka möjligen
 kunde p-värden bestämmas för de olika databasstorlekarna och sidorna.
+\end{minipage}
 
 \begin{table}[H]
   \centering
-  \small
-  \caption{Jämförelse före och efter}
-    \begin{tabular}{lccc}
+  \footnotesize
+  \setlength{\tabcolsep}{5pt}
+  \caption{Statistisk signifikans av förbättring för varje databasstorlek och sida}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{@{}l l r r@{}}
         \toprule
-            Databasstorlek (användare)  & sida  & W-statistik    & p-värde   \\
+            Databasstorlek & Sida & W-statistik & p-värde   \\
         \midrule
             100 & Profile page  & 11325.00   & 1.14672 $\times 10^{-26}$  \\
             100 & Leaderboard page    & 11294.00    & 2.12553 $\times 10^{-26}$   \\
@@ -363,13 +411,17 @@ kunde p-värden bestämmas för de olika databasstorlekarna och sidorna.
             1000 & Profile page  & 11325.00   & 1.14655 $\times 10^{-26}$   \\
             1000 & Leaderboard page    & 11125.50    & 5.89925 $\times 10^{-25}$   \\
         \bottomrule
-    \end{tabular}
-  \label{tab:wilcoxon}
+    \end{tabular}%
+    }
+\label{tab:wilcoxon}
 \end{table}
 
-Det resultat som presenteras i Tabell \ref{tab:wilcoxon} visar att alla
+\noindent
+\begin{minipage}[t]{\columnwidth}
+Det resultat som presenteras i Tabell~\ref{tab:wilcoxon} visar att alla
 förbättringar är statistiskt signifikanta, med p-värden under den konventionella
-tröskeln på 0.05. 
+tröskeln på 0.05.
+\end{minipage}
 
 \subsection{Implementeringsanalys}
 
@@ -394,14 +446,14 @@ och frågeställningarna.
 
 \subsection{Utvärdering av förbättringens effektivitet}
 
-De uppmätta förbättringarna i Tabell \ref{tab:comparison} visar att den absoluta
+De uppmätta förbättringarna i Tabell~\ref{tab:comparison} visar att den absoluta
 förbättringen i laddningstid var mellan 102.95 ms och 219.35 ms, vilket
 motsvarar en relativ förbättring på mellan 18.28\% och 31.34\% beroende på
 databasstorlek och sida. Dessa förbättringar är inte bara statistiskt
-signifikanta, som visas i Tabell \ref{tab:wilcoxon}, utan också praktiskt
+signifikanta, som visas i Tabell~\ref{tab:wilcoxon}, utan också praktiskt
 betydelsefulla, särskilt i kontexten av mobilapplikationer där användare är
 känsliga för laddningstider. Även om laddtiderna höll sig under den kritiska
-gränsen på 1 sekund \cite{nielsen1993response}, kan en förbättring på över 100
+gränsen på 1 sekund~\cite{nielsen1993response}, kan en förbättring på över 100
 ms fortfarande ha en positiv inverkan på användarupplevelsen, särskilt när det
 gäller att minska känslan av latens och förbättra den övergripande
 responsiviteten i applikationen. 
@@ -420,16 +472,6 @@ dras om interaktionen mellan nätverkslatens och förbättringens effektivitet
 baserat på den data som samlats in, eftersom nätverkslatensen inte varierade
 tillräckligt mycket för att möjliggöra en sådan analys. 
 
-\textbf{Förbättringens storlek:}
-Den uppmätta förbättringen på 23.6\% kan betraktas som substantiell inom detta
-område. Jämfört med tidigare studier på liknande produkter\cite{waldspurger02}
-ligger detta resultat i linje med förväntningar för denna typ av optimering.
-
-\textbf{Statistisk tillförlitlighet:}
-Med p < 0.001 och en effektstorlek (Cohen's d) på 2.74 visar resultaten på en
-stark och tillförlitlig effekt. Det stora antalet mätningar (n=35) och den låga
-standardavvikelsen stärker tillförlitligheten i resultaten.
-
 \subsection{Lämplighet av parallella nätverksanrop för en Flutter- och Firebase-baserad applikation}
 
 Parallellisering av nätverksanrop gav tydliga prestandaförbättringar i form av
@@ -438,22 +480,6 @@ Metoden krävde endast begränsade kodändringar och påverkade inte applikation
 funktionalitet eller stabilitet. Samtidigt förutsättet metoden att
 nätverksanropen är oberoende, och den kan göra felhantering något mer komplex,
 vilket är en viktig aspekt att överväga i mer komplexa applikationer än Neatify. 
-
-\textbf{Fördelar:}
-\begin{itemize}
-    \item Betydligt förbättrade laddningstider, vilket kan förbättra användarupplevelsen
-    \item Relativt enkel implementering med begränsad kodomstrukturering
-    \item Kompatibel med befintlig arkitektur
-    \item Låg risk för introduktion av nya buggar
-\end{itemize}
-
-\textbf{Nackdelar och begränsningar:}
-\begin{itemize}
-    \item Ökad minnesanvändning kan vara problematisk för resursbegränsade
-    enheter
-    \item Implementering kräver fördjupad kunskap inom området
-    \item Underhållskostnader kan öka på grund av ökad komplexitet
-\end{itemize}
 
 \subsection{Metodkritik och begränsningar}
 
@@ -474,22 +500,7 @@ försiktighet. Andra applikationer, särskilt de med mer komplexa beroenden mell
 nätverksanrop eller som körs på mer resursbegränsade enheter, kan ge andra
 resultat.
 
-\textbf{Testmiljöns representativitet:}
-Mätningarna genomfördes i en kontrollerad miljö som kanske inte helt återspeglar
-verkliga användningsförhållanden.
-
-\textbf{Generaliserbarhet:}
-Resultaten är specifika för den testade produkttypen och implementeringen.
-Generalisering till andra produkttyper bör göras med försiktighet.
-
-Då testmiljön endast bestod av en testenhet och en stabil Wi-Fi-anslutning kan
-resultaten vara mindre generaliserbara till en bredare användarbas med
-varierande enheter och nätverksförhållanden. 
-
 \subsection{Praktiska implikationer}
-
-Jämför dina resultat med tidigare forskning eller liknande arbeten och notera
-skillnader och likheter.
 
 Resultaten visar att parallellisering av oberoende Firestore-anrop kan ge
 tydliga och praktiskt relevanta förbättringar i laddningstid för Flutter- och
@@ -543,8 +554,11 @@ andra miljöer och applikationstyper bör göras med försiktighet.
 \newpage
 
 %-------------------------------------------------------------------------------
+\begingroup
+\sloppy
 \bibliographystyle{unsrt}
 \bibliography{base}
+\endgroup
 
 \vspace{12pt}
 
@@ -568,39 +582,6 @@ Misslyckas du att följa denna struktur kan arbetet riskera att inte bli godkän
 \appendix
 \onecolumn
 
-\section{Bilaga: Rådata från CSV}
-
-Tabell \ref{tab:raw_csv_data} visar innehållet i \texttt{page\_load\_times\_utf8.csv}. Tabellen genereras automatiskt från CSV-filen, så när filen uppdateras uppdateras tabellen vid nästa kompilering.
-
-\setlength{\LTleft}{0pt}
-\setlength{\LTright}{0pt}
-
-\begin{longtable}{p{0.30\textwidth}r r p{0.34\textwidth}}
-\caption{Rådata importerad direkt från CSV-filen} \label{tab:raw_csv_data} \\
-\toprule
-Trace & Iteration & Load (ms) & Timestamp \\
-\midrule
-\endfirsthead
-
-\toprule
-Trace & Iteration & Load (ms) & Timestamp \\
-\midrule
-\endhead
-
-\midrule
-\multicolumn{4}{r}{Fortsätter på nästa sida} \\
-\midrule
-\endfoot
-
-\bottomrule
-\endlastfoot
-
-\csvreader[
-    filter expr={test{\ifnumgreater{\thecsvinputline}{1}}},
-]{page_load_times_utf8.csv}{}{
-    \nolinkurl{\csvcoli} & \csvcolii & \csvcoliii & \nolinkurl{\csvcoliv}\\
-}
-\end{longtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

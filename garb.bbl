@@ -1,15 +1,34 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
-\bibitem{arpachiDusseau18:osbook}
-Remzi~H. Arpaci-Dusseau and Arpaci-Dusseau~Andrea C.
-\newblock {\em Operating Systems: Three Easy Pieces}.
-\newblock Arpaci-Dusseau Books, LLC, 1.00 edition, 2015.
-\newblock \url{http://pages.cs.wisc.edu/~remzi/OSTEP/}.
+\bibitem{nielsen1993response}
+Jakob Nielsen.
+\newblock Response times: The 3 important limits.
+\newblock
+  \url{https://www.nngroup.com/articles/response-times-3-important-limits/},
+  1993.
+\newblock Accessed: 2026-04-04.
 
-\bibitem{goodman1998housing}
-Allen~C Goodman and Thomas~G Thibodeau.
-\newblock Housing market segmentation.
-\newblock {\em Journal of housing economics}, 7(2):121--143, 1998.
+\bibitem{arpaci2018operating}
+Remzi~H Arpaci-Dusseau and Andrea~C Arpaci-Dusseau.
+\newblock {\em Operating systems: Three easy pieces}, volume~1.
+\newblock Arpaci-Dusseau Books, LLC Madison, WI, USA, 2018.
+
+\bibitem{dart_future_wait}
+{Dart}.
+\newblock Future.wait.
+\newblock \url{https://api.dart.dev/dart-async/Future/wait.html}, 2026.
+\newblock Accessed: 2026-04-04.
+
+\bibitem{dart_async}
+{Dart}.
+\newblock Asynchronous programming: futures, async, await.
+\newblock \url{https://dart.dev/libraries/async/async-await}, 2026.
+\newblock Accessed: 2026-04-04.
+
+\bibitem{kurose2021}
+James~F. Kurose and Keith~W. Ross.
+\newblock {\em Computer Networking: A Top-Down Approach}.
+\newblock Pearson, 8 edition, 2021.
 
 \bibitem{flutter_faq}
 {Google}.
@@ -37,24 +56,28 @@ Allen~C Goodman and Thomas~G Thibodeau.
 \newblock \url{https://firebase.google.com/docs/auth}, 2026.
 \newblock Accessed: 2026-04-02.
 
-\bibitem{firebase_perf_mon_docs}
-{Google}.
-\newblock Firebase performance monitoring documentation.
-\newblock \url{https://firebase.google.com/docs/perf-mon}, 2026.
-\newblock Accessed: 2026-04-02.
-
-\bibitem{waldspurger02}
-Carl~A. Waldspurger.
-\newblock Memory resource management in {VMware ESX} server.
-\newblock In {\em USENIX Symposium on Operating System Design and
-  Implementation (OSDI)}, pages 181--194, 2002.
-\newblock
-  \url{https://www.usenix.org/legacy/event/osdi02/tech/waldspurger/waldspurger.pdf}.
-
 \bibitem{dewitt1992parallel}
 David DeWitt and Jim Gray.
 \newblock Parallel database systems: The future of high performance database
   systems.
 \newblock {\em Communications of the ACM}, 35(6):85--98, 1992.
+
+\bibitem{nam2019parallel}
+Yoon-Min Nam, Donghyoung Han, and Min-Soo Kim.
+\newblock A parallel query processing system based on graph-based database
+  partitioning.
+\newblock {\em Information Sciences}, 480:237--260, 2019.
+
+\bibitem{li2019concurrent}
+Hao Li, Yi-Cheng Tu, and Bo~Zeng.
+\newblock Concurrent query processing in a gpu-based database system.
+\newblock {\em PloS one}, 14(4):e0214720, 2019.
+
+\bibitem{zhu2025research}
+Zhongqi Zhu.
+\newblock Research on parallel execution techniques for improving the
+  expandability of database systems.
+\newblock {\em Journal of Computer, Signal, and System Research}, 2(3):69--74,
+  2025.
 
 \end{thebibliography}
