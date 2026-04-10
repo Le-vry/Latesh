@@ -207,25 +207,75 @@ Detta avsnitt presenterar objektiva resultat från din förbättringsstudie. Und
     \item \textbf{TIPS:} Max 3-4 figurer totalt, fokusera på vad som bäst visar din förbättring
 \end{itemize}}
 
-\subsection{Initiala mätningar}
+\subsection{Mätningar av sekventiella anrop}
 
-Presentera resultaten från dina initiala mätningar av egenskap X på den ursprungliga produkten och referera till dem i Tabell \ref{tab:baseline}
+Presentera resultaten från dina initiala mätningar av egenskap X på den
+ursprungliga produkten och referera till dem i Tabell \ref{tab:baseline}
+
+Utifrån mätdatan för de sekventiella anropen, innan implementeringen av
+förbättringen, samanställdes tabellen nedan som visar beskrivande statistik för
+varje databasstorlek och sida. Tabellen inkluderar medelvärde,
+standardavvikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för
+både profil- och leaderboard-sidorna.
+%%%Dessa data ger en grundläggande förståelse för prestandan hos de sekventiella anropen innan förbättringen implementerades.
 
 \begin{table}[H]
   \centering
   \small
-  \caption{Initiala mätningar}
-    \begin{tabular}{lc}
+  \caption{Beskrivande statistik för sekventiella anrop, uppdelat på databasstorlek och sida}
+    \begin{tabular}{llcccc}
         \toprule
-          Statistik     & Värde     \\
+          Databasstorlek (users)     & Sida & n & Medelvärde (ms) &
+          Standardavvikelse (ms) & 95\% KI (ms) & Nätverkslatens (ms), medel ±
+          std & p95 (ms)    \\
         \midrule
-          Medelvärde         & 245.2 ms  \\
-          Standardavvikelse       & 23.7 ms   \\
-          Antal observationer            & 35        \\
-          95\% konfidensintervall       & 237-253   \\
+            100         & Profile page & 150 & 699.98 & 66.61 &
+            689.23--710.73 & 22.00 $\pm$ 3.16 & 807.10 \\
+            100         & Leaderboard page  & 150 & 570.88 & 33.69 &
+            565.44--576.32 & 22.00 $\pm$ 3.16 & 612.00 \\
+            500         & Profile page & 150 & 703.55 & 65.67 &
+            692.96--714.15 & 22.80 $\pm$ 3.27 & 807.55  \\
+            500         & Leaderboard page  & 150 & 563.13 & 48.28 &
+            555.34--570.92 & 22.80 $\pm$ 3.27 & 626.55 \\
+            1000         & Profile page & 150 & 683.95 & 54.47 &
+            675.16--692.74 & 23.80 $\pm$ 3.63 & 797.65 \\
+            1000         & Leaderboard page  & 150 & 567.45 & 39.21 &
+            561.12--573.77 & 23.80 $\pm$ 3.63 & 613.20 \\
         \bottomrule
     \end{tabular}
-  \label{tab:baseline}
+  \label{tab:sekventiell}
+\end{table}
+
+\subsection{Mätningar av parallella anrop}
+
+På samma sätt som för de sekventiella anropen samanställdes tabellen nedan för
+resultaten för de parallella anropen, efter implementering av förbättringen.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Beskrivande statistik för parallella anrop, uppdelat på databasstorlek och sida}
+    \begin{tabular}{lccccccc}
+        \toprule
+          Databasstorlek (användare)     & Sida & n & Medelvärde (ms) &
+          Standardavvikelse (ms) & 95\% KI (ms) & Nätverkslatens (ms), medel ±
+          std & p95 (ms)    \\
+        \midrule
+            100         & Profile page & 150 & 480.63 & 56.67 &
+            471.49--489.78 & 22.00 $\pm$ 3.16 & 580.10 \\
+            100         & Leaderboard page  & 150 & 459.33 & 35.98 &
+            453.52--465.13 & 22.00 $\pm$ 3.16 & 521.90 \\
+            500         & Profile page & 150 & 495.91 & 68.91 &
+            484.79--507.03 & 22.80 $\pm$ 3.27 & 596.55  \\
+            500         & Leaderboard page  & 150 & 460.19 & 52.03 &
+            451.79--468.58 & 22.80 $\pm$ 3.27 & 584.40 \\
+            1000         & Profile page & 150 & 473.54 & 60.17 &
+            463.83--483.25 & 23.80 $\pm$ 3.63 & 583.10 \\
+            1000         & Leaderboard page  & 150 & 459.88 & 43.05 &
+            452.93--466.83 & 23.80 $\pm$ 3.63 & 545.15 \\
+        \bottomrule
+    \end{tabular}
+  \label{tab:parallel}
 \end{table}
 
 % REKOMMENDERAT: Scatterplot över tid - visar när förbättringen implementerades
@@ -288,26 +338,29 @@ Presentera resultaten från dina initiala mätningar av egenskap X på den urspr
 \subsection{Jämförande analys}
 
 \textbf{Förbättringsresultat:}
-\begin{itemize}
-    \item Absolut förbättring: 57.8 ms (245.2 - 187.4)
-    \item Relativ förbättring: 23.6\% ((245.2 - 187.4) / 245.2 × 100)
-    \item Effektstorlek (Cohen's d): 2.74 (stor effekt)
-\end{itemize}
+
+Med värdena från Tabell \ref{tab:sekventiell} och Tabell \ref{tab:parallel}
+kunde förbättringen, absolut och relativ, beräknas för varje databasstorlek och
+sida. Effektstorleken kunde också beräknas, vilket gjordes med rangbiseriell
+korrelation (r_rb),
+%Detta bör gå till metod: vilket är lämpligt för icke-parametriska data och ger en intuitiv tolkning av förbättringens styrka.
+och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
 
 \begin{table}[H]
   \centering
   \small
   \caption{Jämförelse före och efter}
-    \begin{tabular}{lcc}
+    \begin{tabular}{lcccc}
         \toprule
-               & Före    & Efter   \\
+            Databasstorlek (användare)  & sida  & absolut förbättring (ms)    & relativ förbättring & r_rb   \\
         \midrule
-          Medel  & 245.2   & 187.4   \\
-          Std    & 23.7    & 19.2    \\
-          Min    & 198.5   & 155.1   \\
-          Max    & 291.8   & 223.7   \\
+            100 & Profile page  & 219.35   & 31.34\% & 1.000   \\
+            100 & Leaderboard page    & 111.55    & 19.54\% & 0.995   \\
+            500 & Profile page  & 207.64   & 29.51\% & 1.000   \\
+            500 & Leaderboard page    & 102.95    & 18.28\% & 0.960   \\
+            1000 & Profile page  & 210.41   & 30.76\% & 1.000   \\
+            1000 & Leaderboard page    & 107.57    & 18.96\% & 0.965   \\
         \bottomrule
-        \multicolumn{3}{l}{\footnotesize Alla värden i ms} \\
     \end{tabular}
   \label{tab:comparison}
 \end{table}
@@ -541,6 +594,33 @@ print("\\nBoxplot statistik - Efter:")
 boxplot_stats(improved_data, 2)
 \end{lstlisting}
 
+Med den statiska analysen med Wilcoxon signed-rank test 
+%%%Koppla till metod + utöka möjligen
+kunde p-värden bestämmas för de olika databasstorlekarna och sidorna.
+
+\begin{table}[H]
+  \centering
+  \small
+  \caption{Jämförelse före och efter}
+    \begin{tabular}{lccc}
+        \toprule
+            Databasstorlek (användare)  & sida  & W-statistik    & p-värde   \\
+        \midrule
+            100 & Profile page  & 11325.00   & 1.14672 $\times 10^{-26}$  \\
+            100 & Leaderboard page    & 11294.00    & 2.12553 $\times 10^{-26}$   \\
+            500 & Profile page  & 11325.00   & 1.1469 $\times 10^{-26}$   \\
+            500 & Leaderboard page    & 10949.50    & 1.46696 $\times 10^{-24}$   \\
+            1000 & Profile page  & 11325.00   & 1.14655 $\times 10^{-26}$   \\
+            1000 & Leaderboard page    & 11125.50    & 5.89925 $\times 10^{-25}$   \\
+        \bottomrule
+    \end{tabular}
+  \label{tab:wilcoxon}
+\end{table}
+
+Det resultat som presenteras i Tabell \ref{tab:wilcoxon} visar att alla
+förbättringar är statistiskt signifikanta, med p-värden under den konventionella
+tröskeln på 0.05. 
+
 \textbf{Testresultat:}
 \begin{itemize}
     \item t-statistik: -12.47
@@ -557,6 +637,16 @@ Redovisa observationer om själva implementeringen av metod Y:
     \item Bieffekter: Ökad minnesanvändning med 12 MB
     \item Kompatibilitet: Fungerar på alla testade plattformar
 \end{itemize}
+
+Under implementeringen av parallella nätverskanrop gjordes följande
+observationer:
+\begin{itemize}
+    \item Implementeringstid: uppskattningsvis under 1 timme (ingen exakt
+    tidlogg fördes)
+    \item Kodkomplexitet: Profil-sidan: +2 rader kod, Leaderboard-sidan: +4
+    rader kod
+    \item Bieffekter: Inga tydliga bieffekter observerades under testning
+    \item Kompatibilitet: Testad i Flutter + Firebase-miljö utan funktionsbortfall.
 
 Tabeller beskrivs med ett tabellhuvud ovanför tabellen enligt exemplet nedan (Se tabell \ref{tab:example}). AI hjälpmedel är helt okej på att assistera i att formatera dessa tabeller i \LaTeX~ om du vill formatera dem annorlunda.
 
