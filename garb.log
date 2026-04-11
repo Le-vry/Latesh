@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.10)  10 APR 2026 20:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.10)  11 APR 2026 17:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -925,29 +925,45 @@ Package microtype Info: Loading generic protrusion settings for font family
 [1{C:/Users/karlg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}{C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}
 
 
-{C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}{C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [2] [3]
+{C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}{C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 268.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 268.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 268.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
+ [2] [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 341.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 341.
 CUTED [- LAST -]
 Extra skip:0.0pt
-Left:160.0pt/2.81999pt
-Right:159.02094pt/0.0pt
-Split: 160.51047pt
-Output:160.51047pt
+Left:507.87796pt/2.81999pt
+Right:495.75592pt/0.0pt
+Split: 506.81694pt
+Output:506.81694pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
 @colht:650.43pt
-CUTED [output]: 160.51047pt
-CUTED [leftcolumn badness]: 2
-CUTED [rightcolumn badness]: 0
+CUTED [output]: 506.81694pt
+CUTED [leftcolumn badness]: 10
+CUTED [rightcolumn badness]: 12
+
+
+LaTeX Warning: Optional argument of \twocolumn too tall on page 4(2column).
+
+
+Overfull \vbox (6.12675pt too high) has occurred while \output is active []
+
+
+
+LaTeX Warning: Text page 4 contains only floats.
+
+
+Overfull \vbox (6.12675pt too high) has occurred while \output is active []
+
+ [4]
 CUTED [- LAST -]
 Extra skip:0.0pt
 Left:25.14297pt/26.81999pt
@@ -956,7 +972,7 @@ Split: 25.98148pt
 Output:25.98148pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
-@colht:350.17972pt
+@colht:650.43pt
 CUTED [output]: 25.98148pt
 CUTED [leftcolumn badness]: 1000000
 CUTED [rightcolumn badness]: 0
@@ -968,27 +984,16 @@ Split: 95.3715pt
 Output:95.3715pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
-@colht:184.45844pt
+@colht:484.70871pt
 CUTED [output]: 95.3715pt
 CUTED [leftcolumn badness]: 2
 CUTED [rightcolumn badness]: 0
+ [5
 
 
-LaTeX Warning: Optional argument of \twocolumn too tall on page 4(1column).
+] [6
 
-
-Overfull \vbox (62.41446pt too high) has occurred while \output is active []
-
-
-
-LaTeX Warning: Text page 4 contains only floats.
-
-
-Overfull \vbox (62.41446pt too high) has occurred while \output is active []
-
- [4] [5
-
-] [6] (garb.bbl) [7] (garb.aux)
+] [7] (garb.bbl) [8] (garb.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -998,20 +1003,20 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `garb.out' has not changed.
-(rerunfilecheck)             Checksum: 49C691BD2C453C497ADE8271A5DA15AB;4706.
+(rerunfilecheck)             Checksum: 82381769C013C20B3CB60F3EB6B0AB80;4969.
  ) 
 Here is how much of TeX's memory you used:
- 41659 strings out of 467867
- 986078 string characters out of 5418334
- 1542863 words of memory out of 5000000
- 69623 multiletter control sequences out of 15000+600000
- 715901 words of font info for 214 fonts, out of 8000000 for 9000
+ 41666 strings out of 467867
+ 986187 string characters out of 5418334
+ 1548863 words of memory out of 5000000
+ 69626 multiletter control sequences out of 15000+600000
+ 716621 words of font info for 217 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,12n,121p,1048b,907s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm7.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on garb.pdf (7 pages, 291289 bytes).
+<C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm7.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/karlg/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on garb.pdf (8 pages, 306728 bytes).
 PDF statistics:
- 304 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 45933 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 55 named destinations out of 1000 (max. 500000)
+ 45941 words of extra memory for PDF output out of 51595 (max. 10000000)
 

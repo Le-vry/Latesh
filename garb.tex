@@ -122,10 +122,10 @@ att en sida initieras till att allt innehåll är renderat och interaktivt.
 I nätverksberoende applikationer är laddningstiden beroende av den tid det 
 tar att överföra data mellan klient och server.
 
-Denna överföringstid påverkas av nätverkslatens, vilket enligt~\cite{kurose2021} 
+Denna överföringstid påverkas av nätverkslatens, vilket
 motsvarar den totala end-to-end-fördröjningen i nätverket. Denna fördröjning 
 består av flera komponenter, inklusive processerings-, kö-, transmissions- 
-och propageringsfördröjningar.
+och propageringsfördröjningar.~\cite{kurose2021} 
 
 Utöver latens påverkas laddningstiden även av hur många nätverksanrop som 
 krävs samt hur dessa organiseras. Varje enskilt anrop medför en ytterligare 
@@ -143,12 +143,45 @@ parallellt begränsas den totala väntetiden teoretiskt av det långsammaste
 enskilda anropets svarstid.
 \subsubsection{Asynkron programering i Dart}
 
+Asynkron programmering i Dart görs med klassen \texttt{Future} vilket
+representerar ett potentiellt värde eller error som kommer att vara tillgängligt
+i framtiden. \texttt{Future} kan skapas genom att använda \texttt{async} och \texttt{await} eller genom att direkt skapa en \texttt{Future} med hjälp av dess konstruktor.~\cite{dart_async} För att hantera flera oberoende \texttt{Future}-objekt kan man använda \texttt{Future.wait()}, som tar en lista av \texttt{Future}-objekt och returnerar en ny \texttt{Future} som fullföljs när alla ingående \texttt{Future}-objekt har fullföljts, och som innehåller en lista av resultaten i samma ordning som de ingående \texttt{Future}-objekten~\cite{dart_future_wait}.
 \subsubsection{Flutter och Firebase}
+\textbf{Flutter}: Flutter är Googles gratis och open-source UI-ramverk för att
+bygga nativt kompilerade applikationer för mobil, webb och desktop från en enda
+kodbas.~\cite{flutter_faq}\\[0.3\baselineskip]
+\textbf{Firebase}: Firebase är en plattform för mobil- och webbapplikationsutveckling som erbjuder en rad tjänster, inklusive realtidsdatabaser, autentisering och hosting.~\cite{firebase_docs} De specifika tjänster som används i Neatify är Firestore, en NoSQL-databas som möjliggör skalbar och flexibel datalagring, och Firebase Authentication för att hantera användarautentisering.~\cite{firestore_docs}~\cite{firebase_auth_docs}
 
-\begin{itemize}
-    \item \textbf{Flutter}: Flutter är Googles gratis och open-source UI-ramverk för att bygga nativt kompilerade applikationer för mobil, webb och desktop från en enda kodbas.~\cite{flutter_faq}
-    \item \textbf{Firebase}: Firebase är en plattform för mobil- och webbapplikationsutveckling som erbjuder en rad tjänster, inklusive realtidsdatabaser, autentisering och hosting.~\cite{firebase_docs} De specifika tjänster som används i Neatify är Firestore, en NoSQL-databas som möjliggör skalbar och flexibel datalagring, och Firebase Authentication för att hantera användarautentisering.~\cite{firestore_docs}~\cite{firebase_auth_docs}
-\end{itemize}
+\subsubsection{Statistiska mått i hypotesprövningen}
+I denna studie används ett parat Wilcoxon signed-rank-test för att jämföra
+sekventiell och parallell implementation. I analyskoden beräknas differensen
+som $d_i = \text{sekventiell}_i - \text{parallell}_i$ och testet körs med
+\texttt{alternative='greater'}. Noll-differenser exkluderas
+(\texttt{zero\_method='wilcox'}).
+
+Den rapporterade \textit{W-statistiken} i denna studie motsvarar summan av
+ranger för positiva differenser, det vill säga
+\[
+W = W^{+} = \sum \text{rang}(|d_i|)\ \text{för}\ d_i > 0.
+\]
+Ett högt $W$ innebär att många och/eller stora positiva differenser förekommer,
+vilket innebär att observationerna i hög grad ligger i den riktning som
+definieras av den positiva differensen. Eftersom testet är ensidigt
+(``greater'') prövas nollhypotesen mot en riktad alternativ hypotes i denna
+riktning.
+
+Som effektstorlek används rangbiseriell korrelation, $r_{rb}$, som beskriver
+styrkan och riktningen på skillnaden i den parade jämförelsen. Den kan skrivas
+som
+\[
+r_{rb} = \frac{W^{+} - W^{-}}{W^{+} + W^{-}},
+\]
+där $W^{+}$ är summan av positiva ranger och $W^{-}$ summan av negativa ranger
+för de icke-noll differenserna. Måttet varierar mellan $-1$ och $1$, där
+värden nära $1$ indikerar en stark
+fördel för den parallella implementationen (kortare laddtider), värden nära
+$-1$ indikerar motsatsen, och värden nära $0$ indikerar liten eller ingen
+systematisk skillnad.
 
 %Kolla igenom det finns mer teori som är relevant att ta med, t.ex. om asynkron programmering i Dart, eller om nätverkslatens och dess påverkan på användarupplevelse.
 
@@ -182,7 +215,9 @@ skalbarhet genom att dela upp operationer i samtidiga deluppgifter~\cite{zhu2025
 
 \section{Metod}
 
-
+Detta avsnitt beskriver hur mätningarna genomfördes, 
+hur förbättringen implementerades samt hur den statistiska 
+analysen utfördes.
 
 \subsection{Implementering av förbättring}
 
@@ -215,9 +250,10 @@ kombination med detta test-script kopierades de två relevanta sidorna,
 parallella implementeringen för att kunna köra ett alternerande mönster av
 mätningar, där jämna mätningspar kördes med den sekventiella versionen först och
 udda mätningspar kördes med den parallella versionen först, för att minimera
-påverkan av nätverksvariation på resultaten. Med test-scriptet gjordes 30
-mätningar av vardera sida för både den sekventiella och parallella versionen,
-vilket ger en total av 120 mätta warm-laddningstider.
+påverkan av nätverksvariation på resultaten då de på så sätt kommer att köras
+med mer konsistenta förhållanden till varandra utan bias för vilken som körs
+först. Med test-scriptet gjordes 30 mätningar för varje sida och kördes sedan
+fem gånger, vilket resulterade i en total mängd av 150 warm-mätningar.
 
 För att säkerställa att mätningarna var så stabila som möjligt, så kördes alla
 mätningar i en kontrollerad miljö där inga andra program var igång och där
@@ -226,11 +262,13 @@ en csv-fil för att sedan kunna analyseras med hjälp av Python och Matplotlib.
 
 Mätningarna upprepades med olika storlekar på databasen för att kunna
 utvärdera förbättringens effekt på olika belastningsnivåer. För att kunna
-bestämma databasens storlek användes ett seeding-script, skrivet i JavaScript
+kontrollera databasens storlek användes ett seeding-script, skrivet i JavaScript
 med Node.js, som genererade testdata för databasen i storlekarna 100, 500, 1000
 användare. För att säkerställa att databasen var samma, förutom för
-användarantalet, sattes alla andra fields till samma värde för alla mätningar.
-För varje databasstorlek antecknades både storleken och nätverkshastigheten för
+användarantalet, sattes alla andra \texttt{fields} till samma värde för alla mätningar.
+För varje databasstorlek antecknades både storleken och nätverkshastigheten, som
+togs fram med \texttt{Speedtest av Ookla} med servern satt till Bahnhof AB i
+Sundsvall (219 km bort), för
 att kunna kontrollera dessa faktorer i analysen.
 
 För alla mätningar användes en OnePlus 12R med Android 16 och OxygenOS 16.0.3
@@ -265,9 +303,21 @@ deletion, vilket innebär att endast kompletta par inkluderades i
 hypotesprövningen. Normalisering användes inte, eftersom den parade designen
 redan hanterar variationer mellan mätningar.
 
-Som beskrivande statistik rapporterades antal mätningar, medelvärde, median och spridningsmått för respektive sida och implementation. För hypotesprövning användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är beroende och laddtider kan vara snedfördelade samt innehålla avvikande mätningar. Testet genomfördes separat för \textit{Profile page} och \textit{Leaderboard page} för att undvika att sidspecifika beteenden sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05$ och den statistiska prövningen kompletterades med en bedömning av praktisk signifikans baserad på observerade skillnader i millisekunder.
+Som beskrivande statistik rapporterades antal mätningar, medelvärde,
+standardavikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för respektive sida och implementation. För hypotesprövning
+användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är
+beroende och laddtider kan vara snedfördelade samt innehålla avvikande
+mätningar. Testet genomfördes separat för \textit{Profile page} och
+\textit{Leaderboard page} för att undvika att sidspecifika beteenden
+sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05$
+och den statistiska prövningen kompletterades med en bedömning av praktisk
+signifikans baserad på observerade skillnader i millisekunder.
 
 \section{Resultat}
+
+I detta avsnitt presenteras resultaten från mätningarna av både sekventiella och
+parallella anrop men även resultaten från den statistiska analysen av
+skillnaderna mellan de två implementationsstrategierna. Resultaten är uppdelade efter databasstorlek och sida, och inkluderar både beskrivande statistik och inferentiella testresultat.
 
 \subsection{Mätningar av sekventiella anrop}
 
@@ -281,7 +331,7 @@ både profil- och leaderboard-sidorna.
 \end{minipage}
 %%%Dessa data ger en grundläggande förståelse för prestandan hos de sekventiella anropen innan förbättringen implementerades.
 
-\vspace*{2.0\baselineskip}
+\vspace*{1.0\baselineskip}
 
 \begin{strip}
   \centering
@@ -442,14 +492,19 @@ observationer:
 I denna del ska du diskutera och utvärdera dina resultat i relation till syftet
 och frågeställningarna.
 
-
+I detta avsnitt diskuteras resultatet av förbättringen i laddningstider efter
+implementering av parallella nätverksanropen i Neatify, med fokus på dess
+effektivitet, påverkan av databasstorlek och nätverkslatens, samt dess
+lämplighet i kontexten av en Flutter- och Firebase-baserad applikation. Vidare diskuteras metodens lämplighet, begränsningar och de praktiska implikationerna av resultaten.
 
 \subsection{Utvärdering av förbättringens effektivitet}
 
 De uppmätta förbättringarna i Tabell~\ref{tab:comparison} visar att den absoluta
 förbättringen i laddningstid var mellan 102.95 ms och 219.35 ms, vilket
 motsvarar en relativ förbättring på mellan 18.28\% och 31.34\% beroende på
-databasstorlek och sida. Dessa förbättringar är inte bara statistiskt
+databasstorlek och sida. Effektstorlekarna i den tabellen indikerar även att
+förbättringen var mycket stark, med $r_{rb}$-värden i intervallet 0.960 till 1.000, vilket tyder på att skillnaden i laddningstid mellan sekventiella och parallella anrop var både stor och konsekvent i den riktning som gynnar parallellisering.
+Dessa förbättringar är inte bara statistiskt
 signifikanta, som visas i Tabell~\ref{tab:wilcoxon}, utan också praktiskt
 betydelsefulla, särskilt i kontexten av mobilapplikationer där användare är
 känsliga för laddningstider. Även om laddtiderna höll sig under den kritiska
