@@ -67,7 +67,7 @@ I/O-operationer är avgörande för systemets prestanda~\cite{arpaci2018operatin
 Produkten som studeras är mobilapplikationen \textit{Neatify}, utvecklad med
 ramverket Flutter och med Firebase Firestore som databashanteringssystem.
 Flutter möjliggör plattformsoberoende utveckling där applikationslogik skrivs i
-programmeringsspråket Dart~\cite{dart_lang}.
+programmeringsspråket Dart~\cite{dart_language}.
 
 Neatify syftar till att förbättra användarens produktivitet genom
 spelifiering, där användaren motiveras att utveckla positiva beteenden genom
@@ -80,7 +80,6 @@ dessa vyer utförs flera oberoende nätverksanrop. Särskilt sidorna
 anrop och utgör därför fokus för denna rapport.
 
 \subsection{Förbättringsmetod}
-\label{sec:forbattringsmetod}
 
 Den metod som undersöks för att förbättra laddningstiderna i Neatify är
 parallellisering av nätverksanrop med hjälp av \texttt{Future.wait()} i Dart.
@@ -142,6 +141,8 @@ av varje enskilt anrops svarstid. Genom att istället initiera oberoende anrop
 parallellt begränsas den totala väntetiden teoretiskt av det långsammaste 
 enskilda anropets svarstid.
 \subsubsection{Asynkron programering i Dart}
+\label{sec:Future_wait}
+
 
 Asynkron programmering i Dart görs med klassen \texttt{Future} vilket
 representerar ett potentiellt värde eller error som kommer att vara tillgängligt
@@ -224,7 +225,7 @@ analysen utfördes.
 Implementeringen av förbättringen bestod av att ersätta de sekventiella 
 Firestore-anropen på \textit{Profile page} och \textit{Leaderboard page} med 
 parallella anrop med hjälp av Darts \texttt{Future.wait()}, vars funktion 
-beskrivs närmare i avsnitt~\ref{sec:forbattringsmetod}.
+beskrivs närmare i avsnitt~\ref{sec:Future_wait}.
 
 Förändringen genomfördes uteslutande i de delar av koden som hanterar 
 datahämtning vid sidladdning, utan ändringar i UI-logik, datamodeller eller 
@@ -285,7 +286,7 @@ kopior av sidorna med sekventiella anrop. Men den innehåller även seeding- och
 test-scriptet. Dock kräver seeding-scriptet ett service account med behörighet
 att skriva till Firestore, vilket av säkerhetsskäl inte kan inkluderas i det
 publika Git-repot. Av denna anledning behöver en reproducerare av studien skapa
-ett egnet firebase-projekt, generera en egen serviceAccountKey.json och köra
+ett eget firebase-projekt, generera en egen serviceAccountKey.json och köra
 seeding-scriptet för att återskapa en funktionellt identisk testmiljö.
 Instruktioner för detta finns dokumenterade i repots README på branch
 \texttt{parallel-db}.
@@ -304,7 +305,7 @@ hypotesprövningen. Normalisering användes inte, eftersom den parade designen
 redan hanterar variationer mellan mätningar.
 
 Som beskrivande statistik rapporterades antal mätningar, medelvärde,
-standardavikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för respektive sida och implementation. För hypotesprövning
+standardavvikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för respektive sida och implementation. För hypotesprövning
 användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är
 beroende och laddtider kan vara snedfördelade samt innehålla avvikande
 mätningar. Testet genomfördes separat för \textit{Profile page} och
@@ -439,7 +440,7 @@ och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
 
 \noindent
 \begin{minipage}[t]{\columnwidth}
-Med den statiska analysen med Wilcoxon signed-rank test 
+Med den statistiska analysen med Wilcoxon signed-rank test 
 %%%Koppla till metod + utöka möjligen
 kunde p-värden bestämmas för de olika databasstorlekarna och sidorna.
 \end{minipage}
@@ -475,7 +476,7 @@ tröskeln på 0.05.
 
 \subsection{Implementeringsanalys}
 
-Under implementeringen av parallella nätverskanrop gjordes följande
+Under implementeringen av parallella nätverksanrop gjordes följande
 observationer:
 \begin{itemize}
     \item Implementeringstid: uppskattningsvis under 1 timme (ingen exakt
@@ -532,7 +533,7 @@ tillräckligt mycket för att möjliggöra en sådan analys.
 Parallellisering av nätverksanrop gav tydliga prestandaförbättringar i form av
 kortare laddningstider och därmed en bättre användarupplevelse i Neatify.
 Metoden krävde endast begränsade kodändringar och påverkade inte applikationens
-funktionalitet eller stabilitet. Samtidigt förutsättet metoden att
+funktionalitet eller stabilitet. Samtidigt förutsätter metoden att
 nätverksanropen är oberoende, och den kan göra felhantering något mer komplex,
 vilket är en viktig aspekt att överväga i mer komplexa applikationer än Neatify. 
 

@@ -13,6 +13,12 @@ Remzi~H Arpaci-Dusseau and Andrea~C Arpaci-Dusseau.
 \newblock {\em Operating systems: Three easy pieces}, volume~1.
 \newblock Arpaci-Dusseau Books, LLC Madison, WI, USA, 2018.
 
+\bibitem{dart_language}
+{Dart}.
+\newblock Introduction to dart.
+\newblock \url{https://dart.dev/language}, 2025.
+\newblock Accessed: 2026-04-04.
+
 \bibitem{dart_future_wait}
 {Dart}.
 \newblock Future.wait.
