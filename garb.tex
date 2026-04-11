@@ -10,9 +10,9 @@
 \date{}
 
 % make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{\Large \bfseries Är paralella databas kallningar en metod för att förbättra inladningstider för en flutter/firebase mobilapp?}
+\title{Är paralella databas kallningar en metod för att förbättra inladningstider för en flutter/firebase mobilapp?}
 
-\author{{\rm Jonthan Karlgren, Elliot Lidman} \\
+\author{{\rm Jonathan Karlgren, Elliot Lidman} \\
 \textit{Teknikprogrammet} \\
 \textit{Maja Beskowgymnasiet}\\
 {\rm Umeå, Sverige}}
@@ -20,19 +20,26 @@
 \maketitle
 
 \begin{abstract}
-This study investigates the effectiveness of parallel database calls as a method for improving loading times in a Flutter/Firebase mobile application. 
-Measurements were conducted on a sample mobile app before and after implementation of parallel database calls, with a total of 124 measurments, ensuring statistical validity. 62 measurements were taken before the changes and 62 after, having a test operation code perform a series of page loading calls between two pages of the app.
 
-
-The abstract is written in English. Focus on your improvement study: what product feature (X) you measured, what method (Y) you used to improve it, and what your specific product (Z) was. Include your key findings - was method Y effective for improving X on your product type Z?
-
-Your abstract should:
-\begin{itemize}
-    \item consist of a single paragraph of 150-250 words, with correct grammar and unambiguous terminology;
-    \item be self-contained with no abbreviations, footnotes, references, or mathematical equations;
-    \item highlight the practical implications of your improvement study;
-    \item mention your research question, measurement methodology, key results, and conclusions about the effectiveness of your improvement method.
-\end{itemize}
+This study investigates the effectiveness of parallel
+database calls as a method for improving loading times
+in a Flutter/Firebase mobile application. Measurements
+were conducted on a sample mobile app before and after
+implementation of parallel database calls, with a focus on loading times as the
+key performance metric. The measurements were performed under controlled
+conditions, with a total of 150 datapoints each for the profile and leaderboard
+pages. These tests were performed with varying database sizes (100, 500, 1000
+users) to evaluate the method's effectiveness under different load conditions.
+The results indicate a significant reduction in loading times after the
+implementation of parallel database calling with the improvent being in the
+range of 102 ms to 219 ms depending on the page with an observed
+improvement between 18\% and 31\% depending on the page and database size.
+Statiscal analasys shows that the improvement is statistically significant for
+both pages, with no notable deviations in relation to database size.
+These findings suggest that parallel database calls can be an effective method
+for improving loading times in flutter/firebase mobile applications. The results
+should however be interpreted with caution, as the study was conducted on a
+single application and under specific conditions. Further research is needed to generalize these findings to other applications and contexts.
 \end{abstract}
 
 \selectlanguage{swedish}
@@ -122,6 +129,90 @@ Din metod ska följa en tydlig före/efter-struktur för att kunna utvärdera di
 
 \textbf{Initial mätning → Implementering → Utvärderingsmätning → Analys}
 
+\subsection{Implementering av förbättring}
+
+Beskriv steg-för-steg hur du implementerar metod Y:
+
+\begin{enumerate}
+    \item Detaljerad beskrivning av varje implementeringssteg
+    \item Konfigurationsparametrar och deras motivering
+    \item Testning av implementering innan fullskalig utvärdering
+    \item Dokumentation av förändringar genom versionshantering
+\end{enumerate}
+
+\textbf{Kvalitetskontroll:}
+\begin{itemize}
+    \item Verifiering att implementeringen fungerar som förväntat
+    \item Kontroll att inga oavsiktliga bieffekter har introducerats
+    \item Testning av edge-cases och felhantering
+\end{itemize}
+
+Implementeringen av förbättringen bestod av att ersätta de sekventiella 
+Firestore-anropen på \textit{Profile page} och \textit{Leaderboard page} med 
+parallella anrop med hjälp av Darts \texttt{Future.wait()}, vars funktion 
+beskrivs närmare i avsnitt \ref{sec:forbattringsmetod}.
+
+Förändringen genomfördes uteslutande i de delar av koden som hanterar 
+datahämtning vid sidladdning, utan ändringar i UI-logik, datamodeller eller 
+övrig applikationslogik, för att säkerställa att eventuella skillnader i 
+mätresultaten kan tillskrivas enbart den parallella exekveringen. Implementationen 
+versionshanterades i branch \texttt{parallel-db}, isolerad från den ursprungliga 
+koden i \texttt{staging}.
+
+Innan de fullskaliga utvärderingsmätningarna genomfördes verifierades 
+implementeringen manuellt genom att navigera till de berörda sidorna och 
+bekräfta att all data laddades korrekt och att sidorna renderades som förväntat 
+efter övergången till parallell exekvering.
+
+\subsection{Genomförande av mätningar}
+
+För att kunna besvara frågeställningen togs ett test-script, som använder
+Flutters \texttt{IntegrationTestWidgetsFlutterBinding} med en initial cold-boot
+för varje sida där firestores caching är inaktiverat, fram för att snabbt och
+enkelt kunna köra flera mätningar av laddningstider, som mäts från att sidan
+öppnas till att allt innehåll på sidan är renderat och interaktivt. I
+kombination med detta test-script kopierades de två relevanta sidorna,
+\textit{Profile page} och \textit{Leaderboard page}, till samma branch som den
+parallella implementeringen för att kunna köra ett alternerande mönster av
+mätningar, där jämna mätningspar kördes med den sekventiella versionen först och
+udda mätningspar kördes med den parallella versionen först, för att minimera
+påverkan av nätverksvariation på resultaten. Med test-scriptet gjordes 30
+mätningar av vardera sida för både den sekventiella och parallella versionen,
+vilket ger en total av 120 mätta warm-laddningstider.
+
+För att säkerställa att mätningarna var så stabila som möjligt, så kördes alla
+mätningar i en kontrollerad miljö där inga andra program var igång och där
+telefonen inte användes under mätningarna. Tiderna från mätningarna loggades i
+en csv-fil för att sedan kunna analyseras med hjälp av Python och Matplotlib. 
+
+Mätningarna upprepades med olika storlekar på databasen för att kunna
+utvärdera förbättringens effekt på olika belastningsnivåer. För att kunna
+bestämma databasens storlek användes ett seeding-script, skrivet i JavaScript
+med Node.js, som genererade testdata för databasen i storlekarna 100, 500, 1000
+användare. För att säkerställa att databasen var samma, förutom för
+användarantalet, sattes alla andra fields till samma värde för alla mätningar.
+För varje databasstorlek antecknades både storleken och nätverkshastigheten för
+att kunna kontrollera dessa faktorer i analysen.
+
+För alla mätningar användes en OnePlus 12R med Android 16 och OxygenOS 16.0.3
+som testenhet. Testenheten var ansluten till en stabil Wi-Fi-anslutning och hade
+alla onödiga bakgrundsprocesser stängda för att minimera störningar. För att
+säkerställa att resultaten var så tillförlitliga som möjligt, så genomfördes
+alla mätningar under liknande förhållanden, inklusive tid på dagen och
+batterinivå. 
+
+För att säkerställa reproducerbarhet och transparens dokumenterades den exakta
+kodstatusen som användes under de initiala mätningarna via Git. Branch
+\texttt{parallell-db} innehåller den parallella implementationen tillsammans med
+kopior av sidorna med sekventiella anrop. Men den innehåller även seeding- och
+test-scriptet. Dock kräver seeding-scriptet ett service account med behörighet
+att skriva till Firestore, vilket av säkerhetsskäl inte kan inkluderas i det
+publika Git-repot. Av denna anledning behöver en reproducerare av studien skapa
+ett eget firebase-projekt, generera en egen serviceAccountKey.json och köra
+seeding-scriptet för att återskapa en funktionellt identisk testmiljö.
+Instruktioner för detta finns dokumenterade i repots README på branch
+\texttt{parallel-db}.
+
 \subsection{Initial mätning (före förbättring)}
 
 Beskriv exakt hur du mäter egenskap X på din ursprungliga produkt Z:
@@ -148,35 +239,22 @@ Beskriv exakt hur du mäter egenskap X på din ursprungliga produkt Z:
     \item Backup av testmiljö och data
 \end{itemize}
 
-\subsection{Implementering av förbättring}
-
-Beskriv steg-för-steg hur du implementerar metod Y:
-
-\begin{enumerate}
-    \item Detaljerad beskrivning av varje implementeringssteg
-    \item Konfigurationsparametrar och deras motivering
-    \item Testning av implementering innan fullskalig utvärdering
-    \item Dokumentation av förändringar genom versionshantering
-\end{enumerate}
-
-\textbf{Kvalitetskontroll:}
-\begin{itemize}
-    \item Verifiering att implementeringen fungerar som förväntat
-    \item Kontroll att inga oavsiktliga bieffekter har introducerats
-    \item Testning av edge-cases och felhantering
-\end{itemize}
-
-\subsection{Utvärderingsmätning (efter förbättring)}
-
-Beskriv hur du mäter egenskap X efter implementering av Y:
-\begin{itemize}
-    \item Identiska mätmetoder som vid mätandet av initiala versionen
-    \item Samma antal mätningar och förhållanden
-    \item Dokumentation av den förbättrade versionen
-    \item Tidpunkt för mätningar relativt implementering
-\end{itemize}
+\subsection{Statistisk analys}
 
 \subsection{Statistisk analys}
+
+Den statistiska analysen utgick från att varje mätning av den sekventiella implementationen matchades mot motsvarande mätning av den parallella implementationen för samma sida, iteration och databasstorlek. Analysen genomfördes därför som en parad jämförelse, där skillnaden i laddtid definierades som sekventiell minus parallell laddtid. Positiva differenser indikerar därmed kortare laddtid för parallella anrop.
+
+Inför analysen exkluderades cold-boot-mätningar från den inferentiella
+jämförelsen, eftersom dessa i hög grad påverkas av initialisering och
+cache-relaterade uppstartseffekter och därmed inte speglar den stabila
+laddningsprestandan vid återkommande sidvisningar. Den primära analysen
+baserades i stället på warm-mätningar. Saknade värden hanterades med pairwise
+deletion, vilket innebär att endast kompletta par inkluderades i
+hypotesprövningen. Normalisering användes inte, eftersom den parade designen
+redan hanterar variationer mellan mätningar.
+
+Som beskrivande statistik rapporterades antal mätningar, medelvärde, median och spridningsmått för respektive sida och implementation. För hypotesprövning användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är beroende och laddtider kan vara snedfördelade samt innehålla avvikande mätningar. Testet genomfördes separat för \textit{Profile page} och \textit{Leaderboard page} för att undvika att sidspecifika beteenden sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05$ och den statistiska prövningen kompletterades med en bedömning av praktisk signifikans baserad på observerade skillnader i millisekunder.
 
 \textbf{Databehandling:}
 \begin{itemize}
@@ -192,6 +270,8 @@ Beskriv hur du mäter egenskap X efter implementering av Y:
     \item Signifikansnivå ($\alpha = 0.05$)
     \item Effektstorlek och praktisk signifikans
 \end{itemize}
+
+
 
 \yellownote{\textbf{Tänk på:} Metodsektionen skall vara beskriven såpass noggrant att arbetet går att replikeras.}
 
