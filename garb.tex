@@ -28,7 +28,8 @@ in a Flutter/Firebase mobile application. Measurements
 were conducted on a sample mobile app with interleaved testing of both parallel and sequential network calls, with a focus on loading times as the
 key performance metric. The measurements were performed under controlled
 conditions, with a total of 150 datapoints each for the profile and leaderboard
-pages. These tests were performed with varying database sizes (100, 500, 1000
+pages. %Lägg till att det är per db storlek
+These tests were performed with varying database sizes (100, 500, 1000
 users) to evaluate the method's effectiveness under different load conditions.
 The results indicate a significant reduction in loading times after the
 implementation of parallel database calling with the improvent being in the
@@ -98,7 +99,7 @@ till en naturlig strategi för att reducera latens.
 
 \subsection{Syfte och frågeställning}
 
-Syftet med denna rapport är att empiriskt utvärdera effekten av parallellisering av nätverksanrop i Flutter- och Firebase-baserade mobilapplikationer, med fokus på laddningstider i applikationen Neatify. Utvärderingen avgränsas till sidorna \textit{Profile} och \textit{Leaderboard}, där laddningstid mäts med median och p95.
+Syftet med denna rapport är att empiriskt utvärdera effekten av parallellisering av nätverksanrop i Flutter- och Firebase-baserade mobilapplikationer, med fokus på laddningstider i applikationen Neatify. Utvärderingen avgränsas till sidorna \textit{Profile} och \textit{Leaderboard}, där laddningstid mäts med medelvärde och p95.
 
 \textbf{Huvudfrågeställning:}
 \begin{itemize}
@@ -108,7 +109,7 @@ lämplig metod för att förbättra laddningstider i en Flutter- och Firebase-ba
 
 \textbf{Stödjande frågeställningar:}
 \begin{itemize}
-    \item Hur stor förbättring av laddningstider (median och p95) uppnås efter implementering av parallellisering av nätverksanrop på sidorna \textit{Profile} och \textit{Leaderboard}?
+    \item Hur stor förbättring av laddningstider (medelvärde och p95) uppnås efter implementering av parallellisering av nätverksanrop på sidorna \textit{Profile} och \textit{Leaderboard}?
     \item Hur påverkas resultatet av databasstorlek och den nätverkslatens som observerades under mätningarna?
     \item Är förbättringen statistiskt signifikant och praktiskt relevant?
 \end{itemize}
@@ -129,7 +130,7 @@ motsvarar den totala end-to-end-fördröjningen i nätverket. Denna fördröjnin
 består av flera komponenter, inklusive processerings-, kö-, transmissions- 
 och propageringsfördröjningar.~\cite{kurose2021} 
 
-Utöver latens påverkas laddningstiden även av hur många nätverksanrop som 
+Utöver nätverkslatens påverkas laddningstiden även av hur många nätverksanrop som 
 krävs samt hur dessa organiseras. Varje enskilt anrop medför en ytterligare 
 fördröjning, vilket innebär att flera sekventiella anrop kan leda till att 
 fördröjningarna ackumuleras.
