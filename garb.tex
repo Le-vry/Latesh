@@ -22,21 +22,25 @@
 \maketitle
 
 \begin{abstract}
-The abstract is written in English. Focus on your improvement study: what
-product feature (X) you measured, what method (Y) you used to improve it, and
-what your specific product (Z) was. Include your key findings --- was method Y
-effective for improving X on your product type Z?
 
-Your abstract should:
-\begin{itemize}
-    \item consist of a single paragraph of 150--250 words, with correct grammar
-    and unambiguous terminology;
-    \item be self-contained with no abbreviations, footnotes, references, or
-    mathematical equations;
-    \item highlight the practical implications of your improvement study;
-    \item mention your research question, measurement methodology, key results,
-    and conclusions about the effectiveness of your improvement method.
-\end{itemize}
+This study investigates the effectiveness of parallel
+database calls as a method for improving loading times
+in a Flutter/Firebase mobile application. Measurements
+were conducted on a sample mobile app with interleaved testing of both parallel and sequential network calls, with a focus on loading times as the
+key performance metric. The measurements were performed under controlled
+conditions, with a total of 150 datapoints each for the profile and leaderboard
+pages. These tests were performed with varying database sizes (100, 500, 1000
+users) to evaluate the method's effectiveness under different load conditions.
+The results indicate a significant reduction in loading times after the
+implementation of parallel database calling with the improvent being in the
+range of 102 ms to 219 ms depending on the page with an observed
+improvement between 18\% and 31\% depending on the page and database size.
+Statiscal analasys shows that the improvement is statistically significant for
+both pages, with no notable deviations in relation to database size.
+These findings suggest that parallel database calls can be an effective method
+for improving loading times in flutter/firebase mobile applications. The results
+should however be interpreted with caution, as the study was conducted on a
+single application and under specific conditions. Further research is needed to generalize these findings to other applications and contexts.
 \end{abstract}
 
 \selectlanguage{swedish}
@@ -294,6 +298,24 @@ Instruktioner för detta finns dokumenterade i repots README på branch
 \subsection{Statistisk analys}
 
 Den statistiska analysen utgick från att varje mätning av den sekventiella implementationen matchades mot motsvarande mätning av den parallella implementationen för samma sida, iteration och databasstorlek. Analysen genomfördes därför som en parad jämförelse, där skillnaden i laddtid definierades som sekventiell minus parallell laddtid. Positiva differenser indikerar därmed kortare laddtid för parallella anrop.
+
+Inför analysen exkluderades cold-boot-mätningar från den inferentiella
+jämförelsen, eftersom dessa i hög grad påverkas av initialisering och
+cache-relaterade uppstartseffekter och därmed inte speglar den stabila
+laddningsprestandan vid återkommande sidvisningar. Den primära analysen
+baserades i stället på warm-mätningar. Saknade värden hanterades med pairwise
+deletion, vilket innebär att endast kompletta par inkluderades i
+hypotesprövningen. Normalisering användes inte, eftersom den parade designen
+redan hanterar variationer mellan mätningar.
+
+Som beskrivande statistik rapporterades antal mätningar, medelvärde, median och spridningsmått för respektive sida och implementation. För hypotesprövning användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är beroende och laddtider kan vara snedfördelade samt innehålla avvikande mätningar. Testet genomfördes separat för \textit{Profile page} och \textit{Leaderboard page} för att undvika att sidspecifika beteenden sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05$ och den statistiska prövningen kompletterades med en bedömning av praktisk signifikans baserad på observerade skillnader i millisekunder.
+
+\textbf{Databehandling:}
+\begin{itemize}
+    \item Uteslutningskriterier för avvikande mätvärden
+    \item Hantering av saknade data
+    \item Normaliseringsmetoder (om tillämpligt)
+\end{itemize}
 
 Inför analysen exkluderades cold-boot-mätningar från den inferentiella
 jämförelsen, eftersom dessa i hög grad påverkas av initialisering och
