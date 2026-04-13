@@ -142,7 +142,7 @@
    \end{tabular}\par}%
  \end{center}%
  \par
-  \vskip 5em
+  \vskip 1.2em
  
 }
 
@@ -150,6 +150,19 @@
 {0.7ex plus 1ex minus 0ex}{\normalfont\large\scshape}}%
 \def\subsection{\@startsection{subsection}{2}{\z@}{1.5ex plus 1.5ex minus 0.5ex}%
 {0.7ex plus .5ex minus 0ex}{\normalfont\large\scshape}}%
+
+% Match abstract heading/body spacing to regular section behavior in two-column mode.
+\renewenvironment{abstract}
+  {\if@twocolumn
+     \section*{\abstractname}%
+   \else
+     \small
+     \begin{center}%
+       {\bfseries \abstractname\vspace{-.5em}\vspace{\z@}}%
+     \end{center}%
+     \quotation
+   \fi}
+  {\if@twocolumn\else\endquotation\fi}
 
 
 %textmarker style from colorbox doc
