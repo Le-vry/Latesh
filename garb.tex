@@ -71,7 +71,7 @@ I/O-operationer är avgörande för systemets prestanda~\cite{arpaci2018operatin
 Produkten som studeras är mobilapplikationen \textit{Neatify}, utvecklad med
 ramverket Flutter och med Firebase Firestore som databashanteringssystem.
 Flutter möjliggör plattformsoberoende utveckling där applikationslogik skrivs i
-programmeringsspråket Dart~\cite{dart_language}.
+programmeringsspråket Dart~\cite{flutter_faq}.
 
 Neatify syftar till att förbättra användarens produktivitet genom
 spelifiering, där användaren motiveras att utveckla positiva beteenden genom
@@ -308,24 +308,6 @@ deletion, vilket innebär att endast kompletta par inkluderades i
 hypotesprövningen. Normalisering användes inte, eftersom den parade designen
 redan hanterar variationer mellan mätningar.
 
-Som beskrivande statistik rapporterades antal mätningar, medelvärde, median och spridningsmått för respektive sida och implementation. För hypotesprövning användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är beroende och laddtider kan vara snedfördelade samt innehålla avvikande mätningar. Testet genomfördes separat för \textit{Profile page} och \textit{Leaderboard page} för att undvika att sidspecifika beteenden sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05$ och den statistiska prövningen kompletterades med en bedömning av praktisk signifikans baserad på observerade skillnader i millisekunder.
-
-\textbf{Databehandling:}
-\begin{itemize}
-    \item Uteslutningskriterier för avvikande mätvärden
-    \item Hantering av saknade data
-    \item Normaliseringsmetoder (om tillämpligt)
-\end{itemize}
-
-Inför analysen exkluderades cold-boot-mätningar från den inferentiella
-jämförelsen, eftersom dessa i hög grad påverkas av initialisering och
-cache-relaterade uppstartseffekter och därmed inte speglar den stabila
-laddningsprestandan vid återkommande sidvisningar. Den primära analysen
-baserades i stället på warm-mätningar. Saknade värden hanterades med pairwise
-deletion, vilket innebär att endast kompletta par inkluderades i
-hypotesprövningen. Normalisering användes inte, eftersom den parade designen
-redan hanterar variationer mellan mätningar.
-
 Som beskrivande statistik rapporterades antal mätningar, medelvärde,
 standardavvikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för respektive sida och implementation. För hypotesprövning
 användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är
@@ -457,6 +439,8 @@ och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
 \end{strip}
 
 
+\clearpage
+
 
 \subsection{Statistisk signifikans}
 
@@ -492,8 +476,7 @@ kunde p-värden bestämmas för de olika databasstorlekarna och sidorna.
 \noindent
 \begin{minipage}[t]{\columnwidth}
 Det resultat som presenteras i Tabell~\ref{tab:wilcoxon} visar att alla
-förbättringar är statistiskt signifikanta, med p-värden under den konventionella
-tröskeln på 0.05.
+förbättringar är statistiskt signifikanta, med p-värden under den valda tröskeln på 0.05.
 \end{minipage}
 
 \subsection{Implementeringsanalys}

@@ -13,11 +13,13 @@ Remzi~H Arpaci-Dusseau and Andrea~C Arpaci-Dusseau.
 \newblock {\em Operating systems: Three easy pieces}, volume~1.
 \newblock Arpaci-Dusseau Books, LLC Madison, WI, USA, 2018.
 
-\bibitem{dart_language}
-{Dart}.
-\newblock Introduction to dart.
-\newblock \url{https://dart.dev/language}, 2025.
-\newblock Accessed: 2026-04-04.
+\bibitem{flutter_faq}
+{Google}.
+\newblock Flutter faq.
+\newblock
+  \url{https://docs.flutter.dev/resources/faq#:~:text=Flutter%20is%20Google%27s%20portable%20UI,is%20free%20and%20open%20source.},
+  2026.
+\newblock Accessed: 2026-04-01.
 
 \bibitem{dart_future_wait}
 {Dart}.
@@ -35,14 +37,6 @@ Remzi~H Arpaci-Dusseau and Andrea~C Arpaci-Dusseau.
 James~F. Kurose and Keith~W. Ross.
 \newblock {\em Computer Networking: A Top-Down Approach}.
 \newblock Pearson, 8 edition, 2021.
-
-\bibitem{flutter_faq}
-{Google}.
-\newblock Flutter faq.
-\newblock
-  \url{https://docs.flutter.dev/resources/faq#:~:text=Flutter%20is%20Google%27s%20portable%20UI,is%20free%20and%20open%20source.},
-  2026.
-\newblock Accessed: 2026-04-01.
 
 \bibitem{firebase_docs}
 {Google}.
