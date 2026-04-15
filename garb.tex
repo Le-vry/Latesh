@@ -12,9 +12,9 @@
 \date{}
 
 % make title bold and 14 pt font (Latex default is non-bold, 16 pt)
-\title{Parallellisering av nätverksanrop i Flutter- och Firebase-baserade mobilapplikationer: En empirisk utvärdering av förbättring av laddningstider i Neatify}
+\title{Parallellisering av nätverksanrop i Flutter/Firebase applikationer}
 
-\author{{\rm Jonathan Karlgren och Elliot Lidman} \\
+\author{{\rm Jonathan Karlgren} \\ {\rm Elliot Lidman} \\
 \textit{Teknikprogrammet} \\
 \textit{Maja Beskowgymnasiet}\\
 {\rm Umeå, Sverige}}
@@ -41,7 +41,7 @@ Laddningstider utgör en central del av användarupplevelsen i moderna
 mobilapplikationer. Tidigare forskning visar att användare är mycket känsliga
 för även små fördröjningar; svarstider som överstiger en sekund bryter
 användarens tankegång, medan fördröjningar på tio sekunder eller mer markant
-ökar sannolikheten för att applikationen överges~\cite{nielsen1993response}. För
+ökar sannolikheten för att applikationen överges.~\cite{nielsen1993response} För
 datadrivna applikationer, där innehåll kontinuerligt hämtas från externa
 databaser, utgör nätverksanrop en betydande del av den totala laddningstiden.
 
@@ -50,7 +50,7 @@ struktureras i Flutter- och Firebase-baserade applikationer för att minimera
 latens. Detta skapar ett behov av att empiriskt undersöka hur olika
 implementationsstrategier påverkar laddningstider i praktiken. Inom
 systemdesign och operativsystem är det väl etablerat att effektiv hantering av
-I/O-operationer är avgörande för systemets prestanda~\cite{arpaci2018operating}. %Läs igenom och ta möjligtvis bort
+I/O-operationer är avgörande för systemets prestanda.~\cite{arpaci2018operating} %Läs igenom och ta möjligtvis bort
 
 %%% Bör ändra den här texten så att den endast beskriver egenskapen X, men
 %bibehålla strukturen + första källan. Kan även vara bra att kolla hur abstaktet
@@ -61,7 +61,7 @@ I/O-operationer är avgörande för systemets prestanda~\cite{arpaci2018operatin
 Produkten som studeras är mobilapplikationen \textit{Neatify}, utvecklad med
 ramverket Flutter och med Firebase Firestore som databashanteringssystem.
 Flutter möjliggör plattformsoberoende utveckling där applikationslogik skrivs i
-programmeringsspråket Dart~\cite{flutter_faq}.
+programmeringsspråket Dart.~\cite{flutter_faq}
 
 Neatify syftar till att förbättra användarens produktivitet genom
 spelifiering, där användaren motiveras att utveckla positiva beteenden genom
@@ -79,10 +79,10 @@ Den metod som undersöks för att förbättra laddningstiderna i Neatify är
 parallellisering av nätverksanrop med hjälp av \texttt{Future.wait()} i Dart.
 Istället för att exekvera oberoende anrop sekventiellt, där varje anrop väntar
 på att det föregående ska slutföras, initieras samtliga anrop samtidigt och
-applikationen inväntar deras gemensamma resultat innan rendering sker~\cite{dart_future_wait}.
+applikationen inväntar deras gemensamma resultat innan rendering sker.~\cite{dart_future_wait}
 
 Metoden bygger på principer inom asynkron programmering, där oberoende
-I/O-operationer kan initieras parallellt för att minska den totala väntetiden~\cite{dart_async}. Detta angreppssätt är teoretiskt motiverat då den totala
+I/O-operationer kan initieras parallellt för att minska den totala väntetiden.~\cite{dart_async} Detta angreppssätt är teoretiskt motiverat då den totala
 exekveringstiden i nätverksberoende system ofta begränsas av den långsammaste
 operationen snarare än summan av alla operationer, vilket gör parallellisering
 till en naturlig strategi för att reducera latens. 
@@ -140,7 +140,7 @@ enskilda anropets svarstid.
 
 Asynkron programmering i Dart görs med klassen \texttt{Future} vilket
 representerar ett potentiellt värde eller error som kommer att vara tillgängligt
-i framtiden. \texttt{Future} kan skapas genom att använda \texttt{async} och \texttt{await} eller genom att direkt skapa en \texttt{Future} med hjälp av dess konstruktor.~\cite{dart_async} För att hantera flera oberoende \texttt{Future}-objekt kan man använda \texttt{Future.wait()}, som tar en lista av \texttt{Future}-objekt och returnerar en ny \texttt{Future} som fullföljs när alla ingående \texttt{Future}-objekt har fullföljts, och som innehåller en lista av resultaten i samma ordning som de ingående \texttt{Future}-objekten~\cite{dart_future_wait}.
+i framtiden. \texttt{Future} kan skapas genom att använda \texttt{async} och \texttt{await} eller genom att direkt skapa en \texttt{Future} med hjälp av dess konstruktor.~\cite{dart_async} För att hantera flera oberoende \texttt{Future}-objekt kan man använda \texttt{Future.wait()}, som tar en lista av \texttt{Future}-objekt och returnerar en ny \texttt{Future} som fullföljs när alla ingående \texttt{Future}-objekt har fullföljts, och som innehåller en lista av resultaten i samma ordning som de ingående \texttt{Future}-objekten.~\cite{dart_future_wait}
 \subsubsection{Flutter och Firebase}
 \textbf{Flutter}: Flutter är Googles gratis och open-source UI-ramverk för att
 bygga nativt kompilerade applikationer för mobil, webb och desktop från en enda
@@ -187,7 +187,7 @@ parallel query processing, där målet är att minska exekveringstid genom att
 utföra flera operationer samtidigt. Tidig forskning inom området visar att
 databassökningar kan delas upp i deluppgifter som utförs parallellt över flera
 processorer, vilket möjliggör prestandavinster jämfört med sekventiell
-exekvering~\cite{dewitt1992parallel}.
+exekvering.~\cite{dewitt1992parallel}
 
 I moderna databassystem har dessa principer vidareutvecklats i distribuerade
 miljöer, där data partitioneras över flera noder och bearbetas parallellt innan
@@ -195,14 +195,14 @@ resultaten sammanställs. Studier visar att distribuerad parallell bearbetning k
 förbättra skalbarhet och svarstider, särskilt när partitioneringen utformas för
 att minimera kommunikation mellan noder, exempelvis genom grafbaserade metoder.
 Samtidigt påverkas vinsterna av faktorer som kommunikationskostnader och synkronisering
-mellan noder~\cite{nam2019parallel}.
+mellan noder.~\cite{nam2019parallel}
 
 Forskning inom samtidiga databassystem, inklusive GPU-baserade lösningar, visar
 att flera förfrågningar kan exekveras parallellt för att bättre utnyttja
 tillgängliga beräkningsresurser, även om detta kräver effektiv hantering av
-resurstilldelning och exekveringsplanering~\cite{li2019concurrent}. Vidare
+resurstilldelning och exekveringsplanering.~\cite{li2019concurrent} Vidare
 indikerar studier att parallella exekveringstekniker kan bidra till förbättrad
-skalbarhet genom att dela upp operationer i samtidiga deluppgifter~\cite{zhu2025research}.
+skalbarhet genom att dela upp operationer i samtidiga deluppgifter.~\cite{zhu2025research}
 %Måste överväga om den här källan är en hjälp eller om den skadar rapportens trovärdighet.
 
 Även om dessa studier främst behandlar CPU-bundna eller distribuerade databassystem, bygger de på grundläggande principer om parallellism, väntetider och resursutnyttjande. Dessa principer är relevanta även i mobilapplikationer, där databasanrop ofta utgörs av nätverksbaserade I/O-operationer. I sådana fall påverkas svarstiden av faktorer som nätverkslatens och serverrespons, och genom att initiera flera oberoende anrop parallellt kan den totala väntetiden potentiellt reduceras. Därmed kan mobilapplikationers databasanrop analyseras utifrån samma övergripande prestandaprinciper som beskrivs i tidigare forskning.
