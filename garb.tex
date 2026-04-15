@@ -1,12 +1,15 @@
 \documentclass[letterpaper,twocolumn,10pt]{article}
 \usepackage{garb}
+\usepackage{ragged2e}
 
 \renewcommand\abstractname{\textbf{Abstract}}
-\emergencystretch=4em
-\hbadness=10000
+\emergencystretch=3em
+\tolerance=2000
 
 %-------------------------------------------------------------------------------
 \begin{document}
+
+\RaggedRight
 
 %don't want date printed
 \date{}
@@ -93,8 +96,7 @@ Syftet med denna rapport är att empiriskt utvärdera effekten av parallelliseri
 
 \textbf{Huvudfrågeställning:}
 \begin{itemize}
-    \item Är parallellisering av nätverksanrop med \texttt{Future.wait()} en
-lämplig metod för att förbättra laddningstider i en Flutter- och Firebase-baserad applikation som Neatify?
+    \item Är parallellisering av nätverksanrop med \texttt{Future.wait()} en lämplig metod för att förbättra laddningstider i en Flutter- och Firebase-baserad applikation som Neatify?
 \end{itemize}
 
 \textbf{Stödjande frågeställningar:}
@@ -313,6 +315,8 @@ sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05
 och den statistiska prövningen kompletterades med en bedömning av praktisk
 signifikans baserad på observerade skillnader i millisekunder.
 
+\clearpage
+
 \section{Resultat}
 
 I detta avsnitt presenteras resultaten från mätningarna av både sekventiella och
@@ -432,10 +436,6 @@ och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
     \end{tabular}
   \label{tab:comparison}
 \end{strip}
-
-
-\clearpage
-
 
 \subsection{Statistisk signifikans}
 
@@ -615,24 +615,6 @@ andra miljöer och applikationstyper bör göras med försiktighet.
 \bibliographystyle{unsrt}
 \bibliography{base}
 \endgroup
-
-\vspace{12pt}
-
-\rednote{ \textbf{Viktigt:} Detta har varit en mall för ditt gymnasiearbete med
-fokus på X/Y/Z-strukturen. Se till att:
-\begin{itemize}
-    \item All malltext är borttagen innan inlämning
-    \item Ta bort EXEMPEL-figurer som du inte använder (behåll max 3-4 figurer
-    totalt)
-    \item Din frågeställning följer formatet "Är Y lämplig för att förbättra X
-    för produkttyp Z?"
-    \item Du har minst 30 mätningar för statistisk validitet
-    \item All kod och data är versionshanterad och reproducerbar
-    \item Resultat och diskussion är tydligt separerade
-\end{itemize}
-
-Misslyckas du att följa denna struktur kan arbetet riskera att inte bli godkänt.
-}
 
 \clearpage
 \appendix
