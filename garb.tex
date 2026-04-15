@@ -22,25 +22,13 @@
 \maketitle
 
 \begin{abstract}
-This study investigates the effectiveness of parallel
-database calls as a method for improving loading times
-in a Flutter/Firebase mobile application. Measurements
-were conducted on a sample mobile app with interleaved testing of both parallel and sequential network calls, with a focus on loading times as the
-key performance metric. The measurements were performed under controlled
-conditions, with a total of 150 datapoints each for the profile and leaderboard
-pages. %Lägg till att det är per db storlek
-These tests were performed with varying database sizes (100, 500, 1000
-users) to evaluate the method's effectiveness under different load conditions.
-The results indicate a significant reduction in loading times after the
-implementation of parallel database calling with the improvent being in the
-range of 102 ms to 219 ms depending on the page with an observed
-improvement between 18\% and 31\% depending on the page and database size.
-Statiscal analasys shows that the improvement is statistically significant for
-both pages, with no notable deviations in relation to database size.
-These findings suggest that parallel database calls can be an effective method
-for improving loading times in flutter/firebase mobile applications. The results
-should however be interpreted with caution, as the study was conducted on a
-single application and under specific conditions. Further research is needed to generalize these findings to other applications and contexts.
+This study investigates the effectiveness of parallel database calls as a method for improving loading times in a Flutter/Firebase mobile application. Using interleaved testing of both parallel and sequential network calls, the research was conducted on a sample mobile app, focusing on loading times as the key performance metric.
+
+The measurements were performed under controlled conditions, collecting a total of 150 data points for each database size across both the profile and leaderboard pages. To evaluate the method's effectiveness under different load conditions, these tests utilized varying database sizes (100, 500, and 1,000 users).
+
+The results indicate a significant reduction in loading times after implementing parallel database calls. Depending on the page, the improvement ranged from 102 ms to 219 ms; furthermore, depending on both the page and database size, the observed improvement was between 18\% and 31\%. Statistical analysis shows that the improvement is significant for both pages, with no notable deviations related to database size.
+
+These findings suggest that parallel database calls can be an effective method for improving loading times in Flutter/Firebase mobile applications. However, the results should be interpreted with caution, as the study was conducted on a single application under specific conditions. Further research is needed to generalize these findings to other applications and contexts.
 \end{abstract}
 
 \selectlanguage{swedish}
