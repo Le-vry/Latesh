@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  20 MAY 2026 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  20 MAY 2026 15:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1086,7 +1086,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 403--404
 \T1/qpl/m/n/10 (+20) ti-der-na för se-kven-ti-el-la och pa-ral-lel-la an-rop upp-de-lat
  []
 
-<plots/combined_comparison.png, id=214, 1004.553pt x 357.7365pt>
+<plots/combined_comparison.png, id=210, 1004.553pt x 357.7365pt>
 File: plots/combined_comparison.png Graphic file (type png)
 <use plots/combined_comparison.png>
 Package pdftex.def Info: plots/combined_comparison.png  used on input line 413.
@@ -1109,9 +1109,14 @@ CUTED [output]: 101.98148pt
 CUTED [leftcolumn badness]: 0
 CUTED [rightcolumn badness]: 0
 
-LaTeX Warning: Reference `tab:wilcoxon' on page 6 undefined on input line 444.
+LaTeX Warning: Reference `tab:wilcoxon' on page 6 undefined on input line 432.
 
-[6 <./plots/combined_comparison.png>] [7] (garb.bbl) [8] (garb.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6 <./plots/combined_comparison.png>] [7] (garb.bbl) [8
+
+] (garb.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1121,20 +1126,20 @@ L3 programming layer <2026-01-19>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `garb.out' has not changed.
-(rerunfilecheck)             Checksum: C15CCFAB02D10C69174F40697C1D06EB;4730.
+(rerunfilecheck)             Checksum: 340973EF62CDBF572D4727E5C3BF7493;4567.
  ) 
 Here is how much of TeX's memory you used:
- 41645 strings out of 467866
- 988328 string characters out of 5416861
+ 41643 strings out of 467866
+ 988298 string characters out of 5416861
  1540989 words of memory out of 5000000
- 69651 multiletter control sequences out of 15000+600000
+ 69650 multiletter control sequences out of 15000+600000
  711477 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,12n,121p,1043b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on garb.pdf (8 pages, 403285 bytes).
+Output written on garb.pdf (8 pages, 401994 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 45938 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 45930 words of extra memory for PDF output out of 51595 (max. 10000000)
 

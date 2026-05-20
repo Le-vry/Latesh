@@ -419,19 +419,7 @@ och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
 \vspace*{0.5\baselineskip}
 
 Utifrån diagrammet i Figur~\ref{fig:95ci-leaderboard} kan det observeras att parallella anrop konsekvent resulterade i kortare laddningstider jämfört med sekventiella anrop, och att 95\% konfidensintervallen för de olika anropenstyperna inte överlappar varandra för någon av databasstorlekarna eller sidorna, så indikerar det att skillnaderna i laddningstider är statistiskt signifikanta.
-\subsection{Implementeringsanalys}
 
-Under implementeringen av parallella nätverksanrop gjordes följande
-observationer:
-\begin{itemize}
-    \item Implementeringstid: uppskattningsvis under 1 timme (ingen exakt
-    tidlogg fördes)
-    \item Kodkomplexitet: Profil-sidan: +2 rader kod, Leaderboard-sidan: +4
-    rader kod
-    \item Bieffekter: Inga tydliga bieffekter observerades under testning
-    \item Kompatibilitet: Testad i Flutter + Firebase-miljö utan
-    funktionsbortfall.
-\end{itemize}
 
 \section{Diskussion}
 
