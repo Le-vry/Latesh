@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  20 MAY 2026 15:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  20 MAY 2026 15:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1108,36 +1108,26 @@ Pagestretch: 0.0pt
 CUTED [output]: 101.98148pt
 CUTED [leftcolumn badness]: 0
 CUTED [rightcolumn badness]: 0
-
-LaTeX Warning: Reference `tab:wilcoxon' on page 6 undefined on input line 432.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./plots/combined_comparison.png>] [7] (garb.bbl) [8
+[6 <./plots/combined_comparison.png>] [7] (garb.bbl) [8
 
 ] (garb.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `garb.out' has not changed.
 (rerunfilecheck)             Checksum: 340973EF62CDBF572D4727E5C3BF7493;4567.
  ) 
 Here is how much of TeX's memory you used:
- 41643 strings out of 467866
- 988298 string characters out of 5416861
+ 41642 strings out of 467866
+ 988284 string characters out of 5416861
  1540989 words of memory out of 5000000
- 69650 multiletter control sequences out of 15000+600000
+ 69649 multiletter control sequences out of 15000+600000
  711477 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,12n,121p,1043b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on garb.pdf (8 pages, 401994 bytes).
+Output written on garb.pdf (8 pages, 401553 bytes).
 PDF statistics:
  301 PDF objects out of 1000 (max. 8388607)
  53 named destinations out of 1000 (max. 500000)
