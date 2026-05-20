@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  20 MAY 2026 15:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  20 MAY 2026 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -941,84 +941,81 @@ LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 99
  (C:\Users\jonkar11\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
 ) [2{C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 289--294
+Underfull \hbox (badness 10000) in paragraph at lines 283--288
 []\T1/qpl/m/n/10 (+20) Utifrån mät-da-tan för de se-kven-ti-el-la an-ro-pen, in-nan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--294
+Underfull \hbox (badness 10000) in paragraph at lines 283--288
 \T1/qpl/m/n/10 (+20) im-ple-men-te-ring-en av för-bätt-ring-en, saman-ställ-des
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--294
+Underfull \hbox (badness 10000) in paragraph at lines 283--288
 \T1/qpl/m/n/10 (+20) ta-bel-len ne-dan som vi-sar be-skri-van-de sta-tistik för
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--294
+Underfull \hbox (badness 10000) in paragraph at lines 283--288
 \T1/qpl/m/n/10 (+20) var-je da-ta-basstor-lek och si-da. Ta-bel-len in-klu-de-rar me-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--294
+Underfull \hbox (badness 10000) in paragraph at lines 283--288
 \T1/qpl/m/n/10 (+20) del-vär-de, stan-dar-dav-vi-kel-se, 95% kon-fi-densin-ter-vall,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 289--294
+Underfull \hbox (badness 10000) in paragraph at lines 283--288
 \T1/qpl/m/n/10 (+20) nät-verks-la-tens och p95-värden för bå-de profil- och
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 304.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 298.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 304.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 298.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 304.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 298.
 CUTED [- LAST -]
-Extra skip:0.0pt
-Left:453.87796pt/1.52498pt
-Right:453.75592pt/0.0pt
-Split: 454.81694pt
-Output:454.81694pt
+Extra skip:56.94203pt
+Left:429.87796pt/2.81999pt
+Right:375.75592pt/0.0pt
+Split: 427.81694pt
+Output:427.81694pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
 @colht:650.43pt
-CUTED [output]: 454.81694pt
-CUTED [leftcolumn badness]: 0
-CUTED [rightcolumn badness]: 0
+CUTED [output]: 427.81694pt
+CUTED [leftcolumn badness]: 77
+CUTED [rightcolumn badness]: 1286
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--333
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
 []\T1/qpl/m/n/10 (+20) På sam-ma sätt som för de se-kven-ti-el-la an-ro-pen sam-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--333
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
 \T1/qpl/m/n/10 (+20) man-ställ-des ta-bel-len ne-dan för re-sul-ta-ten för de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--333
+Underfull \hbox (badness 10000) in paragraph at lines 325--327
 \T1/qpl/m/n/10 (+20) pa-ral-lel-la an-ro-pen, ef-ter im-ple-men-te-ring av för-bätt-
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 CUTED [- LAST -]
-Extra skip:0.0pt
-Left:31.20593pt/38.81999pt
+Extra skip:63.96297pt
+Left:25.14297pt/38.81999pt
 Right:0.0pt/0.0pt
-Split: 31.60297pt
-Output:31.60297pt
+Split: 31.98148pt
+Output:31.98148pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
-@colht:55.87325pt
-CUTED [output]: 31.60297pt
+@colht:82.87325pt
+CUTED [output]: 31.98148pt
 CUTED [leftcolumn badness]: 1000000
 CUTED [rightcolumn badness]: 0
- [4]
+[4]
 CUTED [- LAST -]
 Extra skip:0.0pt
 Left:0.0pt/0.0pt
@@ -1032,26 +1029,26 @@ CUTED [output]: 0.0pt
 CUTED [leftcolumn badness]: 0
 CUTED [rightcolumn badness]: 0
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 371.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 365.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 371.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 365.
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--374
+Underfull \hbox (badness 10000) in paragraph at lines 362--368
 []\T1/qpl/m/n/10 (+20) Med vär-de-na från Ta-bell [][]1[][] och Ta-bell [][]2[][] kun-de den
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--374
+Underfull \hbox (badness 10000) in paragraph at lines 362--368
 \T1/qpl/m/n/10 (+20) ab-so-lu-ta och re-la-ti-va för-bätt-ring-en be-räk-nas för var-je
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--374
+Underfull \hbox (badness 10000) in paragraph at lines 362--368
 \T1/qpl/m/n/10 (+20) da-ta-basstor-lek och si-da. Ef-fektstor-le-ken kun-de ock-så
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 368--374
+Underfull \hbox (badness 10000) in paragraph at lines 362--368
 \T1/qpl/m/n/10 (+20) be-räk-nas, vil-ket gjor-des med rang-bi-se-ri-ell kor-re-la-tion
  []
 
@@ -1063,37 +1060,37 @@ Split: 83.3715pt
 Output:83.3715pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
-@colht:538.4902pt
+@colht:549.51018pt
 CUTED [output]: 83.3715pt
 CUTED [leftcolumn badness]: 2
 CUTED [rightcolumn badness]: 0
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
 []\T1/qpl/m/n/10 (+20) Med hjälp av me-del-vär-de-na och 95% kon-fi-densin-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
 \T1/qpl/m/n/10 (+20) ter-val-len från Ta-bell [][]1[][] och Ta-bell [][]2[][] kun-de di-a-gram-et
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
 \T1/qpl/m/n/10 (+20) ne-dan fram-stäl-las, som är en jäm-fö-rel-se av ladd-nings-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 397--398
 \T1/qpl/m/n/10 (+20) ti-der-na för se-kven-ti-el-la och pa-ral-lel-la an-rop upp-de-lat
  []
 
-<plots/combined_comparison.png, id=203, 1004.553pt x 357.7365pt>
+<plots/combined_comparison.png, id=204, 1004.553pt x 357.7365pt>
 File: plots/combined_comparison.png Graphic file (type png)
 <use plots/combined_comparison.png>
-Package pdftex.def Info: plots/combined_comparison.png  used on input line 413.
+Package pdftex.def Info: plots/combined_comparison.png  used on input line 407.
 (pdftex.def)             Requested size: 505.89pt x 180.15604pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 415--415
+Underfull \hbox (badness 10000) in paragraph at lines 409--409
 []\T1/qpl/m/n/10 (+20) Figur 1: []Jämförelse av ladd-nings-ti-der (me-del-vär-de och 95% kon-fi-densin-ter-vall) för se-kven-ti-el-la och pa-ral-lel-la
  []
 
@@ -1105,7 +1102,7 @@ Split: 101.98148pt
 Output:101.98148pt
 Pageshrink: 0.0pt
 Pagestretch: 0.0pt
-@colht:313.61731pt
+@colht:324.63728pt
 CUTED [output]: 101.98148pt
 CUTED [leftcolumn badness]: 0
 CUTED [rightcolumn badness]: 0
@@ -1113,14 +1110,14 @@ CUTED [rightcolumn badness]: 0
 LaTeX Warning: Optional argument of \twocolumn too tall on page 5(1column).
 
 
-Overfull \vbox (44.3402pt too high) has occurred while \output is active []
+Overfull \vbox (33.32022pt too high) has occurred while \output is active []
 
 
 
 LaTeX Warning: Text page 5 contains only floats.
 
 
-Overfull \vbox (44.3402pt too high) has occurred while \output is active []
+Overfull \vbox (33.32022pt too high) has occurred while \output is active []
 
  [5 <./plots/combined_comparison.png>] [6] (garb.bbl) [7] (garb.aux)
  ***********
@@ -1128,18 +1125,18 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `garb.out' has not changed.
-(rerunfilecheck)             Checksum: 340973EF62CDBF572D4727E5C3BF7493;4567.
+(rerunfilecheck)             Checksum: 5EEEB35DE1AFDEDA8E6B2D12F6A10892;4587.
  ) 
 Here is how much of TeX's memory you used:
  41641 strings out of 467866
  988278 string characters out of 5416861
- 1542989 words of memory out of 5000000
+ 1543989 words of memory out of 5000000
  69649 multiletter control sequences out of 15000+600000
  711477 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,12n,121p,1043b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on garb.pdf (7 pages, 401055 bytes).
+Output written on garb.pdf (7 pages, 400778 bytes).
 PDF statistics:
  297 PDF objects out of 1000 (max. 8388607)
  52 named destinations out of 1000 (max. 500000)

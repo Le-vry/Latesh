@@ -259,12 +259,8 @@ seeding-scriptet för att återskapa en funktionellt identisk testmiljö.
 Instruktioner för detta finns dokumenterade i repots README på branch
 \texttt{parallel-db}.
 
-
-\subsection{Statistisk analys}
-
-Den statistiska analysen utgick från att varje mätning av den sekventiella implementationen matchades mot motsvarande mätning av den parallella implementationen för samma sida, iteration och databasstorlek. Analysen genomfördes därför som en parad jämförelse, där skillnaden i laddtid definierades som sekventiell minus parallell laddtid. Positiva differenser indikerar därmed kortare laddtid för parallella anrop.
-
-Inför analysen exkluderades cold-boot-mätningar från den inferentiella
+\subsection{Beskrivande statistik}
+Inför bearbetning av mätdatan exkluderades cold-boot-mätningar från den inferentiella
 jämförelsen, eftersom dessa i hög grad påverkas av initialisering och
 cache-relaterade uppstartseffekter och därmed inte speglar den stabila
 laddningsprestandan vid återkommande sidvisningar. Den primära analysen
@@ -274,8 +270,6 @@ Som beskrivande statistik rapporterades antal mätningar, medelvärde,
 standardavvikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för respektive sida och implementation.  Testet genomfördes separat för \textit{Profile page} och
 \textit{Leaderboard page} för att undvika att sidspecifika beteenden
 sammanblandas i ett gemensamt test. 
-
-
 \section{Resultat}
 
 I detta avsnitt presenteras resultaten från mätningarna av både sekventiella och
