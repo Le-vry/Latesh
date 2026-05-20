@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  24 APR 2026 09:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.12)  20 MAY 2026 15:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -940,47 +940,42 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Font Info:    Trying to load font information for TS1+qpl on input line 99.
  (C:\Users\jonkar11\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ts1qpl.fd
 File: ts1qpl.fd 2009/09/25 v1.2 font definition file for TS1/qpl
-) [2{C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 160.
- [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 330--335
+) [2{C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}] [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 289--294
 []\T1/qpl/m/n/10 (+20) Utifrån mät-da-tan för de se-kven-ti-el-la an-ro-pen, in-nan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--335
+Underfull \hbox (badness 10000) in paragraph at lines 289--294
 \T1/qpl/m/n/10 (+20) im-ple-men-te-ring-en av för-bätt-ring-en, saman-ställ-des
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--335
+Underfull \hbox (badness 10000) in paragraph at lines 289--294
 \T1/qpl/m/n/10 (+20) ta-bel-len ne-dan som vi-sar be-skri-van-de sta-tistik för
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--335
+Underfull \hbox (badness 10000) in paragraph at lines 289--294
 \T1/qpl/m/n/10 (+20) var-je da-ta-basstor-lek och si-da. Ta-bel-len in-klu-de-rar me-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--335
+Underfull \hbox (badness 10000) in paragraph at lines 289--294
 \T1/qpl/m/n/10 (+20) del-vär-de, stan-dar-dav-vi-kel-se, 95% kon-fi-densin-ter-vall,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--335
+Underfull \hbox (badness 10000) in paragraph at lines 289--294
 \T1/qpl/m/n/10 (+20) nät-verks-la-tens och p95-värden för bå-de profil- och
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 345.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 304.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 304.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 345.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 304.
 CUTED [- LAST -]
 Extra skip:0.0pt
 Left:217.02094pt/0.0pt
@@ -994,7 +989,7 @@ CUTED [output]: 215.51047pt
 CUTED [leftcolumn badness]: 30
 CUTED [rightcolumn badness]: 0
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--374
+Underfull \hbox (badness 10000) in paragraph at lines 331--333
 \T1/qpl/m/n/10 (+20) ställ-des ta-bel-len ne-dan för re-sul-ta-ten för de pa-ral-lel-la
  []
 
@@ -1010,23 +1005,27 @@ Pagestretch: 0.0pt
 CUTED [output]: 25.98148pt
 CUTED [leftcolumn badness]: 1000000
 CUTED [rightcolumn badness]: 0
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 372.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 372.
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--416
+Underfull \hbox (badness 10000) in paragraph at lines 369--375
 []\T1/qpl/m/n/10 (+20) Med vär-de-na från Ta-bell [][]1[][] och Ta-bell [][]2[][] kun-de för-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--416
+Underfull \hbox (badness 10000) in paragraph at lines 369--375
 \T1/qpl/m/n/10 (+20) bätt-ring-en, ab-so-lut och re-la-tiv, be-räk-nas för var-je
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--416
+Underfull \hbox (badness 10000) in paragraph at lines 369--375
 \T1/qpl/m/n/10 (+20) da-ta-basstor-lek och si-da. Ef-fektstor-le-ken kun-de ock-så
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--416
+Underfull \hbox (badness 10000) in paragraph at lines 369--375
 \T1/qpl/m/n/10 (+20) be-räk-nas, vil-ket gjor-des med rang-bi-se-ri-ell kor-re-la-tion
  []
 
@@ -1058,55 +1057,75 @@ CUTED [output]: 0.0pt
 CUTED [leftcolumn badness]: 0
 CUTED [rightcolumn badness]: 0
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--447
-[]\T1/qpl/m/n/10 (+20) Med den sta-tis-tis-ka ana-ly-sen med Wil-cox-on signed-
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+[]\T1/qpl/m/n/10 (+20) Med hjälp av me-del-vär-de-na och 95% kon-fi-densin-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 444--447
-\T1/qpl/m/n/10 (+20) rank test kun-de p-värden be-stäm-mas för de oli-ka
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+\T1/qpl/m/n/10 (+20) ter-val-len från Ta-bell [][]1[][] och Ta-bell [][]2[][] kun-de di-a-gram-et
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 453--453
-[]\T1/qpl/m/n/10 (+20) Tabell 4: []Statistisk sig-ni-fi-kans av för-bätt-ring för var-je
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+\T1/qpl/m/n/10 (+20) ne-dan fram-stäl-las, som är en jäm-fö-rel-se av ladd-nings-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--475
-[]\T1/qpl/m/n/10 (+20) Det re-sul-tat som pre-sen-te-ras i Ta-bell [][]4[][] vi-sar att al-la
+Underfull \hbox (badness 10000) in paragraph at lines 404--405
+\T1/qpl/m/n/10 (+20) ti-der-na för se-kven-ti-el-la och pa-ral-lel-la an-rop upp-de-lat
  []
 
+<plots/combined_comparison.png, id=218, 1004.553pt x 357.7365pt>
+File: plots/combined_comparison.png Graphic file (type png)
+<use plots/combined_comparison.png>
+Package pdftex.def Info: plots/combined_comparison.png  used on input line 414.
+(pdftex.def)             Requested size: 505.89pt x 180.15604pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--475
-\T1/qpl/m/n/10 (+20) för-bätt-ring-ar är sta-tis-tiskt sig-ni-fi-kan-ta, med p-värden
+Underfull \hbox (badness 10000) in paragraph at lines 416--416
+[]\T1/qpl/m/n/10 (+20) Figur 1: []Jämförelse av ladd-nings-ti-der (me-del-vär-de och 95% kon-fi-densin-ter-vall) för se-kven-ti-el-la och pa-ral-lel-la
  []
 
+CUTED [- LAST -]
+Extra skip:0.0pt
+Left:101.96297pt/0.0pt
+Right:0.0pt/0.0pt
+Split: 101.98148pt
+Output:101.98148pt
+Pageshrink: 0.0pt
+Pagestretch: 0.0pt
+@colht:536.72862pt
+CUTED [output]: 101.98148pt
+CUTED [leftcolumn badness]: 0
+CUTED [rightcolumn badness]: 0
+[6 <./plots/combined_comparison.png>]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `tab:wilcoxon' on page 7 undefined on input line 452.
 
- [6] [7] (garb.bbl) [8
-
-] (garb.aux)
+[7] (garb.bbl) [8] (garb.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `garb.out' has not changed.
-(rerunfilecheck)             Checksum: F3242BC2B2BF2006202FDF4930D5747A;5138.
+(rerunfilecheck)             Checksum: 178C413528ECD755D6B3577EF49A6912;5016.
  ) 
 Here is how much of TeX's memory you used:
- 41653 strings out of 467866
- 988244 string characters out of 5416861
- 1540914 words of memory out of 5000000
- 69649 multiletter control sequences out of 15000+600000
- 713586 words of font info for 195 fonts, out of 8000000 for 9000
+ 41647 strings out of 467866
+ 988358 string characters out of 5416861
+ 1540989 words of memory out of 5000000
+ 69652 multiletter control sequences out of 15000+600000
+ 711477 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  117i,12n,121p,1043b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/euex10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eusm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on garb.pdf (8 pages, 305463 bytes).
+<C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm10.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eurm7.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplb.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplr.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qplri.pfb><C:/Users/jonkar11/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on garb.pdf (8 pages, 406010 bytes).
 PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 45949 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 310 PDF objects out of 1000 (max. 8388607)
+ 55 named destinations out of 1000 (max. 500000)
+ 45946 words of extra memory for PDF output out of 51595 (max. 10000000)
 

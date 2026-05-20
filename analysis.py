@@ -2,6 +2,7 @@ from csv import DictReader
 from math import sqrt
 from pathlib import Path
 from statistics import mean, median
+import matplotlib.pyplot as plt
 
 from scipy.stats import rankdata, t, wilcoxon
 
@@ -291,3 +292,80 @@ for db_size in sorted(grouped_data, key=int):
 
 		seq, par = grouped_data[db_size][page]
 		run_analysis(db_size, page, seq, par, network_metrics)
+
+def plot_db_comparison(grouped_data: dict, output_file: Path) -> None:
+	"""Single figure with two subplots: profile and leaderboard, saved to file."""
+
+	output_file.parent.mkdir(parents=True, exist_ok=True)
+
+	fig, axes = plt.subplots(1, 2, figsize=(14, 5), sharey=True)
+
+	pages = ["profile", "leaderboard"]
+
+	for ax, page in zip(axes, pages):
+		db_sizes = sorted(grouped_data.keys(), key=int)
+
+		seq_means = []
+		par_means = []
+		seq_errs = []
+		par_errs = []
+		labels = []
+
+		for db_size in db_sizes:
+			if page not in grouped_data[db_size]:
+				continue
+
+			seq, par = grouped_data[db_size][page]
+
+			seq_mean = mean(seq)
+			par_mean = mean(par)
+
+			seq_low, _ = mean_ci95(seq)
+			par_low, _ = mean_ci95(par)
+
+			seq_err = seq_mean - seq_low
+			par_err = par_mean - par_low
+
+			seq_means.append(seq_mean)
+			par_means.append(par_mean)
+			seq_errs.append(seq_err)
+			par_errs.append(par_err)
+			labels.append(db_size)
+
+		x = range(len(labels))
+		width = 0.35
+
+		ax.bar(
+			[i - width / 2 for i in x],
+			seq_means,
+			width=width,
+			yerr=seq_errs,
+			capsize=5,
+			label="Sequential"
+		)
+
+		ax.bar(
+			[i + width / 2 for i in x],
+			par_means,
+			width=width,
+			yerr=par_errs,
+			capsize=5,
+			label="Parallel"
+		)
+
+		ax.set_xticks(list(x))
+		ax.set_xticklabels(labels)
+		ax.set_title(page)
+		ax.set_ylabel("Tid (ms)")
+		ax.legend()
+
+	fig.suptitle("Mean load time with 95% CI (Sequential vs Parallel)")
+	plt.tight_layout()
+
+	plt.savefig(output_file, dpi=300, bbox_inches="tight")
+	plt.close()
+
+	print(f"Saved combined plot: {output_file}")
+
+output_file = Path(__file__).parent / "plots" / "combined_comparison.png"
+plot_db_comparison(grouped_data, output_file)

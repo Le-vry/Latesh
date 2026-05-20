@@ -154,39 +154,6 @@ bygga nativt kompilerade applikationer för mobil, webb och desktop från en end
 kodbas.~\cite{flutter_faq}\\[0.5\baselineskip]
 \textbf{Firebase}: Firebase är en plattform för mobil- och webbapplikationsutveckling som erbjuder en rad tjänster, inklusive realtidsdatabaser, autentisering och hosting.~\cite{firebase_docs} De specifika tjänster som används i Neatify är Firestore, en NoSQL-databas som möjliggör skalbar och flexibel datalagring, och Firebase Authentication för att hantera användarautentisering.~\cite{firestore_docs}~\cite{firebase_auth_docs}
 
-\subsubsection{Statistiska mått i hypotesprövningen}
-I denna studie används ett parat Wilcoxon signed-rank-test för att jämföra
-sekventiell och parallell implementation. I analyskoden beräknas differensen
-som $d_i = \text{sekventiell}_i - \text{parallell}_i$ och testet körs med
-\texttt{alternative='greater'}. Noll-differenser exkluderas
-(\texttt{zero\_method='wilcox'}).
-
-Den rapporterade \textit{W-statistiken} i denna studie motsvarar summan av
-ranger för positiva differenser, det vill säga
-\[
-W = W^{+} = \sum \text{rang}(|d_i|)\ \text{för}\ d_i > 0.
-\]
-Ett högt $W$ innebär att många och/eller stora positiva differenser förekommer,
-vilket innebär att observationerna i hög grad ligger i den riktning som
-definieras av den positiva differensen. Eftersom testet är ensidigt
-(``greater'') prövas nollhypotesen mot en riktad alternativ hypotes i denna
-riktning.
-
-Som effektstorlek används rangbiseriell korrelation, $r_{rb}$, som beskriver
-styrkan och riktningen på skillnaden i den parade jämförelsen. Den kan skrivas
-som
-\[
-r_{rb} = \frac{W^{+} - W^{-}}{W^{+} + W^{-}},
-\]
-där $W^{+}$ är summan av positiva ranger och $W^{-}$ summan av negativa ranger
-för de icke-noll differenserna. Måttet varierar mellan $-1$ och $1$, där
-värden nära $1$ indikerar en stark
-fördel för den parallella implementationen (kortare laddtider), värden nära
-$-1$ indikerar motsatsen, och värden nära $0$ indikerar liten eller ingen
-systematisk skillnad.
-
-%Kolla igenom det finns mer teori som är relevant att ta med, t.ex. om asynkron programmering i Dart, eller om nätverkslatens och dess påverkan på användarupplevelse.
-
 \subsection{Bakgrund}
 
 Parallellisering av databasanrop har sin teoretiska grund i forskningsområdet
@@ -300,20 +267,12 @@ Inför analysen exkluderades cold-boot-mätningar från den inferentiella
 jämförelsen, eftersom dessa i hög grad påverkas av initialisering och
 cache-relaterade uppstartseffekter och därmed inte speglar den stabila
 laddningsprestandan vid återkommande sidvisningar. Den primära analysen
-baserades i stället på warm-mätningar. Saknade värden hanterades med pairwise
-deletion, vilket innebär att endast kompletta par inkluderades i
-hypotesprövningen. Normalisering användes inte, eftersom den parade designen
-redan hanterar variationer mellan mätningar.
+baserades i stället på warm-mätningar. 
 
 Som beskrivande statistik rapporterades antal mätningar, medelvärde,
-standardavvikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för respektive sida och implementation. För hypotesprövning
-användes ett parat Wilcoxon signed-rank-test, valt eftersom mätningarna är
-beroende och laddtider kan vara snedfördelade samt innehålla avvikande
-mätningar. Testet genomfördes separat för \textit{Profile page} och
+standardavvikelse, 95\% konfidensintervall, nätverkslatens och p95-värden för respektive sida och implementation.  Testet genomfördes separat för \textit{Profile page} och
 \textit{Leaderboard page} för att undvika att sidspecifika beteenden
-sammanblandas i ett gemensamt test. Signifikansnivån sattes till $\alpha = 0.05$
-och den statistiska prövningen kompletterades med en bedömning av praktisk
-signifikans baserad på observerade skillnader i millisekunder.
+sammanblandas i ett gemensamt test. 
 
 \clearpage
 
@@ -437,43 +396,30 @@ och de specifika resultaten för varje databasstorlek och sida redovisas nedan:
   \label{tab:comparison}
 \end{strip}
 
-\subsection{Statistisk signifikans}
+
+\subsection{Sekventiell vs parallell laddningstid (95\% KI)}
 
 \noindent
 \begin{minipage}[t]{\columnwidth}
-Med den statistiska analysen med Wilcoxon signed-rank test 
-%%%Koppla till metod + utöka möjligen
-kunde p-värden bestämmas för de olika databasstorlekarna och sidorna.
+ Med hjälp av medelvärdena och 95\% konfidensintervallen från Tabell~\ref{tab:sekventiell} och Tabell~\ref{tab:parallel} kunde diagramet nedan framställas, som är en jämförelse av laddningstiderna för sekventiella och parallella anrop uppdelat på databasstorlek och sida.
 \end{minipage}
 
-\begin{table}[H]
+\vspace*{1.0\baselineskip}
+
+\begin{strip}
   \centering
   \footnotesize
-  \setlength{\tabcolsep}{5pt}
-  \caption{Statistisk signifikans av förbättring för varje databasstorlek och sida}
-    \resizebox{\columnwidth}{!}{%
-    \begin{tabular}{@{}l l r r@{}}
-        \toprule
-            Databasstorlek & Sida & W-statistik & p-värde   \\
-        \midrule
-            100 & Profile page  & 11325.00   & 1.14672 $\times 10^{-26}$  \\
-            100 & Leaderboard page    & 11294.00    & 2.12553 $\times 10^{-26}$   \\
-            500 & Profile page  & 11325.00   & 1.1469 $\times 10^{-26}$   \\
-            500 & Leaderboard page    & 10949.50    & 1.46696 $\times 10^{-24}$   \\
-            1000 & Profile page  & 11325.00   & 1.14655 $\times 10^{-26}$   \\
-            1000 & Leaderboard page    & 11125.50    & 5.89925 $\times 10^{-25}$   \\
-        \bottomrule
-    \end{tabular}%
-    }
-\label{tab:wilcoxon}
-\end{table}
+  \setlength{\tabcolsep}{4pt}
 
-\noindent
-\begin{minipage}[t]{\columnwidth}
-Det resultat som presenteras i Tabell~\ref{tab:wilcoxon} visar att alla
-förbättringar är statistiskt signifikanta, med p-värden under den valda tröskeln på 0.05.
-\end{minipage}
+  \includegraphics[width=\textwidth]{plots/combined_comparison.png}
 
+  \captionof{figure}{Jämförelse av laddningstider (medelvärde och 95\% konfidensintervall) för sekventiella och parallella anrop, uppdelat på databasstorlek och sida}
+  \label{fig:95ci-leaderboard}
+\end{strip}
+
+\vspace*{0.5\baselineskip}
+
+Utifrån diagrammet i Figur~\ref{fig:95ci-leaderboard} kan det observeras att parallella anrop konsekvent resulterade i kortare laddningstider jämfört med sekventiella anrop, och att 95\% konfidensintervallen för de olika anropenstyperna inte överlappar varandra för någon av databasstorlekarna eller sidorna, så indikerar det att skillnaderna i laddningstider är statistiskt signifikanta.
 \subsection{Implementeringsanalys}
 
 Under implementeringen av parallella nätverksanrop gjordes följande
